@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.coffeebeanventures.easyvoicerecorder" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission-sdk-23 android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission-sdk-23 android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@drawable/ic_launcher" android:isSplitRequired="true" android:label="@string/app_name" android:largeHeap="true" android:name="com.digipom.easyvoicerecorder.application.FreeGoogleApplication" android:roundIcon="@drawable/ic_launcher_round" android:supportsRtl="true">
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-6927759773307000~5651084978"/>
+        <activity android:configChanges="keyboard|orientation" android:launchMode="singleTask" android:name="com.dropbox.core.android.AuthActivity">
+            <intent-filter>
+                <data android:scheme="db-k7utrtgzazccfpu"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.provider.ExternalFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.digipom.easyvoicerecorder.provider.ExternalFileProvider"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.provider.ExternalFileProviderForWhatsapp" android:exported="false" android:grantUriPermissions="true" android:name="com.digipom.easyvoicerecorder.provider.ExternalFileProviderForWhatsapp"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.digipom.easyvoicerecorder.provider.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT" android:value="true"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+        <activity android:label="@string/app_name" android:name="com.digipom.easyvoicerecorder.ui.activity.EasyVoiceRecorderActivity" android:theme="@style/Theme.EVR.AppCompat.BlueToolbar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/settings" android:name="com.digipom.easyvoicerecorder.ui.settings.SettingsActivity" android:theme="@style/Theme.EVR.System.Settings"/>
+        <activity android:label="@string/autoExportSettingsScreen" android:name="com.digipom.easyvoicerecorder.ui.cloud.CloudStatusActivity" android:theme="@style/Theme.EVR.AppCompat.CloudConfig"/>
+        <activity android:label="@string/autoExportSettingsScreen" android:name="com.digipom.easyvoicerecorder.ui.cloud.CloudConfigActivity" android:theme="@style/Theme.EVR.AppCompat.CloudConfig"/>
+        <activity android:label="@string/about" android:name="com.digipom.easyvoicerecorder.ui.help.AboutActivity" android:theme="@style/Theme.EVR.AppCompat.HelpAbout"/>
+        <activity android:label="@string/help" android:name="com.digipom.easyvoicerecorder.ui.help.HelpActivity" android:theme="@style/Theme.EVR.AppCompat.HelpAbout"/>
+        <activity android:label="@string/changeLogTitle" android:name="com.digipom.easyvoicerecorder.ui.help.AboutReleaseNotesDialogActivity" android:theme="@style/Theme.EVR.AppCompat.HelpAbout"/>
+        <activity android:label="@string/creditsTitle" android:name="com.digipom.easyvoicerecorder.ui.help.AboutCreditsDialogActivity" android:theme="@style/Theme.EVR.AppCompat.HelpAbout"/>
+        <activity android:label="@string/selectFolder" android:name="com.digipom.easyvoicerecorder.ui.folders.folderchooser.FolderSelectorActivity" android:theme="@style/Theme.EVR.AppCompat.FolderSelector"/>
+        <activity android:label="@string/recentlyDeleted" android:name="com.digipom.easyvoicerecorder.ui.recently_deleted.RecentlyDeletedActivity" android:theme="@style/Theme.EVR.AppCompat.RecentlyDeleted"/>
+        <activity android:label="@string/edit" android:name="com.digipom.easyvoicerecorder.ui.edit.EditRecordingActivity" android:theme="@style/Theme.EVR.AppCompat.EditRecording"/>
+        <activity android:label="@string/upgrade" android:name="com.digipom.easyvoicerecorder.ui.activity.UpgradeToProPitchActivity" android:theme="@style/Theme.EVR.AppCompat.Store"/>
+        <activity android:icon="@mipmap/ic_launcher_blue" android:label="@string/shortcutShortcutChooser" android:name="com.digipom.easyvoicerecorder.ui.activity.shortcut.ShortcutChooserActivity" android:noHistory="true" android:theme="@style/Theme.EVR.System">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="com.digipom.easyvoicerecorder.ui.activity.shortcut.ToggleRecordingActivity" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="com.digipom.easyvoicerecorder.ui.activity.shortcut.RecordingActionActivity" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:launchMode="singleInstance" android:name="com.digipom.easyvoicerecorder.ui.activity.shortcut.WidgetHelperActivity" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:label="@string/configureTranslucencyActivityLabel" android:name="com.digipom.easyvoicerecorder.ui.activity.widget.ClassicWidgetConfigurationActivity" android:noHistory="true" android:theme="@style/Theme.EVR.System">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/configureTranslucencyActivityLabel" android:name="com.digipom.easyvoicerecorder.ui.activity.widget.ClassicWidgetMultipleConfigurationActivity" android:noHistory="true" android:theme="@style/Theme.EVR.System">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:icon="@mipmap/ic_launcher_blue" android:label="@string/app_name" android:name="com.digipom.easyvoicerecorder.ui.plugin.PluginEditActivity" android:noHistory="true" android:theme="@style/Theme.EVR.System">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.digipom.easyvoicerecorder.ui.activity.export.DropboxAuthActivity" android:theme="@style/Theme.EVR.AppCompat"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.digipom.easyvoicerecorder.ui.activity.export.GoogleDriveAuthActivity" android:theme="@style/Theme.EVR.AppCompat"/>
+        <receiver android:enabled="false" android:name="com.digipom.easyvoicerecorder.receiver.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widgetSingle" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderSingle">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_simple_info_1x1"/>
+        </receiver>
+        <receiver android:enabled="@bool/proWidgetsEnabledByDefault" android:label="@string/widgetSingleClassic" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderSingleClassic">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_classic_info_1x1"/>
+        </receiver>
+        <receiver android:label="@string/widgetMultiple" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderMultiple">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_simple_info_4x1"/>
+        </receiver>
+        <receiver android:enabled="@bool/proWidgetsEnabledByDefault" android:label="@string/widgetMultipleClassic" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderMultipleClassic">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_classic_info_4x1"/>
+        </receiver>
+        <receiver android:enabled="@bool/proWidgetsEnabledByDefault" android:label="@string/widgetLarge" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderLarge">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_simple_info_3x4"/>
+        </receiver>
+        <receiver android:enabled="@bool/proWidgetsEnabledByDefault" android:label="@string/widgetPlayback" android:name="com.digipom.easyvoicerecorder.widget.RecorderWidgetProviderPlayback">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_playback_info_3x3"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.digipom.easyvoicerecorder.plugin.PluginFireReceiver">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.digipom.easyvoicerecorder.service.RecorderService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.PlaybackService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.files.MoveCopyService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.transcode.TranscoderIntentService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.edit.EditRecordingIntentService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.ImportService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.AutoExportUploadService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.RecoveryService"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.recently_deleted.RecentlyDeletedService"/>
+        <service android:exported="true" android:name="com.digipom.easyvoicerecorder.service.ConnectivityJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.digipom.easyvoicerecorder.service.WearReceiverService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.CHANNEL_EVENT"/>
+                <data android:host="*" android:pathPrefix="/sync_recordings" android:scheme="wear"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.digipom.easyvoicerecorder.service.RemoteWidgetFileListService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:icon="@drawable/stat_notify_app_24dp" android:label="@string/record" android:name="com.digipom.easyvoicerecorder.service.ToggleRecordTileService" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.ACTIVE_TILE" android:value="true"/>
+        </service>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inmobi.ads.rendering.InMobiAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.workmanager-init" android:directBootAware="false" android:exported="false" android:multiprocess="true" android:name="androidx.work.impl.WorkManagerInitializer"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <provider android:authorities="com.coffeebeanventures.easyvoicerecorder.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="2"/>
+    </application>
+</manifest>
