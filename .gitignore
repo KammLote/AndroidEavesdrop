@@ -1,1 +1,4 @@
-*.DS_STORE
+*.DS_Store
+
+# Remove the disassembly files from the git
+disas/
