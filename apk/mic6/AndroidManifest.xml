@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="27" android:compileSdkVersionCodename="P" package="com.google.android.apps.googleassistant" platformBuildVersionCode="27" platformBuildVersionName="P">
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <application android:icon="@mipmap/ic_assistant" android:label="@string/application_name">
+        <activity android:excludeFromRecents="true" android:icon="@mipmap/ic_assistant" android:label="@string/application_name" android:name="com.google.android.apps.googleassistant.AssistantActivity" android:noHistory="true" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:icon="@mipmap/ic_assistant" android:label="@string/application_name" android:name="com.google.android.apps.googleassistant.ErrorActivity" android:noHistory="true" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

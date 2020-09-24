@@ -1,4 +1,6 @@
 # AndroidEavesdrop
 NUS Dissertation project
 
-Android Eavesdropping app, sending audio to create personnalized ad.
+Analyzing permissions misuse in Android Applications
+
+1. Android Eavesdropping app, sending audio to create personnalized ad.
