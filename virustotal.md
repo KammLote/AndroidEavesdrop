@@ -1,9 +1,9 @@
 # Virus Total
 
-## Android applications detected as GrayWare [AdDisplay] in Virus total
+## Android applications detected as GrayWare[AdDisplay] / AdLibrary:MoPub / Android Privacy Risk Alphonso (PUA) in Virus total
+
 --
-
-
+## wAgungdroidBlog
 ```10/61```
 **wAgungdroidblog**
 (e8b4fb71c989a5bbabf33fb67b1faa6a4da4e59eb5980822eb644036ac74001f)
@@ -33,35 +33,8 @@ android.telephony.TelephonyManager.getNetworkCountryIso
 2.bp.blogspot.com
 
 
-
-
-
-
-
---
-
-
-### Type
-**AirPush**: aggressive advertisment
-
-
-```26/60```
-19a764548f94e97c2abd06c026d7c65f24af5bcb05619d1a8819a964d9a42af2
-https://www.virustotal.com/gui/file/19a764548f94e97c2abd06c026d7c65f24af5bcb05619d1a8819a964d9a42af2/details
-
-### Creation Utility
-applovin.com
-data.flurry. (app usage tracking)
-
-
-
-
-
-
 -- 
-
-
-
+## Baseball 3D (augmented reality games)
 ### VT Detection
 Fortinet: Adware/AdColony!Android
 Sophos: **Android Privacy Risk Alphonso (PUA)**
@@ -116,6 +89,7 @@ android.permission.WRITE_EXTERNAL_STORAG
 
 
 --
+## SlingPlayer Free (Sling Media)
 ### Type
 **Alphonso Automated Software**
 Same permissions, Same URLs. **YET NO Android Privacy Risk Alphonso (PUA) DETECTION**
@@ -156,7 +130,7 @@ android.permission.WRITE_EXTERNAL_STORAGE
 
 
 --
-
+## Slog Cricket (Dumadu Games)
 ### VT Detection
 Fortinet: Adware/AdColony!Android
 Sophos: **Android Privacy Risk Alphonso (PUA)**
@@ -230,7 +204,7 @@ android.hardware.usb.action.USB_STATE
 
 
 --
-
+## Slot Machines (apostek Software)
 ### Detection
 ESET-NOD32: A Variant Of Android/Inmobi.D Potentially Unsafe
 Ikarus: PUA.AndroidOS.Inmobi
@@ -246,6 +220,7 @@ No delecaration of Alphonso in file
 b6e4428aad5ecfe4c0150f2c9862aa7603b0fd8ab47979364747a0511b2ad8c7
 com.apostek.SlotMachine-1.apk
 https://www.virustotal.com/gui/file/b6e4428aad5ecfe4c0150f2c9862aa7603b0fd8ab47979364747a0511b2ad8c7/details
+**Apostek Software LLP**
 
 ### Certificate
 OU:Apostek, ST:Karnataka, L:Bangalore, O:Apostek Software (India) Pvt Ltd., CN:Apostek
@@ -313,6 +288,7 @@ No sign of loading in the invoked methods
 
 
 --
+## Extreme Racing with Beats 3D (Dumadu Games)
 ### Detection
 CAT-QuickHeal: **Android.RiskCAD.A (PUP)**
 Sophos: **Android Privacy Risk Alphonso (PUA)**
@@ -368,6 +344,7 @@ android.hardware.usb.action.USB_STATE
 
 
 -- 
+## Android APP raising inMobi detection
 ### VT Detection
 Avira: SPR/ANDR.Inmobi.FAO.Gen
 ESET-NOD32: A Variant Of Android/Inmobi.C Potentially Unsafe
@@ -417,26 +394,11 @@ ads-leaseweb.appsgeyser.com
 
 
 
--- 
-
-### Type
-(**Adware.MobiDash**: Legitimate APK is taken and repackaged with Ad SDKs. MobiDash displays pop-up ads after the screen is unlocked.)
-
-```2/65```
-Best Fishing Games - Fishing 3d (**game4.apk**)
-9473ae30d3a1f2823d9d4519db52040f34f98c89dc2b61ca6ed8b763373da002
-https://www.virustotal.com/gui/file/9473ae30d3a1f2823d9d4519db52040f34f98c89dc2b61ca6ed8b763373da002/detection
-
-
-
-
-
-
-
 
 
 
 --
+## VIP Shop
  ```0/58```
 Guangdong application
 com.achievo.vipshop.apk.1
