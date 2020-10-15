@@ -116,9 +116,258 @@ android.permission.WRITE_EXTERNAL_STORAG
 
 
 --
+### Type
+**Alphonso Automated Software**
+Same permissions, Same URLs. **YET NO Android Privacy Risk Alphonso (PUA) DETECTION**
+No delecaration of Alphonso in file
+
+```0/60 ```
+SlingPlayerFree
+e1196581697009768387e0f4c1253781e872a25016f0b02c01d2677e37bdf2b2
+slingplayer-1-0-0.apk
+https://www.virustotal.com/gui/file/e1196581697009768387e0f4c1253781e872a25016f0b02c01d2677e37bdf2b2/details
+
+### Ads
+#### URLs
+http://adlog.flurry.com
+http://ads.flurry.com
+http://ads.flurry.com/v5/getAds.do
+http://prov.alphonso.tv
+#### Receivers
+com.slingmedia.slingPlayer.Widgets.EPG.Notification.SpmEPGNotification 
+com.slingmedia.slingPlayer.C2P2.Service.SpmAutoCopyServiceReciever
+#### Services
+com.slingmedia.slingPlayer.C2P2.Service.SpmAutoCopyService 
+com.slingmedia.slingPlayer.Streaming.Service.SpmBackgroundService 
+tv.alphonso.service.sling.AlphonsoService
+
+### Permissions
+android.permission.ACCESS_COARSE_LOCATION 
+android.permission.ACCESS_FINE_LOCATION 
+android.permission.CHANGE_WIFI_MULTICAST_STATE 
+android.permission.CHANGE_WIFI_STATE 
+android.permission.GET_TASKS 
+android.permission.INTERNET 
+android.permission.READ_PHONE_STATE 
+android.permission.WRITE_EXTERNAL_STORAGE
 
 
 
+
+
+--
+
+### VT Detection
+Fortinet: Adware/AdColony!Android
+Sophos: **Android Privacy Risk Alphonso (PUA)**
+Symantec Mobile Insight: **AdLibrary:MoPub**
+
+### Type
+**Alphonso Automated Software**
+Same permissions, Same URLs. **YET NO Android Privacy Risk Alphonso (PUA) DETECTION**
+No delecaration of Alphonso in file
+**inMobi** advertisment
+
+```4/65 ```
+com.dumadugames.gp.slogcricket.apk
+5aa29ddb2a0cfea8c6828a60805e46686e0a2b4ec156e46dae35e9948104ffcf
+1578440146412.apk
+https://www.virustotal.com/gui/file/5aa29ddb2a0cfea8c6828a60805e46686e0a2b4ec156e46dae35e9948104ffcf/details
+
+### Permissions
+android.permission.ACCESS_COARSE_LOCATION 
+android.permission.ACCESS_FINE_LOCATION 
+android.permission.CHANGE_WIFI_MULTICAST_STATE 
+android.permission.CHANGE_WIFI_STATE 
+android.permission.GET_TASKS 
+android.permission.INTERNET 
+android.permission.READ_PHONE_STATE 
+android.permission.WRITE_EXTERNAL_STORAGE
+
+### Ads
+#### Activities
+com.google.android.gms.ads.AdActivity 
+com.unity3d.ads.android.view.UnityAdsFullscreenActivity 
+com.vungle.publisher.VideoFullScreenAdActivity 
+com.vungle.publisher.MraidFullScreenAdActivity 
+com.jirbo.adcolony.AdColonyOverlay 
+com.jirbo.adcolony.AdColonyFullscreen 
+com.jirbo.adcolony.AdColonyBrowser 
+com.chartboost.sdk.CBImpressionActivity 
+com.inmobi.rendering.InMobiAdActivity 
+com.mopub.mobileads.MoPubActivity 
+com.mopub.mobileads.MraidActivity 
+com.mopub.common.MoPubBrowser 
+com.mopub.mobileads.MraidVideoPlayerActivity 
+com.facebook.ads.InterstitialAdActivity
+#### Services
+tv.alphonso.service.AlphonsoService
+#### Receivers
+com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver
+#### Intents
+com.inmobi.share.id
+tv.alphonso.service.AlphonsoService
+
+### Warnings
+Contains one or more Windows executables. 
+Contains one or more Linux executables.
+
+### Files opened
+/data/data/com.dumadugames.gp.slogcricket/code_cache/secondary-dexes/com.dumadugames.gp.slogcricket-1.apk.classes2.zip
+**Dynamic Code Loading ?**
+
+### Signals Hooked
+android.intent.action.USER_PRESENT 
+android.intent.action.SCREEN_OFF 
+android.intent.action.HEADSET_PLUG 
+android.intent.action.PROXY_CHANGE 
+android.intent.action.BATTERY_CHANGED 
+android.hardware.usb.action.USB_STATE
+
+
+
+
+
+
+--
+
+### Detection
+ESET-NOD32: A Variant Of Android/Inmobi.D Potentially Unsafe
+Ikarus: PUA.AndroidOS.Inmobi
+Microsoft: PUA:Win32/Presenoker
+
+### Type
+**Alphonso Automated Software**
+Same permissions, Same URLs. **YET NO Android Privacy Risk Alphonso (PUA) DETECTION**
+No delecaration of Alphonso in file
+**inMobi** advertisment
+
+```3/61```
+b6e4428aad5ecfe4c0150f2c9862aa7603b0fd8ab47979364747a0511b2ad8c7
+com.apostek.SlotMachine-1.apk
+https://www.virustotal.com/gui/file/b6e4428aad5ecfe4c0150f2c9862aa7603b0fd8ab47979364747a0511b2ad8c7/details
+
+### Certificate
+OU:Apostek, ST:Karnataka, L:Bangalore, O:Apostek Software (India) Pvt Ltd., CN:Apostek
+
+### Permissions
+android.permission.ACCESS_COARSE_LOCATION 
+android.permission.ACCESS_FINE_LOCATION 
+android.permission.BLUETOOTH 
+android.permission.GET_TASKS 
+android.permission.INTERNET 
+android.permission.NFC 
+android.permission.READ_PHONE_STATE 
+android.permission.RECORD_AUDIO 
+android.permission.WRITE_CALENDAR 
+android.permission.WRITE_EXTERNAL_STORAGE
+
+### Ads
+### Services
+com.nextpeer.android.NextpeerPushService 
+com.ironsource.mobilcore.MobileCoreReport 
+tv.alphonso.service.AlphonsoService
+#### Receivers
+com.sessionm.api.ConnectionReceiver 
+com.nextpeer.android.NextpeerBroadcastReceiver 
+com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver 
+com.ironsource.mobilcore.InstallationTracker 
+com.segment.intelligence.sdk.service.OnBootReceiver 
+com.segment.intelligence.sdk.service.OnAlarmReceiver
+#### Contacted Domains
+a.applovin.com	
+ads.yemonisoni.com
+ap-scores2.appspot.com
+data.flurry.com
+api.sessionm.com
+api.nextpeer.com
+service.sponsorpay.com
+ads.nexage.com
+androidads23.adcolony.com
+#### URLS
+http://portre.yemonisoni.com/mcla
+http://a.applovin.com/
+http://adlog.flurry.com
+http://ads.flurry.com/v16/getAds.do
+http://ads.yemonisoni.com
+http://ap-partnerads.appspot.com/partnerads
+http://ap-scores2.appspot.com/IngameMessages
+http://ap-scores2.appspot.com/RioLeaderboard?
+http://ap-scores2.appspot.com/slotscores
+http://api.alphonso.tv
+http://prov.alphonso.tv
+https://ads.reward.rakuten.jp
+https://iframe.sponsorpay.com/mobile
+https://service.sponsorpay.com/actions/v2
+https://offers.pretio.in/publishers/
+https://ua.supersonicads.com/
+
+### Files opened
+/data/data/com.apostek.SlotMachine/code_cache/secondary-dexes/com.apostek.SlotMachine-1.apk.classes2.zip
+Dynamic Code Loading ?
+No sign of loading in the invoked methods
+
+
+
+
+
+
+--
+### Detection
+CAT-QuickHeal: **Android.RiskCAD.A (PUP)**
+Sophos: **Android Privacy Risk Alphonso (PUA)**
+
+### Type
+As usual
+Seems like inMobi has disappeared, yet still the inMobi intent filter
+
+```3/64```
+0cc72e1758bd3bbc868749ee1bd1e310327e06ba8c1e5fe68dc6facef31e1dc4
+com.dumadugames.extremeracing.apk
+https://www.virustotal.com/gui/file/0cc72e1758bd3bbc868749ee1bd1e310327e06ba8c1e5fe68dc6facef31e1dc4/detection
+**dumadu games**
+
+
+
+### Ads
+#### Activities
+com.dumadugames.extremeracing.ExtremeRacing 
+com.google.android.gms.ads.AdActivity 
+com.chartboost.sdk.CBImpressionActivity 
+com.inmobi.rendering.InMobiAdActivity 
+com.mopub.mobileads.MoPubActivity 
+com.mopub.mobileads.MraidActivity 
+com.mopub.common.MoPubBrowser 
+com.mopub.mobileads.MraidVideoPlayerActivity 
+com.facebook.ads.InterstitialAdActivity
+####Services
+tv.alphonso.service.AlphonsoService
+
+
+### Permissions
+android.permission.ACCESS_COARSE_LOCATION 
+android.permission.ACCESS_FINE_LOCATION 
+android.permission.INTERNET 
+android.permission.READ_PHONE_STATE 
+android.permission.RECORD_AUDIO 
+android.permission.WRITE_EXTERNAL_STORAGE
+
+### Warnings
+Contains one or more Windows executables. 
+Contains one or more Linux executables.
+
+### Signals Hooked
+android.intent.action.USER_PRESENT 
+android.intent.action.SCREEN_OFF 
+android.intent.action.HEADSET_PLUG 
+android.intent.action.PROXY_CHANGE 
+android.intent.action.BATTERY_CHANGED 
+android.hardware.usb.action.USB_STATE
+
+
+
+
+-- 
 ### VT Detection
 Avira: SPR/ANDR.Inmobi.FAO.Gen
 ESET-NOD32: A Variant Of Android/Inmobi.C Potentially Unsafe
