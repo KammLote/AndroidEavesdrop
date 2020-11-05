@@ -34,7 +34,7 @@ android.telephony.TelephonyManager.getNetworkCountryIso
 
 
 -- 
-## Baseball 3D (augmented reality games)
+## Baseball Shots (augmented reality games)
 ### VT Detection
 Fortinet: Adware/AdColony!Android
 Sophos: **Android Privacy Risk Alphonso (PUA)**
@@ -45,7 +45,6 @@ Symantec Mobile Insight: **AdLibrary:MoPub**
 Android Privacy Risk Alphonso (PUA)
 --> Sends its data to **InMobi** (Indian mobile publicity company)
 **https://www.mopub.com/optout/** App monetization from Twitter
-
 
 ```4/63```
 com.augmentedreality.gp.baseball.apk (game3.apk)
@@ -68,6 +67,7 @@ com.mopub.mobileads.MoPubActivity
 com.mopub.mobileads.MraidActivity 
 com.mopub.common.MoPubBrowser 
 com.facebook.ads.InterstitialAdActivity 
+
 #### Receivers
 com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver
 #### Intents
@@ -107,6 +107,7 @@ http://adlog.flurry.com
 http://ads.flurry.com
 http://ads.flurry.com/v5/getAds.do
 http://prov.alphonso.tv
+
 #### Receivers
 com.slingmedia.slingPlayer.Widgets.EPG.Notification.SpmEPGNotification 
 com.slingmedia.slingPlayer.C2P2.Service.SpmAutoCopyServiceReciever
@@ -174,6 +175,7 @@ com.mopub.mobileads.MraidActivity
 com.mopub.common.MoPubBrowser 
 com.mopub.mobileads.MraidVideoPlayerActivity 
 com.facebook.ads.InterstitialAdActivity
+
 #### Services
 tv.alphonso.service.AlphonsoService
 #### Receivers
@@ -197,6 +199,8 @@ android.intent.action.HEADSET_PLUG
 android.intent.action.PROXY_CHANGE 
 android.intent.action.BATTERY_CHANGED 
 android.hardware.usb.action.USB_STATE
+
+
 
 
 
@@ -242,6 +246,7 @@ android.permission.WRITE_EXTERNAL_STORAGE
 com.nextpeer.android.NextpeerPushService 
 com.ironsource.mobilcore.MobileCoreReport 
 tv.alphonso.service.AlphonsoService
+
 #### Receivers
 com.sessionm.api.ConnectionReceiver 
 com.nextpeer.android.NextpeerBroadcastReceiver 
@@ -249,6 +254,7 @@ com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver
 com.ironsource.mobilcore.InstallationTracker 
 com.segment.intelligence.sdk.service.OnBootReceiver 
 com.segment.intelligence.sdk.service.OnAlarmReceiver
+
 #### Contacted Domains
 a.applovin.com	
 ads.yemonisoni.com
@@ -259,6 +265,7 @@ api.nextpeer.com
 service.sponsorpay.com
 ads.nexage.com
 androidads23.adcolony.com
+
 #### URLS
 http://portre.yemonisoni.com/mcla
 http://a.applovin.com/
@@ -316,7 +323,9 @@ com.mopub.mobileads.MraidActivity
 com.mopub.common.MoPubBrowser 
 com.mopub.mobileads.MraidVideoPlayerActivity 
 com.facebook.ads.InterstitialAdActivity
-####Services
+
+#### Services
+
 tv.alphonso.service.AlphonsoService
 
 
@@ -344,7 +353,7 @@ android.hardware.usb.action.USB_STATE
 
 
 -- 
-## Android APP raising inMobi detection
+## wDrama (Android APP raising inMobi detection)
 ### VT Detection
 Avira: SPR/ANDR.Inmobi.FAO.Gen
 ESET-NOD32: A Variant Of Android/Inmobi.C Potentially Unsafe
@@ -382,6 +391,7 @@ com.wDrama_4846545.server.CampaignReceiver
 com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver 
 **com.wDrama_4846545.notification.NotificationCheckerBootReciever**
 com.wDrama_4846545.notification.NotificationChecker
+
 #### Intents
 com.inmobi.share.id
 android.intent.action.BOOT_COMPLETED
@@ -410,7 +420,7 @@ android.permission.ACCESS_COARSE_LOCATION
 android.permission.ACCESS_FINE_LOCATION 
 android.permission.BATTERY_STATS 
 android.permission.BLUETOOTH 
-android.permission.CAMERA 
+**android.permission.CAMERA **
 android.permission.CHANGE_WIFI_STATE 
 android.permission.DISABLE_KEYGUARD 
 android.permission.GET_TASKS 
@@ -418,7 +428,7 @@ android.permission.INTERNET
 android.permission.MANAGE_ACCOUNTS 
 android.permission.NFC 
 android.permission.READ_PHONE_STATE 
-android.permission.RECORD_AUDIO 
+**android.permission.RECORD_AUDIO**
 android.permission.SYSTEM_ALERT_WINDOW 
 android.permission.USE_CREDENTIALS 
 android.permission.WRITE_EXTERNAL_STORAGE
