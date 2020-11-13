@@ -17,22 +17,29 @@
 13. SponsorPay
 14. Nexage
 15. Androidads23
+16. Pagead64
+17. AdmAster
 
 
 
 
 
-|                     | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   |
-| ------------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1. Baseball Shots   | X    | X    |      | X    | X    | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |
-| 2. SlingPlayer Free |      |      |      | X    |      |      |      |      |      |      | X    |      |      |      |      |      |      |      |      |
-| 3. Slog Cricket     | X    | X    |      | X    | X    | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |
-| 4. wAgungdroidBlog  | X    |      | X    |      |      |      |      |      |      | X    |      |      |      |      |      |      |      |      |      |
-| 5. Slot Machines    |      | X    |      | X    |      |      |      |      |      |      | X    | X    | X    | X    | X    |      |      |      |      |
-| 6. Extreme Racing   | X    | X    |      | X    |      |      |      | X    | X    |      |      |      |      |      |      |      |      |      |      |
-| 7. wDrama           |      | X    |      |      |      |      | X    |      |      | X    |      |      |      |      |      |      |      |      |      |
-| 8. VIP Shop         |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
-|                     |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+|                                 | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   | 16   | 17   | 18   | 19   |
+| ------------------------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 1. Baseball Shots               | X    | X    |      | X    | X    | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |
+| 2. SlingPlayer Free             |      |      |      | X    |      |      |      |      |      |      | X    |      |      |      |      |      |      |      |      |
+| 3. Slog Cricket                 | X    | X    |      | X    | X    | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |
+| 4. wAgungdroidBlog              | X    |      | X    |      |      |      |      |      |      | X    |      |      |      |      |      |      |      |      |      |
+| 5. Slot Machines                |      | X    |      | X    |      |      |      |      |      |      | X    | X    | X    | X    | X    |      |      |      |      |
+| 6. Extreme Racing               | X    | X    |      | X    |      |      |      | X    | X    |      |      |      |      |      |      |      |      |      |      |
+| 7. wDrama                       |      | X    |      |      |      |      | X    |      |      | X    |      |      |      |      |      |      |      |      |      |
+| 8. VIP Shop                     |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 9. History GK                   |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 10. Quizz<br /> General Science |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 11. Cricket Live Score          |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      | X    |      |      |      |
+| 13. Spree                       |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 14. Suhagrat Kaise Manayet      |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| 16. Fingerprint Applock         |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      | X    | X    |      |      |
 
 
 
@@ -70,6 +77,9 @@ com.inmobi.share.id
 ​	**Strings**
 media.admob.com
 e.admob.com
+media.admob.com/mraid/v1/mraid_app_banner.js 
+media.admob.com/mraid/v1/mraid_app_expanded_banner.js 
+media.admob.com/mraid/v1/mraid_app_interstitial.js
 
 ## Unity3d
 
@@ -130,3 +140,13 @@ ads.nexage.com
 
 ​	**URLs**
 androidads23.adcolony.com
+
+## PageAd64 (16)
+
+​     **URLs**
+pagead46.l.doubleclick.net
+
+## AdMaster (17)
+
+admaster.union.ucweb.com
+admaster.union.ucweb.com/log/wall.log
