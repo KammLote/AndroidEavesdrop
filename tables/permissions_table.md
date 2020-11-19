@@ -56,6 +56,8 @@
 | 14. Suhagrat Kaise Manayet      |      |      | X    | X     | X     |      | X    |      |      |      |      |      |      |      |      |
 | 15. Quick Recharge              |      |      | X    | X     |       |      |      |      |      |      |      | X    |      |      |      |
 | 16. Fingerprint Applock         | X    | X    | X    | X     | X     | X    | X    |      |      |      | X    |      |      | X    |      |
+| 17. HoneyQuest                  | X    | X    | X    | X     | X     |      | X    |      |      |      |      |      |      |      |      |
+| 18. Basketball 3D               | X    | X    | X    | X     | X     |      | X    |      |      |      |      |      |      |      |      |
 
 
 

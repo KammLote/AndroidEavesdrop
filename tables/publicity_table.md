@@ -40,6 +40,8 @@
 | 13. Spree                       |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 | 14. Suhagrat Kaise Manayet      |      | X    |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 | 16. Fingerprint Applock         |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      | X    | X    |      |      |
+| 17. HoneyQuest                  | X    | X    |      | X    | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |      |
+| 18. Basketball 3D               | X    |      |      | X    | X    | X    | X    |      |      |      |      |      |      |      |      |      |      |      |      |
 
 
 
