@@ -1,4 +1,4 @@
-## Baseball Strike
+# Baseball Strike
 
 
 
@@ -8,55 +8,90 @@
 
 
 
-## Static Analysis
-
-Packages: *android.support, bitter.jnibridge, com, dagger, javax.inject, org.fmob, rrrrrr, tv.alphonso*
+# Static Analysis
 
 
+
+## Manifest
+
+``` java
+<uses-permission android:name="android.permission.VIBRATE"/>  
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+<uses-permission android:name="com.android.vending.BILLING"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
+
+
+
+
+
+
+## **Packages**
+
+*android.support, bitter.jnibridge, com, dagger, javax.inject, org.fmob, rrrrrr, tv.alphonso*
+
+### bitter.jnibridge
 
 Presence of a **JNI Bridge**  (*genuine*)
 Java Native Interface enables to executes code from other language inside the APK. 
 Used to implement **Unity** games.
+
+
+
+### dagger (dependecy injection)
 
 Presence of **Dagger **+ **javax.inject**(*genuine*)
 Dependency Injector. Take the dependencies of a class and provide them rather than having the class instance obtain them itself.
 
 
 
-**org.fmod**
+### **org.fmod**
+
 Responsable of recording Audio
 ``` import android.media.AudioRecord; ```
 
-**(Immersion) rrrrrrr**
+### **(Immersion) rrrrrrr**
+
 Haptic playback
 
 
 
-#### **com.immobi**
+### **com.immobi**
 Ad containers ?? Investigate on that
 Uses google Activity Recognition Manager
 Uses ACCESS_WIFI_STATE permission to scan Wifi
 **carb ??**
 
-#### **com.jirbo.adcolony**
+### **com.jirbo.adcolony**
 
-#### com.mopub
+### com.mopub
 
-#### com.unity3d
+### com.unity3d
 
-#### com.mopub
-
-
+### 
 
 
 
 
 
-### BASEBALL Implementation
+
+
+## COM.BASEBALL 
 
 `implements RewardedVideoAdListener`
 
-#### RemoveAds Token - InterstitialAd
+### RemoveAds Token - InterstitialAd
 
 Token called `Baseball.RemoveAds` set to False at the beginning. 
 (TO CONFIRM) Set to True if a purchased has been done.
@@ -100,7 +135,7 @@ Requests for an Ad with `AdRequest.Builder()`
 
 
 
-#### mRewardedVideoAd
+### mRewardedVideoAd
 
 In App advertisement rewards
 
@@ -118,11 +153,11 @@ public void loadRewardedVideoAd() {
 
 
 
-#### Alphonso Flag
+### Alphonso Flag
 
 `boolean alphonsoFlag;`
 
-#### Alphonso + Mic Status
+### Alphonso + Mic Status
 
 `this.sharedpreferences = getSharedPreferences("AlphonsoMicStatus", 0);`
 
@@ -209,7 +244,7 @@ public void startAlphonsoService() {
 
 
 
-#### Handle Messages
+### Handle Messages
 
 1. requestLocationPermission
 
@@ -231,7 +266,7 @@ public void startAlphonsoService() {
 
 
 
-#### Identification Receiver
+### Identification Receiver
 
 Result Receivers, that contains the identified film/movie:
 
@@ -328,3 +363,149 @@ private ResultReceiver getIdentificationsReceiver() {
     }
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+## **org.fmod**
+**Responsable of processsing audio while recording realtime on android**
+``` import android.media.AudioRecord; ```
+
+Calls  functions in Native Code. 
+`fmodProcessMicData()`
+`fmodGetInfo()`
+
+
+
+
+
+## TV.ALPHONSO
+
+### Alphonso Client package
+
+#### 1. Alphonso Client
+
+The client receives Requests from the server. 
+
+**Result Receiver:**
+
+- `processLocationUpdateRequest`
+- `processAlphonsoUidRequest`
+- **`processAudioClipInfo`**
+- **`processAudioFileUploadRequest`** 
+- **`processDownloadNewAudioDbFile`** 
+- `processSetServerDomainSet` & `processSetServerPortSet`
+
+**Alphonso Server URL:** 
+
+- domainSSL:PortSSL/v5
+- domain:Port/v5
+
+
+
+**processDownloadNewAudioDbFile:**
+`AudioDBDownloader`: *audio_db_files_dir*, *audio_db_files_abs_path*
+
+**setupAudipFPUploadService:**
+`mAudioFPUploadService`: uploads audio files either by SSL or non-SSL.
+Uses `mAlphonsoUid` when uploading audio to the Alphonso server. 
+
+**processAudioClipInfo:**
+Passes the Audio Clip to UnityAds. 
+-> Alphonso server:  Domain:Port/v5**/user/audio_clip_data**  + AlphonsoUID + API_KEY
+
+**sendLocationUpdateToServer**:
+-> AlphonsoSever: Domain:Port/v5**/user/location**  + AlphonsoUID + API_KEY
+
+
+
+#### 2. AudioFPUploadService
+
+**processAudioCaptureResponse:**
+
+- logo_filename
+- brand
+- acr_type
+- capture_id
+- timestamp
+
+-> AlphonsoServer: Domain:Port/v5**/audio/fingerprint**
+
+
+
+#### 3. REST Service
+
+Access Alphonso API. How it sends results and gets info from the server. 
+
+
+
+### Audio Capture Service package
+
+`capture_sleep_interval`
+**Sleep timer**= `acsInstance.mCaptureSleepTime`
+
+`capture_prepare_interval`
+
+**OnResult:**
+
+- title
+- type
+  - Commercial --> Brand
+  - LiveTV --> network
+- timestamp
+- acr_type
+
+**ACR Types**
+
+- ACR_LOCAL
+- ACR_SPLIT
+- ACR_DUAL
+- ACR_SERVER
+
+*WHat are the differences between these ACR Types ?*
+
+#### AudioCaptureService
+
+captureDuration
+captureCount
+captureScenarioCount
+captureScenarioSleepInterval
+mCaptureScenarioSleepIntervalLivetv
+captureScenarioSleepIntervalMax
+captureSleepTime
+historyFlag
+powerOptimizationMode
+PowerOptimizationInhibitor
+
+### dbutil
+
+Actions on the database table: Insert, delete, drop, create, ...
+Insert a **DB record:** title, date, time, duration, ACR_Type, brand, loho, timestamp, start_ts, match_offsetm live_feed_offset
+
+
+
+### PrefrencesManager
+
+Modifies SharedPreferences of the App when run. Uses what is inside this class `PreferencesManager`
+
+ACS_CAPTURE_DURATION_DEFAULT = 5;
+ACS_CAPTURE_SLEEP_TIME_DEFAULT = 10;
+ACS_CAPTURE_SCENARIO_SLEEP_INTERVAL_LIVETV_MATCH_DEFAULT = 12;
+
+public static final String ACS_EVENING_PRIME_TIME_BEGIN_DEFAULT = "19:00";
+public static final String ACS_EVENING_PRIME_TIME_END_DEFAULT = "22:00";
+public static final String ACS_MORNING_PRIME_TIME_BEGIN_DEFAULT = "06:00";
+public static final String ACS_MORNING_PRIME_TIME_END_DEFAULT = "09:00";
+
+public static final String PROV_SERVER_DOMAIN_DEFAULT = "http://prov.alphonso.tv";
+public static final String PROV_SERVER_PORT_DEFAULT = "4000";
+public static final String SERVER_DOMAIN_DEFAULT = "http://api.alphonso.tv";
+public static final String SERVER_PORT_DEFAULT = "4430";
