@@ -4,6 +4,12 @@
 
 
 
+<br/>
+
+<br/>
+
+<br/>
+
 
 
 
@@ -56,7 +62,11 @@ Detected as `Adware/AdColony!Android` by Fortinet  (depends on the advertisers u
 
 
 
+<br/>
 
+<br/>
+
+<br/>
 
 
 
@@ -67,7 +77,7 @@ Also they all possess the same **Alphonso service**.
 
 
 
-![ALPHONSO_AndroidManifest](/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Images/ALPHONSO_AndroidManifest.png)
+![ALPHONSO_AndroidManifest](/Images/ALPHONSO_AndroidManifest.png)
 
 
 
@@ -100,10 +110,6 @@ Also they all possess the same **Alphonso service**.
 <uses-permission android:name="android.permission.GET_TASKS"/>      
 ```
 
-
-
-
-
 **Alphonso Service**
 
 ```Java
@@ -113,12 +119,6 @@ Also they all possess the same **Alphonso service**.
         </intent-filter>
 </service>
 ```
-
-<br/>
-
-<br/>
-
-<br/>
 
 
 
@@ -133,6 +133,12 @@ Also they all possess the same **Alphonso service**.
 ```
 
 
+
+<br/>
+
+<br/>
+
+<br/>
 
 
 
