@@ -1,6 +1,10 @@
-# ![ALPHONSO](./Images/ALPHONSO.jpg)ALPHONSO SOFTWARE 
+# ![ALPHONSO](./Images/ALPHONSO.png)
 
 <br/>
+
+
+
+# ALPHONSO SOFTWARE 
 
 <br/>
 
