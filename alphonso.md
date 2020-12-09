@@ -1,8 +1,4 @@
-# ALPHONSO SOFTWARE 
-
-# Pattern Recognition
-
-
+# ![ALPHONSO](./Images/ALPHONSO.jpg)ALPHONSO SOFTWARE 
 
 <br/>
 
@@ -70,14 +66,14 @@ Detected as `Adware/AdColony!Android` by Fortinet  (depends on the advertisers u
 
 
 
-## AndroidManifest.xml Categorization
+## `AndroidManifest.xml` Categorization
 
 All the applications using Alphonso Software share an equivalent set of permissions.
 Also they all possess the same **Alphonso service**.
 
 
 
-![ALPHONSO_AndroidManifest](/Images/ALPHONSO_AndroidManifest.png)
+![ALPHONSO_AndroidManifest](./Images/ALPHONSO_AndroidManifest.png)
 
 
 
@@ -142,7 +138,78 @@ Also they all possess the same **Alphonso service**.
 
 
 
+## `tv.alphonso` Package
+
+This library is responsible to the capture of the Audio and the translation the audio into the watched TV Ad or TV Show.
 
 
 
+![ALPHONSO-tv.alphonso-package](./Images/ALPHONSO-tv.alphonso-package.png)
+
+
+
+<br/>
+
+### AudioCaptureService
+
+**Class** and **object** `AudioCaptureService`.
+
+This class is the setting point of the capture:
+
+- Capture duration
+- Capture count
+- Capture scenario count
+- Capture scenario sleep interval
+- mCapture scenario sleep interval Live TV
+- Capture Scnario sleep interval max
+- Capture sleep time
+- History flag
+- Power optimization mode
+
+<br/>
+
+
+
+Both **local** and **server-side** computation ? Also **split** apparently ?
+
+```Java
+this.localAcrStats = new String[]{"Total Matches", "Min Match Time", "Max Match Time", "Avg Match Time"};
+this.serverAcrStats = new String[]{"Total Matches", "Min Match Time", "Max Match Time", "Avg Match Time"};
+```
+
+<br/>
+
+
+
+**ACSRunning**
+onResult() 
+
+```Java
+public void onResult(AudioCaptureService acsInstance, Bundle resultData) {
+        if (acsInstance.mCaptureScenarioCount != 0 || acsInstance.mCaptureCount != 0) {
+            if (!resultData.containsKey("title")) {
+                Log.e(TAG, "Received result with no title, ignoring result..");
+                return;
+            }
+            acsInstance.mCaptureInstance.setCaptureTitle(resultData.getString("title"));
+            if (resultData.getString("type").equals("commercial")) {
+                acsInstance.mCaptureInstance.mBrand = resultData.getString("brand");
+            } else if (resultData.getString("type").equals("livetv")) {
+                acsInstance.mCaptureInstance.mBrand = resultData.getString("network");
+            }
+            acsInstance.mCaptureInstance.setEndTime(resultData.getLong("timestamp"));
+            acsInstance.mCaptureInstance.setAcrType(resultData.getString("acr_type"));
+            processCaptureResult(acsInstance, (byte) 0, resultData.getString("type"), false);
+        }
+    }
+```
+
+
+
+<br/>
+
+**LocalACR**
+Extension of AudioCaptureClient
+
+# >>> FINISH THE PART ON THE CAPTURE SERVICE
 
