@@ -152,15 +152,9 @@ Alphonso Service will be setup after the permissions being granted.
 
 <br/>
 
-
-
-
-
-# RECORD + AUDIO CAPTURE
-
 <br/>
 
-## `tv.alphonso` Package
+# `tv.alphonso` MAIN Package
 
 This library is responsible to the capture of the Audio and the translation the audio into the watched TV Ad or TV Show.
 
@@ -175,6 +169,16 @@ The packages **`AUdioCaptureService`** and **`AudioRecorderService`** are the tw
 <br/>
 
 <br/>
+
+<br/>
+
+<br/>
+
+
+
+
+
+# Audio Record + Capture (`AudioCaptureService` & `AudioRecorderService` packages)
 
 <br/>
 
@@ -273,20 +277,176 @@ Not a lot of Info on Dual ACR. Uses the same computation methods than LocalACR.
 
 
 
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+#  TV Data treatment (`AlphonsoClient` package)
+
+This package is responsible for the dialog between the Server, the client and probably the advertiser. 
+
+<br/>
+
+
+
+Server: `http://api.alphonso.tv:4430/v5`
+
+Subdomains: 
+
+| TYPE                                         | SUBDOMAIN + "/UID" + "&api_key=APIKEY"              |
+| -------------------------------------------- | --------------------------------------------------- |
+| User Location                                | http://api.alphonso.tv:4430/v5/user/location/       |
+| User Audio Data                              | http://api.alphonso.tv:4430/v5/user/audio_clip_data |
+| Audio Fingerprint *(audio capture update??)* | http://api.alphonso.tv:4430/v5/audio/fingerprint    |
+| Audio Buffer *(audio capture update??)*      | http://api.alphonso.tv:4430/v5/audio/buffer         |
+| User Lookup (what the user is watching)      | http://api.alphonso.tv:4430/v5/user/lookups         |
+
+
+
+- It registers to the server with its Alphonso UID.
+- It sends the location updates to the server (in `/user/location/UID &api_key=APIKey` on the server)
+- It sends the audio clip data to the server (in `/user/audio_clip_data/UID &api_key=APIKey` on the server)
+
+- It processes the answers from the server about the Capture data. 
+- It processes what the user is watching (in `/user/lookups/UID &api_key=APIKey` on the server)
+
+
+
+<br/>
+
+<br/>
+
+<br/>
+
+### Audio Data
+
+The capture can give information whether the user is watching a **Commercial** or a **Live TV program**.
+
+<br/>
+
+**COMMERCIAL**
+
+- Title
+- Brand
+- Match_Offset *key*
+  
+
+<br/>
+
+**LIVE TV**
+
+- Title
+- Network
+- Channel
+- TMS Info
+  - Season Number
+  - Episode number
+  - Episode Title
+- Match_Offset
+- Live_Feed_Offset
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 
 
 
 
+# Database (`dbutil` package)
+
+Every user Capture info is registered in a (*local?*) database, called `History`.
+
+Records every metadata about the captures inside the database.
+
+| id   | title | date | time | duration | ACR_Type | brand | Logo | timestamp | start_timestamp | match_offset | live_feed_offset |
+| ---- | ----- | ---- | ---- | -------- | -------- | ----- | ---- | --------- | --------------- | ------------ | ---------------- |
+|      |       |      |      |          |          |       |      |           |                 |              |                  |
+
+Delete oldest record: `"DELETE FROM History where _id in (select _id from History order by _id LIMIT " + Integer.toString(n) + ")")`
+
+get number of records: `"SELECT * FROM History", (String[]) null).getCount()`
+
+Get all records:`"SELECT  * FROM History", (String[]) null`)
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+# Preferences Manager
+
+<br/>
+
+Class from the `utils` package. 
+
+It registers every preference used by the application.
+
+Among the different name keys for every variable, we can find:
+
+- ACS_EVENING_PRIME_TIME_BEGIN_DEFAULT = "19:00"
+- ACS_EVENING_PRIME_TIME_END_DEFAULT = "22:00"
+- ACS_MORNING_PRIME_TIME_BEGIN_DEFAULT = "06:00"
+- ACS_MORNING_PRIME_TIME_END_DEFAULT = "09:00"
+
+
+
+- **ACS_CAPTURE_DURATION_DEFAULT = 5**
+  ACS_CAPTURE_DURATION_MS_DEFAULT = 5000
+  *Every capture is 5 seconds long*
+- ACS_CAPTURE_PREPARE_TIME_DEFAULT = 400
+  *400 seconds of preparation between two captures ???*
+- ACS_CAPTURE_SLEEP_TIME_DEFAULT = 10
+  *10 seconds of sleep between two captures*
+- ACS_CAPTURE_SCENARIO_SLEEP_INTERVAL_LIVETV_MATCH_DEFAULT = 12
+  *12 seconds of sleep between two captures if looking at LiveTV*
+
+
+
+- PROV_SERVER_DOMAIN_DEFAULT = "http://prov.alphonso.tv"
+- PROV_SERVER_PORT_DEFAULT = "4000"
+- SERVER_DOMAIN_DEFAULT = "http://api.alphonso.tv"
+- SERVER_PORT_DEFAULT = "4430"
+- SERVER_DOMAIN_SSL_DEFAULT = ""
+- SERVER_PORT_SSL_DEFAULT = ""
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 # Others
 
+<br/>
+
 ### CallEventListener
 
-Class from the `service/client` package. When the user's phone is **ringing**, when the user **answers the call** or when the user **finishes his call**, the class sends a message to the `AudioCaptureService`
+Class from the `service` package. When the user's phone is **ringing**, when the user **answers the call** or when the user **finishes his call**, the class sends a message to the `AudioCaptureService`
 
+<br/>
 
+<br/>
 
 ### LocationService
 
-Class from the `service/client` package. The user is permanently located. The location of the user is sent to Alphonso Client, with then sends the lcoation to the server. 
+Class from the `service` package. The user is continuously located. The location of the user is sent to Alphonso Client, with then sends the lcoation to the server. 
