@@ -2,3 +2,4 @@
 
 # Remove the disassembly files from the git
 disas/
+Soot/
