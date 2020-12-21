@@ -1,0 +1,373 @@
+12-21 11:12:54.435 29381 29381 E callback: Location Permission granted
+12-21 11:12:57.167 29381 29381 E callback: Mic Permission granted
+12-21 11:12:57.205 29381 29381 D tv.alphonso.service.client.AlphonsoServiceClient: appId: D-HoneyQuest-A-TsrtBebik2w4wfIuappname: Honey Quest
+12-21 11:12:57.205 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing INIT event in tv.alphonso.service.client.ASClientNull state.
+12-21 11:12:57.213 29381 29381 D tv.alphonso.utils.Utils: AppInfo in not null, name: .Honey Quest
+12-21 11:12:57.213 29381 29381 D tv.alphonso.utils.Utils: label has only app-name.
+12-21 11:12:57.268 29381 29381 E alphonso: Key usedD-HoneyQuest-A-TsrtBebik2w4wfIu
+12-21 11:12:58.934 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing PROV_SERVER_PARAMS event in tv.alphonso.service.client.ASClientNull state.
+12-21 11:12:58.935 29381 29381 D tv.alphonso.service.client.ASClientUtils: Binding to the AlphonsoService.
+12-21 11:12:58.936 29381 29381 D tv.alphonso.service.client.ASClientUtils: No running instance of AlphonsoService, using this app's package: com.dumadugames.honeyquest
+12-21 11:12:58.940  1265  6802 V ActivityManager: startProcess: name=tv.alphonso.service app=null knownToBeDead=true thread=null pid=-1
+12-21 11:12:58.966  1265  1290 I ActivityManager: Start proc 29740:tv.alphonso.service/u0a158 for service com.dumadugames.honeyquest/tv.alphonso.service.AlphonsoService
+12-21 11:12:59.061 29740 29740 D tv.alphonso.service.AlphonsoService: onCreate
+12-21 11:12:59.062 29740 29753 I AwareBitmapCacher: init processName:tv.alphonso.service pid=29740 uid=10158
+12-21 11:12:59.182 29740 29740 D tv.alphonso.service.AlphonsoService: onBind()
+12-21 11:12:59.186 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing SERVICE_CONNECTION_UP event in tv.alphonso.service.client.ASClientInitInProgress state.
+12-21 11:12:59.187 29381 29381 D tv.alphonso.service.client.ASClientInitInProgress: AlphonsoService connected!
+12-21 11:12:59.187 29381 29381 D tv.alphonso.service.client.ASClientInitInProgress: Sending INIT message to AlphonsoService.
+12-21 11:12:59.255 29740 29758 W AdvertisingIdClient: 	at tv.alphonso.service.AlphonsoService$1.run(AlphonsoService.java:197)
+12-21 11:12:59.323 29740 29740 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Server Domain set as: http://api.alphonso.tv
+12-21 11:12:59.330 29740 29740 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Server Port set as: 4430
+12-21 11:12:59.335 29740 29740 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Server Domain SSL set as: 
+12-21 11:12:59.341 29740 29740 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Server Port SSL set as: 
+12-21 11:12:59.410 29740 29761 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Prov Server Domain set as: http://prov.alphonso.tv
+12-21 11:12:59.410 29740 29761 D tv.alphonso.alphonsoclient.AlphonsoClient: Alphonso Prov Server Port set as: 4000
+12-21 11:13:00.198 29740 29740 W tv.alphonso.service.ASFSM: Invalid Event: CLOCK_SYNC_CONFIG in state tv.alphonso.service.ASInitInProgress
+12-21 11:13:00.227 29740 29762 D tv.alphonso.audiocaptureservice.FifoBuffer: setSizeLimit(): mSizeLimit: 64000; mCurrentPosition: 0
+12-21 11:13:00.301  1265  4298 I ctaifs  : <null>[null][tv.alphonso.service][onTransact] 本地录音
+12-21 11:13:00.318  1265  1265 D HiDATA_HiStream: --->Intent received, action=huawei.media.AUDIO_RECORD_STATE_CHANGED_ACTION, packageName tv.alphonso.service,state3
+12-21 11:13:00.458 29740 29761 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:00.459 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call to server failed with error 1002
+12-21 11:13:00.459 29740 29740 E tv.alphonso.service.ProvClient: REST API call response is with error and code: 1
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: There was a problem when sending the request.
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: org.apache.http.conn.HttpHostConnectException: Connection to http://api.alphonso.tv:4430 refused
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:195)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:170)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:366)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:596)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:517)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:495)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.RESTService.handleMessage(RESTService.java:169)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeGenericRESTApi(AlphonsoClient.java:1107)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeRESTApi(AlphonsoClient.java:1095)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendLocationUpdateToServer(AlphonsoClient.java:1402)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendRegistrationRequest(AlphonsoClient.java:934)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.processRegistrationRequest(AlphonsoClient.java:613)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.access$400(AlphonsoClient.java:33)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient$1.handleMessage(AlphonsoClient.java:444)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Handler.dispatchMessage(Handler.java:108)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Looper.loop(Looper.java:216)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.HandlerThread.run(HandlerThread.java:65)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: java.net.ConnectException: failed to connect to /209.240.97.254 (port 4430) from /:: (port 35524): connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:137)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:137)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:391)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:231)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:213)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.Socket.connect(Socket.java:621)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:151)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 17 more
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: android.system.ErrnoException: connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.Linux.connect(Native Method)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:118)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connectErrno(IoBridge.java:151)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:129)
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 25 more
+12-21 11:13:00.708 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call for Location update to server failed with error 0
+12-21 11:13:00.758  1265  3595 I ctaifs  : <Honey Quest>[Honey Quest][tv.alphonso.service]:[requestLocationUpdatesLocked] 定位..Wifi/基站定位
+12-21 11:13:00.762 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing INIT_RESPONSE event in tv.alphonso.service.client.ASClientInitInProgress state.
+12-21 11:13:00.763 29381 29381 D tv.alphonso.service.client.ASClientInitInProgress: SUCCESS for INIT from AlphonsoService.
+12-21 11:13:00.763 29381 29381 E callback: AlphonsoService initialization SUCCESS.
+12-21 11:13:00.763 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing REGISTER_BCAST_RECEIVER event in tv.alphonso.service.client.ASClientInited state.
+12-21 11:13:00.764 29381 29381 D tv.alphonso.service.client.ASClientUtils: Registered Bcast recevier.
+12-21 11:13:00.764 29381 29381 D tv.alphonso.service.client.ASClientFSM: Processing START event in tv.alphonso.service.client.ASClientInited state.
+12-21 11:13:00.764 29381 29381 D tv.alphonso.service.client.ASClientUtils: Sending START message to AlphonsoService.
+12-21 11:13:00.825 29740 29762 D tv.alphonso.audiocaptureservice.ACSPreBuffering: ACR is diabled, store the start event by setting the start-received flag
+12-21 11:13:00.969 29740 29770 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:00.969 29740 29770 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:00.969 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:01.220 29740 29770 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:01.220 29740 29770 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:01.221 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:01.468 29740 29770 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:01.469 29740 29770 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:01.472 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:01.690  1265  1610 I ctaifs  : <Honey Quest>[Honey Quest][tv.alphonso.service]:[handleLocationChangedLocked] 读取定位信息
+12-21 11:13:01.718 29740 29761 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:01.718 29740 29770 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:01.718 29740 29770 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:01.719 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call to server failed with error 1002
+12-21 11:13:01.743 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:01.743 29740 29740 E tv.alphonso.service.ProvClient: REST API call response is with error and code: 1
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: There was a problem when sending the request.
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: org.apache.http.conn.HttpHostConnectException: Connection to http://api.alphonso.tv:4430 refused
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:195)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:170)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:366)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:596)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:517)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:495)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.RESTService.handleMessage(RESTService.java:169)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeGenericRESTApi(AlphonsoClient.java:1107)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeRESTApi(AlphonsoClient.java:1095)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendLocationUpdateToServer(AlphonsoClient.java:1402)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendRegistrationRequest(AlphonsoClient.java:934)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.processRegistrationRequest(AlphonsoClient.java:613)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.access$400(AlphonsoClient.java:33)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient$1.handleMessage(AlphonsoClient.java:444)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Handler.dispatchMessage(Handler.java:108)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Looper.loop(Looper.java:216)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.HandlerThread.run(HandlerThread.java:65)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: java.net.ConnectException: failed to connect to /209.240.97.254 (port 4430) from /:: (port 35544): connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:137)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:137)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:391)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:231)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:213)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.Socket.connect(Socket.java:621)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:151)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 17 more
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: android.system.ErrnoException: connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.Linux.connect(Native Method)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:118)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connectErrno(IoBridge.java:151)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:129)
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 25 more
+12-21 11:13:01.977 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call for Location update to server failed with error 0
+12-21 11:13:01.985 29740 29740 W tv.alphonso.service.ASFSM: Invalid Event: ALPHONSO_CLIENT_RIGISTRATION_RESPONSE in state tv.alphonso.service.ASStarted
+12-21 11:13:01.986 29740 29770 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:01.986 29740 29770 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:01.988 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:02.237 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:02.237 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:02.237 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: There was a problem when sending the request.
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: org.apache.http.conn.HttpHostConnectException: Connection to http://api.alphonso.tv:4430 refused
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:195)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:170)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:366)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:596)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:517)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:495)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.RESTService.handleMessage(RESTService.java:169)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeGenericRESTApi(AlphonsoClient.java:1107)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeRESTApi(AlphonsoClient.java:1095)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendLocationUpdateToServer(AlphonsoClient.java:1402)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.processLocationUpdateRequest(AlphonsoClient.java:992)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.access$500(AlphonsoClient.java:33)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient$1.handleMessage(AlphonsoClient.java:448)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Handler.dispatchMessage(Handler.java:108)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Looper.loop(Looper.java:216)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.HandlerThread.run(HandlerThread.java:65)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: java.net.ConnectException: failed to connect to /209.240.97.254 (port 4430) from /:: (port 35550): connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:137)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:137)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:391)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:231)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:213)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.Socket.connect(Socket.java:621)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:151)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 16 more
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: android.system.ErrnoException: connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.Linux.connect(Native Method)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:118)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connectErrno(IoBridge.java:151)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:129)
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 24 more
+12-21 11:13:02.241 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call for Location update to server failed with error 0
+12-21 11:13:02.485 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:02.485 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:02.485 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:02.733 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:02.734 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:02.734 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:02.974 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:02.975 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:02.975 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:03.226 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:03.227 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:03.229 29740 29761 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:03.468 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:03.468 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:03.469 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:03.472 29740 29761 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:03.472 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call to server failed with error 1002
+12-21 11:13:03.473 29740 29740 E tv.alphonso.service.ClockSyncher: REST API call response is with error and code: 1
+12-21 11:13:03.713 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:03.714 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:03.714 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: There was a problem when sending the request.
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: org.apache.http.conn.HttpHostConnectException: Connection to http://api.alphonso.tv:4430 refused
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:195)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:170)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:124)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:366)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:596)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:517)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:495)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.RESTService.handleMessage(RESTService.java:169)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeGenericRESTApi(AlphonsoClient.java:1107)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.invokeRESTApi(AlphonsoClient.java:1095)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.sendLocationUpdateToServer(AlphonsoClient.java:1402)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.processLocationUpdateRequest(AlphonsoClient.java:992)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient.access$500(AlphonsoClient.java:33)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at tv.alphonso.alphonsoclient.AlphonsoClient$1.handleMessage(AlphonsoClient.java:448)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Handler.dispatchMessage(Handler.java:108)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.Looper.loop(Looper.java:216)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at android.os.HandlerThread.run(HandlerThread.java:65)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: java.net.ConnectException: failed to connect to /209.240.97.254 (port 4430) from /:: (port 35574): connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:137)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:137)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:391)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:231)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:213)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at java.net.Socket.connect(Socket.java:621)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:124)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:151)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 16 more
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: Caused by: android.system.ErrnoException: connect failed: ECONNREFUSED (Connection refused)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.Linux.connect(Native Method)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.BlockGuardOs.connect(BlockGuardOs.java:118)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connectErrno(IoBridge.java:151)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	at libcore.io.IoBridge.connect(IoBridge.java:129)
+12-21 11:13:03.718 29740 29761 E tv.alphonso.alphonsoclient.RESTService: 	... 24 more
+12-21 11:13:03.719 29740 29761 E tv.alphonso.alphonsoclient.AlphonsoClient: REST API Call for Location update to server failed with error 0
+12-21 11:13:03.955 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:03.955 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:03.957 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:04.220 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:04.220 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:04.221 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:04.461 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:04.462 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:04.464 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:04.727 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:04.727 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:04.727 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:04.979 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:04.979 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:04.979 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:05.224 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:05.225 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:05.237 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:05.480 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:05.480 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:05.481 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:05.772 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:05.772 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:05.773 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:06.029 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:06.038 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:06.038 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:06.400 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:06.400 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:06.400 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:06.679 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:06.680 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:06.680 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:07.125 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:07.125 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:07.126 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:07.583 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:07.584 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:07.585 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:07.922 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:07.922 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:07.922 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:08.164 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:08.164 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:08.164 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:08.412 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:08.412 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:08.412 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:08.661 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:08.661 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:08.664 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:08.909 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:08.909 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:08.909 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:09.156 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:09.156 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:09.156 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:09.396 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:09.397 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:09.397 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:09.637 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:09.637 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:09.638 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:09.883 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:09.883 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:09.884 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:10.179 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:10.179 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:10.181 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:10.420 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:10.420 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:10.421 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:10.661 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:10.661 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:10.664 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:10.902 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:10.902 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:10.902 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:10.903 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:11.147 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:11.149 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:11.149 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:11.417 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:11.417 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:11.417 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:11.660 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:11.660 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:11.660 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:11.918 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:11.919 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:11.926 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:12.169 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:12.169 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:12.170 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:12.431 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:12.431 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:12.432 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:12.675 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:12.675 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:12.675 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:12.918 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:12.918 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:12.918 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:13.161 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:13.161 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:13.161 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:13.402 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:13.402 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:13.403 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:13.658 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:13.658 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:13.658 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:13.902 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:13.902 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:13.902 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:14.153 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:14.153 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:14.153 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:14.402 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:14.403 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:14.404 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:14.644 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:14.644 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:14.645 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:14.995 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:14.995 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:14.995 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:15.237 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:15.237 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:15.237 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:15.478 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:15.478 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:15.478 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:15.734 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:15.734 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed. HTTP code: 1002
+12-21 11:13:15.735 29740 29740 E tv.alphonso.service.AlphonsoService: Error response is with error code: 1
+12-21 11:13:15.984 29740 29773 E tv.alphonso.alphonsoclient.HttpRestService: HTTP SocketException, no presponse from server.
+12-21 11:13:15.984 29740 29773 E tv.alphonso.alphonsoclient.ViewingInfoAPI: REST API Call to server failed
