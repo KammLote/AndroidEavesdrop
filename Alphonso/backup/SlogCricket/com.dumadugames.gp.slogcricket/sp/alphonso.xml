@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="acr_db_filename"></string>
+    <string name="server_port_ssl"></string>
+    <boolean name="audio_file_upload_timedout_flag" value="false" />
+    <long name="capture_duration_ms" value="5000" />
+    <float name="capture_scenario_sleep_inhibiter_increment" value="0.5" />
+    <boolean name="audio_file_upload_flag" value="false" />
+    <long name="location_poll_interval" value="15" />
+    <string name="acr_db_file_abs_path"></string>
+    <long name="capture_sleep_time" value="10" />
+    <string name="uuid">bec771a9-e28e-4bc6-b439-33edb21c7dda</string>
+    <string name="server_domain">http://api.alphonso.tv</string>
+    <string name="acr_db_file_dir"></string>
+    <long name="capture_scenario_sleep_interval" value="0" />
+    <boolean name="record_timeouts_flag" value="false" />
+    <int name="clock_sync_poll_interval" value="300" />
+    <float name="location_accuracy" value="20.0" />
+    <int name="capture_scenario_count" value="0" />
+    <string name="server_domain_ssl"></string>
+    <float name="location_longitude" value="103.892746" />
+    <int name="capture_count" value="0" />
+    <int name="clock_sync_saved_iterations" value="5" />
+    <int name="acr_mode" value="0" />
+    <boolean name="capture_power_optimization_mode" value="false" />
+    <boolean name="limit_ad_tracking_flag" value="false" />
+    <float name="location_altitude" value="33.699997" />
+    <long name="capture_scenario_sleep_interval_max" value="1200" />
+    <float name="location_latitude" value="1.3158199" />
+    <string name="advertising_id">d94135ce-cff6-4d35-98ab-f830023b73de</string>
+    <string name="alp_uid">100</string>
+    <int name="ad_id_poll_duration" value="1800" />
+    <long name="capture_scenario_sleep_interval_livetv_match" value="12" />
+    <string name="dev_id">d94135ce-cff6-4d35-98ab-f830023b73de</string>
+    <boolean name="history_flag" value="true" />
+    <string name="location_provider">network</string>
+    <int name="acr_shift" value="0" />
+    <string name="server_port">4430</string>
+    <string name="android_id">b196d4bb84df0349</string>
+    <long name="location_time" value="1608439927805" />
+</map>

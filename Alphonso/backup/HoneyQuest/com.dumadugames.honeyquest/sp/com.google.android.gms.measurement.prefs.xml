@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="time_active" value="81722" />
+    <long name="last_upload" value="1608436547257" />
+    <boolean name="has_been_opened" value="true" />
+    <string name="health_monitor:value">2WC10298:Failed to retrieve Firebase Instance Id</string>
+    <long name="health_monitor:start" value="1608436547292" />
+    <boolean name="use_service" value="true" />
+    <long name="last_pause_time" value="1608458023026" />
+    <long name="health_monitor:count" value="8785" />
+    <boolean name="start_new_session" value="false" />
+</map>

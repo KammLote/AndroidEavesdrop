@@ -77,7 +77,7 @@ Also they all possess the same **Alphonso service**.
 
 
 
-![ALPHONSO_AndroidManifest](./Images/ALPHONSO_AndroidManifest.png)
+![ALPHONSO_AndroidManifest](./Images/alphonso_drawio/ALPHONSO_AndroidManifest.png)
 
 
 
@@ -160,7 +160,7 @@ This library is responsible to the capture of the Audio and the translation the 
 
 
 
-![ALPHONSO-tv.alphonso-package](./Images/ALPHONSO-tv.alphonso-package.png)
+![ALPHONSO-tv.alphonso-package](./Images/alphonso_drawio/ALPHONSO-tv.alphonso-package.png)
 
 
 
@@ -241,7 +241,7 @@ There are four different ACR methods:
 - Split ACR (extension of Local ACR)
 - Dual ACR (extension of Split ACR)
 
-![ACR](./Images/ACR.png)
+![ACR](./Images/alphonso_drawio/ACR.png)
 
 **LocalACR**
 Extension of AudioCaptureClient.

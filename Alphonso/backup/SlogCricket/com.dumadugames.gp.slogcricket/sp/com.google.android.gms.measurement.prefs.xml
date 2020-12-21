@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="time_active" value="91514" />
+    <long name="last_upload" value="1608437050173" />
+    <long name="first_open_time" value="1608437050136" />
+    <boolean name="has_been_opened" value="true" />
+    <string name="health_monitor:value">2EC11011:Missing google_app_id. Firebase Analytics disabled. See https://goo.gl/NAOOOI</string>
+    <long name="health_monitor:start" value="1608437050182" />
+    <boolean name="use_service" value="true" />
+    <long name="last_pause_time" value="1608458125003" />
+    <long name="health_monitor:count" value="849" />
+    <boolean name="start_new_session" value="false" />
+</map>
