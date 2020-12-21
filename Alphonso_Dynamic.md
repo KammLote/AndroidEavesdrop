@@ -175,6 +175,12 @@ It puts the user credentials in the URL requests:
 
 <br/>
 
+### Entire traffic capture
+
+![BURP-capture](./Images/alphonso_burp/BURP-capture.png)
+
+<br/>
+
 ### POST v5/user
 
 /user
