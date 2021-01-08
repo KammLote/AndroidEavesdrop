@@ -1,0 +1,4473 @@
+__cxa_finalize
+__cxa_atexit
+__aeabi_d2f
+acr_config_init
+calloc
+g_algo
+g_shift_samples
+g_fft_size
+g_fft_samples
+g_bark_bands_low
+g_bark_bands_high
+g_bark_bands
+g_frames
+g_num_wcoeff
+g_hash_bytes
+g_permute_hash_seg
+g_vote_threshold
+g_multi_frame
+g_avg_level_thresh
+g_dups_window
+g_dups_thresh
+g_crest_thresh
+__aeabi_unwind_cpp_pr0
+acr_free
+algo_free
+free
+acrdb
+acrdb_n
+acr_stats
+algo_stats
+__aeabi_unwind_cpp_pr1
+acr_match_stats
+algo_match_stats
+acr_get_json_string
+find_get_json_string
+acr_destroy
+algo_destroy
+acr_init
+algo_init
+acr_token_new
+algo_token_new
+acr_token_destroy
+algo_token_destroy
+acr_token_destroy_all
+algo_token_destroy_all
+acr_lookup
+algo_lookup
+acr_lookup_octet
+algo_lookup_octet
+acr_lookup_fingerprint
+algo_lookup_fingerprint
+acr_audio_fingerprint
+algo_audio_fingerprint
+acr_audio_fingerprint_octet
+algo_audio_fingerprint_octet
+acr_set_log_dir
+algo_set_log_dir
+acr_version
+g_db_build
+g_version
+g_commit
+g_date
+acr2_get_acrdb
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrInit
+__android_log_print
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrDestroy
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrTokenNew
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrTokenDestroy
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrLookupOctet
+memset
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrFingerprintOctet
+Java_tv_alphonso_audiocaptureservice_LocalACR_acrLookupFingerprint
+g_debug_log
+g_build
+g_ena_ins_to_grp
+g_limit
+g_log_dir
+acr_debug_sel
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_ddiv
+__aeabi_dsub
+fft_hann_init
+malloc
+__aeabi_fmul
+fft_hann_window
+fft_hann_free
+sig_is_set
+__aeabi_uidiv
+sig_permute_init
+sig_permute_free
+sig_is_initialized
+sig_gen_signature
+sig_gen_multisig
+memmove
+memcpy
+__popcountdi2
+sig_similar
+sig_gen_minhash
+sig_similar_hash
+__aeabi_fadd
+__aeabi_fsub
+wavelet_haar1_row
+wavelet_haar1_copy_row
+wavelet_haar1_col
+wavelet_haar1_copy_col
+__aeabi_fcmplt
+__aeabi_fcmpgt
+wavelet_select
+wavelet_top_n_level
+wavelet_haar_2d
+util_malloc_2d
+util_copy_2d
+util_free_2d
+wavelet_quantize_top_sign
+util_zero_2d
+find_cmp_resolve_int
+find_hash_val_free
+find_get_key
+find_sum_bin
+realloc
+find_hash_search
+g_hash_table_new_full
+g_hash_table_lookup
+g_hash_table_insert
+g_hash_table_iter_init
+g_hash_table_size
+g_hash_table_iter_next
+g_hash_table_destroy
+g_int_equal
+g_int_hash
+__aeabi_i2f
+__aeabi_ui2f
+__aeabi_fdiv
+__aeabi_f2d
+find_confidence
+qsort
+__aeabi_dcmpgt
+__aeabi_dcmplt
+find_confidence_threshold
+__aeabi_f2iz
+__aeabi_d2iz
+__aeabi_i2d
+find_heuristic
+sqrtf
+meta_data_get_first
+meta_data_get_group_count
+meta_data_get_last
+meta_data_get_gap
+find_print_heuristic
+find_minhash_init
+meta_data_init
+find_free
+meta_data_free
+find_is_initialized
+find_get_ids
+find_get_cnt
+find_inc_refs
+find_inc_ids
+find_hist_new
+find_hist_free
+meta_data_get_entry
+find_ref_stats
+find_print_stats
+__sF
+find_cmp_ref_sig
+__aeabi_dadd
+fbands_bark_num
+atan
+fbands_bark_extract
+fbands_calc_delta
+__aeabi_fcmpge
+fbands_calc_edges
+floorf
+ceilf
+fbands_print_last
+printf
+putchar
+fbands_print_map
+fbands_calc_avg_peak
+fbands_calc_crest
+fbands_free
+fbands_is_initialized
+util_mask_2d_acr_scalar
+util_print_2d_acr_scalar
+fprintf
+fputc
+meta_data_reallocate
+algo_state_free
+algo_state_new
+kiss_fftr_alloc
+algo_is_initialized
+algo_print_config
+fputs
+strdup
+algo_debug_write_audio
+strchr
+strlen
+snprintf
+fopen
+fwrite
+fclose
+algo_snd_fifo
+algo_top_coeff_warn
+__aeabi_uidivmod
+algo_audio_step
+kiss_fftr
+algo_fifo_push
+algo_audio_char2short
+dbio_read_database
+g_str_equal
+g_str_hash
+g_hash_table_remove
+g_hash_table_remove_all
+fread
+strcmp
+strrchr
+strncmp
+__stack_chk_guard
+_ctype_
+__stack_chk_fail
+_edata
+__bss_start
+_end
+__gnu_thumb1_case_uhi
+__aeabi_idivmod
+__aeabi_idiv
+kiss_fft_alloc
+sqrt
+floor
+kiss_fft_stride
+kiss_fft
+kiss_fft_cleanup
+kiss_fft_next_fast_size
+exit
+kiss_fftri
+g_realloc
+g_mem_gc_friendly
+g_array_sized_new
+g_slice_alloc
+g_array_new
+g_array_ref
+g_atomic_int_get
+g_atomic_int_add
+g_return_if_fail_warning
+g_array_get_element_size
+g_array_free
+g_free
+g_slice_free1
+g_array_unref
+g_atomic_int_exchange_and_add
+g_array_append_vals
+g_array_prepend_vals
+g_array_insert_vals
+g_array_set_size
+g_array_remove_index
+g_array_remove_index_fast
+g_array_remove_range
+g_array_sort
+g_array_sort_with_data
+g_qsort_with_data
+g_ptr_array_sized_new
+g_ptr_array_new
+g_ptr_array_set_free_func
+g_ptr_array_new_with_free_func
+g_ptr_array_ref
+g_ptr_array_remove_index
+g_ptr_array_remove_index_fast
+g_ptr_array_remove_range
+g_ptr_array_set_size
+g_ptr_array_remove
+g_ptr_array_remove_fast
+g_ptr_array_add
+g_ptr_array_sort
+g_ptr_array_sort_with_data
+g_ptr_array_foreach
+g_ptr_array_free
+g_ptr_array_unref
+g_byte_array_new
+g_byte_array_sized_new
+g_byte_array_free
+g_byte_array_ref
+g_byte_array_unref
+g_byte_array_append
+g_byte_array_prepend
+g_byte_array_set_size
+g_byte_array_remove_index
+g_byte_array_remove_index_fast
+g_byte_array_remove_range
+g_byte_array_sort
+g_byte_array_sort_with_data
+g_threads_got_initialized
+g_thread_functions_for_glib_use
+g_atomic_int_compare_and_exchange
+g_atomic_pointer_compare_and_exchange
+g_atomic_int_set
+g_atomic_pointer_get
+g_atomic_pointer_set
+bsd_signal
+pipe
+perror
+fork
+close
+execvp
+_exit
+write
+select
+read
+g_on_error_stack_trace
+getpid
+sprintf
+waitpid
+g_on_error_query
+g_get_prgname
+fflush
+isatty
+fgets
+strcpy
+glib_on_error_halt
+g_bit_lock
+g_slist_prepend
+g_slist_remove
+g_bit_trylock
+g_bit_unlock
+g_memdup
+g_malloc
+g_ascii_tolower
+g_ascii_xdigit_value
+g_assertion_message_expr
+g_strfreev
+g_utf8_get_char
+g_utf8_skip
+g_ascii_table
+g_convert_error_quark
+g_quark_from_static_string
+g_utf8_validate
+g_set_error_literal
+g_strndup
+g_iconv_open
+__errno
+g_set_error
+g_iconv
+g_iconv_close
+g_convert_with_iconv
+g_strerror
+g_convert
+g_convert_with_fallback
+g_error_matches
+g_propagate_error
+g_error_free
+g_assertion_message
+g_strdup_printf
+g_locale_to_utf8
+g_get_charset
+g_locale_from_utf8
+g_get_filename_charsets
+g_static_private_get
+g_malloc0
+g_static_private_set
+g_strdup
+getenv
+g_strsplit
+g_filename_to_utf8
+g_filename_from_utf8
+g_filename_from_uri
+g_filename_to_uri
+g_path_is_absolute
+g_strconcat
+g_uri_list_extract_uris
+g_malloc_n
+g_slist_free
+g_filename_display_name
+_g_utf8_make_valid
+g_filename_display_basename
+g_path_get_basename
+g_static_mutex_get_mutex_impl
+g_thread_use_default_impl
+g_realloc_n
+g_hash_table_new
+g_direct_hash
+g_datalist_clear
+g_dataset_destroy
+g_datalist_id_set_data_full
+g_dataset_id_remove_no_notify
+g_datalist_id_remove_no_notify
+g_dataset_id_get_data
+g_datalist_id_get_data
+g_dataset_foreach
+g_datalist_foreach
+g_datalist_init
+g_dataset_id_set_data_full
+g_datalist_set_flags
+g_datalist_unset_flags
+g_datalist_get_flags
+g_quark_try_string
+g_quark_from_string
+g_quark_to_string
+g_intern_string
+g_intern_static_string
+g_error_new_valist
+g_strdup_vprintf
+g_error_new
+g_error_new_literal
+g_error_copy
+g_log
+g_clear_error
+g_prefix_error
+g_propagate_prefixed_error
+g_string_new
+g_string_append_len
+g_string_append
+g_string_free
+g_file_test
+access
+getuid
+lstat
+stat
+g_mkdir_with_parents
+g_path_skip_root
+mkdir
+g_file_error_quark
+g_file_error_from_errno
+g_try_realloc
+g_file_get_contents
+open
+fstat
+g_try_malloc
+fdopen
+g_mkstemp_full
+g_strrstr
+g_get_current_time
+g_file_set_contents
+g_unlink
+fsync
+rename
+g_mkstemp
+g_file_open_tmp
+strstr
+g_get_tmp_dir
+g_build_pathv
+g_build_path
+g_build_filenamev
+g_build_filename
+__aeabi_l2d
+g_format_size_for_display
+g_dngettext
+g_file_read_link
+readlink
+g_malloc0_n
+g_hash_table_iter_get_hash_table
+g_hash_table_iter_remove
+g_hash_table_iter_steal
+g_hash_table_ref
+g_hash_table_unref
+g_hash_table_lookup_extended
+g_hash_table_replace
+g_hash_table_steal
+g_hash_table_steal_all
+g_hash_table_foreach_remove
+g_hash_table_foreach_steal
+g_hash_table_foreach
+g_hash_table_find
+g_hash_table_get_keys
+g_list_prepend
+g_hash_table_get_values
+g_io_channel_init
+g_io_channel_ref
+g_io_create_watch
+g_io_add_watch_full
+g_source_set_priority
+g_source_set_callback
+g_source_attach
+g_source_unref
+g_io_add_watch
+g_io_channel_get_buffer_condition
+g_io_channel_error_from_errno
+g_io_channel_set_buffer_size
+g_io_channel_get_buffer_size
+g_io_channel_set_line_term
+g_io_channel_get_line_term
+g_io_channel_set_flags
+g_io_channel_get_flags
+g_io_channel_set_close_on_unref
+g_io_channel_get_close_on_unref
+g_io_channel_flush
+g_string_erase
+g_string_sized_new
+g_string_set_size
+g_string_truncate
+g_utf8_get_char_validated
+memcmp
+g_io_channel_seek_position
+g_io_channel_shutdown
+g_io_channel_close
+g_io_channel_unref
+g_io_channel_set_buffered
+g_io_channel_get_buffered
+g_io_channel_set_encoding
+g_string_prepend_len
+g_io_channel_get_encoding
+g_io_channel_read_line
+g_io_channel_read_line_string
+g_io_channel_read_to_end
+g_io_channel_read_chars
+g_io_channel_read_unichar
+g_io_channel_write_chars
+g_io_channel_write_unichar
+g_unichar_to_utf8
+g_io_channel_error_quark
+__gnu_thumb1_case_uqi
+g_io_channel_seek
+g_io_channel_write
+g_io_channel_read
+g_slice_alloc0
+g_list_push_allocator
+g_list_pop_allocator
+g_list_alloc
+g_list_free
+g_slice_free_chain_with_offset
+g_list_free_1
+g_list_insert_before
+g_list_remove
+g_list_remove_all
+g_list_remove_link
+g_list_delete_link
+g_list_copy
+g_list_reverse
+g_list_nth
+g_list_nth_prev
+g_list_nth_data
+g_list_find
+g_list_find_custom
+g_list_position
+g_list_index
+g_list_last
+g_list_concat
+g_list_append
+g_list_insert
+g_list_first
+g_list_length
+g_list_foreach
+g_list_insert_sorted
+g_list_insert_sorted_with_data
+g_list_sort
+g_list_sort_with_data
+g_getenv
+fcntl
+g_thread_create_full
+sigaction
+g_main_context_ref
+g_main_context_unref
+g_static_mutex_free
+g_main_context_new
+g_static_mutex_init
+g_slist_append
+g_poll
+g_main_context_default
+g_main_context_get_thread_default
+g_queue_peek_head
+g_source_new
+g_source_destroy
+g_source_get_id
+g_source_get_context
+g_source_add_poll
+g_source_remove_poll
+g_source_set_callback_indirect
+g_source_set_funcs
+g_source_get_priority
+g_source_set_can_recurse
+g_source_get_can_recurse
+g_source_set_name
+g_source_get_name
+g_source_ref
+g_main_context_find_source_by_id
+g_source_set_name_by_id
+g_main_context_find_source_by_funcs_user_data
+g_main_context_find_source_by_user_data
+g_source_remove
+g_source_remove_by_user_data
+g_source_remove_by_funcs_user_data
+gettimeofday
+g_main_depth
+g_main_current_source
+g_source_is_destroyed
+g_main_context_acquire
+g_thread_self
+g_main_context_push_thread_default
+g_queue_new
+g_queue_push_head
+g_main_context_release
+g_slist_delete_link
+g_main_context_pop_thread_default
+g_queue_pop_head
+g_queue_is_empty
+g_queue_free
+g_main_context_wait
+g_main_context_prepare
+g_main_context_query
+g_main_context_check
+g_main_context_dispatch
+g_main_context_pending
+g_main_context_iteration
+g_main_loop_new
+g_main_loop_ref
+g_main_loop_unref
+g_main_loop_run
+g_main_loop_quit
+g_main_loop_is_running
+g_main_loop_get_context
+g_main_context_add_poll
+g_main_context_remove_poll
+g_source_get_current_time
+g_main_context_set_poll_func
+g_main_context_get_poll_func
+g_main_context_wakeup
+g_main_context_is_owner
+g_timeout_source_new
+g_timeout_funcs
+g_timeout_source_new_seconds
+g_timeout_add_full
+g_timeout_add
+g_timeout_add_seconds_full
+g_timeout_add_seconds
+g_child_watch_source_new
+g_child_watch_funcs
+g_child_watch_add_full
+g_child_watch_add
+g_idle_source_new
+g_idle_funcs
+g_idle_add_full
+g_idle_add
+g_idle_remove_by_data
+_g_getenv_nomalloc
+g_parse_debug_string
+g_print
+g_try_malloc0
+g_try_malloc_n
+g_try_malloc0_n
+g_try_realloc_n
+g_mem_is_system_malloc
+g_mem_set_vtable
+g_mem_profile
+g_mem_chunk_new
+g_mem_chunk_destroy
+g_mem_chunk_alloc
+g_mem_chunk_alloc0
+g_mem_chunk_free
+g_mem_chunk_clean
+g_mem_chunk_reset
+g_mem_chunk_print
+g_mem_chunk_info
+g_blow_chunks
+g_allocator_new
+g_allocator_free
+glib_mem_profiler_table
+g_string_insert_c
+g_string_append_printf
+g_log_default_handler
+strcat
+g_log_set_always_fatal
+g_log_set_fatal_mask
+g_log_set_default_handler
+g_test_log_set_fatal_handler
+g_set_print_handler
+g_set_printerr_handler
+g_printf_string_upper_bound
+vsnprintf
+_g_debug_initialized
+_g_debug_flags
+g_logv
+abort
+g_assert_warning
+g_warn_message
+g_snprintf
+g_printerr
+g_log_set_handler
+g_log_remove_handler
+g_pattern_match
+g_utf8_strreverse
+g_pattern_spec_new
+g_pattern_spec_free
+g_pattern_spec_equal
+g_pattern_match_string
+g_pattern_match_simple
+poll
+g_queue_init
+g_queue_clear
+g_queue_get_length
+g_queue_reverse
+g_queue_foreach
+g_queue_find
+g_queue_find_custom
+g_queue_sort
+g_queue_push_head_link
+g_queue_push_tail
+g_queue_copy
+g_queue_push_tail_link
+g_queue_pop_head_link
+g_queue_peek_head_link
+g_queue_peek_tail_link
+g_queue_pop_tail
+g_queue_pop_tail_link
+g_queue_peek_nth_link
+g_queue_push_nth_link
+g_queue_link_index
+g_queue_unlink
+g_queue_pop_nth_link
+g_queue_delete_link
+g_queue_pop_nth
+g_queue_peek_tail
+g_queue_peek_nth
+g_queue_index
+g_queue_remove
+g_queue_remove_all
+g_queue_insert_before
+g_queue_push_nth
+g_queue_insert_after
+g_queue_insert_sorted
+g_rand_free
+g_rand_copy
+g_rand_set_seed
+g_rand_new_with_seed
+g_rand_set_seed_array
+g_rand_new_with_seed_array
+g_rand_new
+setvbuf
+getppid
+g_rand_int
+__aeabi_dcmpge
+g_rand_double
+g_rand_double_range
+g_rand_int_range
+g_random_int
+g_random_int_range
+g_random_double
+g_random_double_range
+g_random_set_seed
+vfprintf
+sysconf
+__clzsi2
+valloc
+strerror
+g_slice_set_config
+g_slice_get_config
+g_slice_get_config_state
+g_slice_copy
+g_slist_push_allocator
+g_slist_pop_allocator
+g_slist_alloc
+g_slist_free_1
+g_slist_insert_before
+g_slist_remove_all
+g_slist_remove_link
+g_slist_copy
+g_slist_reverse
+g_slist_nth
+g_slist_nth_data
+g_slist_find
+g_slist_find_custom
+g_slist_position
+g_slist_index
+g_slist_last
+g_slist_concat
+g_slist_insert
+g_slist_length
+g_slist_foreach
+g_slist_insert_sorted
+g_slist_insert_sorted_with_data
+g_slist_sort
+g_slist_sort_with_data
+g_access
+g_chmod
+chmod
+g_open
+g_creat
+creat
+g_rename
+g_mkdir
+g_chdir
+chdir
+g_stat
+g_lstat
+unlink
+g_remove
+remove
+g_rmdir
+rmdir
+g_fopen
+g_freopen
+freopen
+g_utime
+utime
+setlocale
+g_once_init_leave
+g_once_init_enter_impl
+__aeabi_uldivmod
+__aeabi_lmul
+strncpy
+g_strnfill
+g_stpcpy
+g_vasprintf
+g_ascii_strtod
+strtod
+g_strtod
+g_ascii_formatd
+strpbrk
+g_ascii_dtostr
+g_ascii_strtoull
+g_ascii_strtoll
+g_strsignal
+strsignal
+g_strlcpy
+g_strlcat
+g_strdown
+_tolower_tab_
+g_strup
+_toupper_tab_
+g_strreverse
+g_ascii_strdown
+g_ascii_toupper
+g_ascii_strup
+g_ascii_digit_value
+g_ascii_strcasecmp
+g_ascii_strncasecmp
+g_strcasecmp
+strcasecmp
+g_strncasecmp
+strncasecmp
+g_strdelimit
+g_strcanon
+g_strcompress
+g_strescape
+g_strchug
+g_strchomp
+g_strsplit_set
+g_strdupv
+g_strjoinv
+g_strjoin
+g_strstr_len
+g_strrstr_len
+g_str_has_suffix
+g_str_has_prefix
+g_strip_context
+g_strv_length
+g_dgettext
+g_dpgettext2
+g_dpgettext
+g_dcgettext
+g_string_chunk_new
+g_string_chunk_free
+g_string_chunk_clear
+g_string_chunk_insert_len
+g_string_chunk_insert
+g_string_chunk_insert_const
+g_string_equal
+g_string_hash
+g_string_insert_len
+g_string_assign
+g_string_new_len
+g_string_prepend
+g_string_insert
+g_string_prepend_c
+g_string_append_c
+g_string_append_uri_escaped
+g_string_insert_unichar
+g_string_prepend_unichar
+g_string_append_unichar
+g_string_overwrite_len
+g_string_overwrite
+g_string_ascii_down
+g_string_ascii_up
+g_string_down
+g_string_up
+g_string_append_vprintf
+g_string_vprintf
+g_string_printf
+dup2
+g_test_log_type_name
+g_test_rand_int
+g_test_rand_int_range
+g_test_rand_double
+g_test_rand_double_range
+g_test_timer_start
+g_timer_new
+g_timer_start
+g_test_timer_elapsed
+g_timer_elapsed
+g_test_timer_last
+g_test_bug_base
+g_test_create_case
+g_test_create_suite
+g_test_get_root
+g_test_suite_add
+g_test_suite_add_suite
+g_test_add_vtable
+g_test_add_data_func
+g_test_add_func
+g_test_queue_destroy
+g_test_queue_free
+g_strcmp0
+g_test_trap_fork
+kill
+g_usleep
+g_test_trap_has_passed
+g_test_trap_reached_timeout
+g_test_log_buffer_new
+g_test_log_buffer_push
+g_test_log_buffer_pop
+g_test_log_msg_free
+g_test_log_buffer_free
+__aeabi_dcmpeq
+__glib_assert_msg
+g_test_trap_assertions
+g_assertion_message_error
+g_assertion_message_cmpstr
+__aeabi_d2ulz
+g_assertion_message_cmpnum
+g_timer_stop
+g_timer_destroy
+g_test_run_suite
+g_test_run
+g_test_message
+g_test_bug
+g_test_maximized_result
+g_test_minimized_result
+g_test_init
+g_set_prgname
+g_test_config_vars
+g_thread_error_quark
+g_once_impl
+g_once_init_enter
+g_static_rec_mutex_init
+g_static_rec_mutex_lock
+g_static_rec_mutex_trylock
+g_static_rec_mutex_unlock
+g_static_rec_mutex_lock_full
+g_static_rec_mutex_unlock_full
+g_static_rec_mutex_free
+g_static_private_init
+g_static_private_free
+g_thread_join
+g_thread_set_priority
+g_thread_exit
+g_thread_init_glib
+g_static_rw_lock_init
+g_static_rw_lock_reader_lock
+g_static_rw_lock_reader_trylock
+g_static_rw_lock_reader_unlock
+g_static_rw_lock_writer_lock
+g_static_rw_lock_writer_trylock
+g_static_rw_lock_writer_unlock
+g_static_rw_lock_free
+g_thread_foreach
+g_thread_get_initialized
+g_thread_gettime
+g_timer_reset
+g_timer_continue
+__aeabi_ldivmod
+nanosleep
+g_time_val_add
+g_time_val_from_iso8601
+strtoul
+mktime
+g_time_val_to_iso8601
+gmtime_r
+g_utf8_find_prev_char
+g_utf8_find_next_char
+g_utf8_prev_char
+g_utf8_strlen
+g_utf8_pointer_to_offset
+g_utf8_offset_to_pointer
+g_utf8_strncpy
+_g_locale_get_charset_aliases
+_g_locale_charset_raw
+_g_locale_charset_unalias
+g_utf8_strchr
+g_utf8_strrchr
+g_utf8_to_ucs4_fast
+g_utf8_to_ucs4
+g_ucs4_to_utf8
+g_utf16_to_utf8
+g_utf16_to_ucs4
+g_utf8_to_utf16
+g_ucs4_to_utf16
+g_unichar_validate
+g_bit_nth_lsf
+g_bit_nth_msf
+g_bit_storage
+g_trash_stack_push
+g_trash_stack_pop
+g_trash_stack_peek
+g_trash_stack_height
+glib_check_version
+g_atexit
+g_basename
+g_path_get_dirname
+g_get_current_dir
+getcwd
+getpwuid
+gethostname
+g_find_program_in_path
+g_setenv
+setenv
+g_unsetenv
+unsetenv
+g_listenv
+environ
+g_get_user_name
+g_get_real_name
+g_get_home_dir
+g_get_host_name
+g_get_application_name
+g_set_application_name
+g_get_user_data_dir
+g_get_user_config_dir
+g_get_user_cache_dir
+g_reload_user_special_dirs_cache
+g_get_user_special_dir
+g_get_system_data_dirs
+g_get_system_config_dirs
+_g_compute_locale_variants
+g_get_language_names
+g_direct_equal
+g_int64_equal
+g_int64_hash
+g_double_equal
+__aeabi_d2uiz
+g_double_hash
+g_nullify_pointer
+g_get_codeset
+glib_gettext
+glib_binary_age
+glib_interface_age
+glib_micro_version
+glib_minor_version
+glib_major_version
+g_vprintf
+vprintf
+g_printf
+g_vfprintf
+g_fprintf
+g_vsprintf
+vsprintf
+g_sprintf
+g_vsnprintf
+vasprintf
+__srget
+ungetc
+fscanf
+__gnu_Unwind_Find_exidx
+raise
+__udivsi3
+__aeabi_idiv0
+__divsi3
+__aeabi_drsub
+__subdf3
+__adddf3
+__floatunsidf
+__floatsidf
+__extendsfdf2
+__floatundidf
+__aeabi_ul2d
+__floatdidf
+__muldf3
+__divdf3
+__gtdf2
+__gedf2
+__ltdf2
+__ledf2
+__cmpdf2
+__nedf2
+__eqdf2
+__aeabi_cdrcmple
+__aeabi_cdcmpeq
+__aeabi_cdcmple
+__aeabi_dcmple
+__fixdfsi
+__fixunsdfsi
+__truncdfsf2
+__aeabi_frsub
+__subsf3
+__addsf3
+__floatunsisf
+__floatsisf
+__floatundisf
+__aeabi_ul2f
+__floatdisf
+__aeabi_l2f
+__mulsf3
+__divsf3
+__gtsf2
+__gesf2
+__ltsf2
+__lesf2
+__cmpsf2
+__nesf2
+__eqsf2
+__aeabi_cfrcmple
+__aeabi_cfcmpeq
+__aeabi_cfcmple
+__aeabi_fcmpeq
+__aeabi_fcmple
+__fixsfsi
+__aeabi_ldiv0
+__gnu_ldivmod_helper
+__gnu_uldivmod_helper
+__muldi3
+__aeabi_llsr
+__popcount_tab
+__fixunsdfdi
+__divdi3
+__udivdi3
+__aeabi_unwind_cpp_pr2
+__gnu_Unwind_Restore_VFP_D
+__gnu_Unwind_Restore_VFP
+__gnu_Unwind_Restore_VFP_D_16_to_31
+__gnu_Unwind_Restore_WMMXD
+__gnu_Unwind_Restore_WMMXC
+restore_core_regs
+_Unwind_VRS_Get
+_Unwind_VRS_Set
+__cxa_begin_cleanup
+__cxa_type_match
+__gnu_unwind_execute
+__cxa_call_unexpected
+_Unwind_VRS_Pop
+__gnu_Unwind_Save_VFP_D
+__gnu_Unwind_Save_VFP
+__gnu_Unwind_Save_VFP_D_16_to_31
+__gnu_Unwind_Save_WMMXD
+__gnu_Unwind_Save_WMMXC
+_Unwind_GetCFA
+__gnu_Unwind_RaiseException
+__gnu_Unwind_ForcedUnwind
+__gnu_Unwind_Resume
+__gnu_Unwind_Resume_or_Rethrow
+_Unwind_Complete
+_Unwind_DeleteException
+__gnu_Unwind_Backtrace
+__restore_core_regs
+___Unwind_RaiseException
+_Unwind_RaiseException
+___Unwind_Resume
+_Unwind_Resume
+___Unwind_Resume_or_Rethrow
+_Unwind_Resume_or_Rethrow
+___Unwind_ForcedUnwind
+_Unwind_ForcedUnwind
+___Unwind_Backtrace
+_Unwind_Backtrace
+__gnu_unwind_frame
+_Unwind_GetRegionStart
+_Unwind_GetLanguageSpecificData
+_Unwind_GetDataRelBase
+_Unwind_GetTextRelBase
+__lshrdi3
+liblog.so
+libstdc++.so
+libm.so
+libc.so
+libdl.so
+libacr.so
+`*K}D
+hC`(K
+hCa%K
+hYh 
+hYh 
+hYh 
+hYh 
+&|D$h#h
+M}D-h+h
+##`+`
+L|D$h#h
+}D-h+h
+"(`{D
+`,h&h
+ `+h
+ `+h9
+$dB 
+ @BpG
+yDzD
+G#h 
+ yDzD
+#*h[
+ I!J
+yDzD3
+yDzD
+IJ
+ yDzD
+ `f`
+kSCBj[
+,`j`
+aFJU
+hjh1
+#h(hih
+nBuA@
+3h"h
+chPYYY
+ah h
+(`ah h
+2`#`
+`"hih#i
+P#h"i
+"Z`#h!i*k
+`'h(k#i?
+!h i
+"h i
+[I[H\JyDxDzD
+#[Bc`
+3#a&
+Rhb`
+aK`J
+a*bkbh
+WK1h8
+#+ckc
+(aia
+)bjb
+?333333
+?fff?
+!(dkd
+(`i` 
+?3h+d3hkd
+(aiaz
+(eie9
+UJ}D
+jzD)
+jQJ)
+sCzD
+#lzD
+GJcl)
+ hahCJ
+ iai;J
+ jaj3J
+#kzD
+ckzD
+ mam#J
+#nzD
+k\Ckjd
+DC<a)k
+KxDyDzD{D
+4(`3i[i
+5#i`i[i
+#iZh
+5#iZh
+iXhpG
+ipGp
+!"`[BrCa`
+&i#hbj
+6^C,6
+'M(J
+i}D)
+chzD
+MzDci
+VK{D
+VK{D
+QK{D
+)hzD
+(I'H/J
+#M$J
+AizD
++h[h
+*h*K
+9h{h
+RX[X
+"RB"`$
+[B#`
+hhXC
+9h h
+pCxC
+kh"h
+Zh`h
+76+h
+}D-h
+)hhhyC
+0hsh
+}C[h[
+"PCKh
+hb!j
+(c!j
+kcj!j
+8XCYC
+#[B+e
+dne`j
+3BP!i
+3BPaj
++akap
+VKVI|D
+SKTI0
+QKRI0
+PKPI0
+NKOI0
+XyDNL
+KIjh0
+GI*i0
+EIji0
+CI*j0
+7Ijj0
+/I*k0
+-Ijk0
+'I*l0
+%Ijl0
+M}D-hT5 
+M}D-hT5
+I"i(
+I"h(
+Ibh(
+I"l(
+hRi(
+0zD!
+)i j
+ iij
+kSC"i
+SC"i
+>!Y^
+KBKA
+&+`ch
+#h+`ch
+&+`ch
+7+`ch
+i*j+i
+KyDxDzD{D
+&vB0
+ @Bp
+##f:h
+hzh 
++h"h
+#`+h"hah
+#3`
+#i'ece dp`0
++`k`
+3`s`
+##f#i
+k[jSC
+3#a+i
+ dp`0
+;`{`
+#+f"h
+3h*h
++`3h*hih
++`k`
+7#hyD(
+,tyD(
+mFx]
+oFC7
+X.! 
+XyD'
+xXgI
+`XSI
+XyD+
+"=i3
+hiyD
+ak`0
+(b,`
+C!+jiD
+`kF*iC3
+3k`0
+`` `
+LCXh
+hX3I
+C'oD<x
+C hD
+5*h;h
+BCLC
+*h!hhhch
+ `ph
+``0h
+0`ph
+hchGh
+hXhuX
+ `ph
+0`ph
+p` h)
+6X` h
+ ``h
+DCMC
+hahRh
+hyhRh
+hihRh
+8`ph
+0`ph
+h[h 
+?4h)
+!3th
+hIh
+@h]h
+dhT`
+#`kh
+h[h
+BRARB
+.`l`
+3K2J
+AIBH
+BmAmB
+NIOHyD
+h[h0
+#8`k`{`
+OIOHyD
+ `0h
+h<h[h
+`Plh
+``kh
+% h)
+K `{D
+K `{D
+hhh+h
+JxDyDzD
+JxDyDzD
+JyDxD1zD
+##`c`
+JyDxD%1zD
+!IB 
+JyDxD21zD
+JyDxD21zD
+h`h#h1
+PCjC
+#|e`
+!UC@
+JyDxD@1zD
+h!hbh
+hCZC
+h h1
+#|e`
+!UC@
+JyDxDT1zD
+iCXCQ
+h h9
+UCrC@
+#|f`
+JyDxDi1zD
+BCCC h
+JChC
+#|e`
+!UC@
+JyDxD}1zD
+1iC0
+K`h{D
+h#hPC
+JyDxD
+IHJyDxD
+h#hQCX
+K`h{D
+h#hPC
+JyDxD#1zD
+HJyDxD#1zD
+hyCP
+K`h{D
+jC#h
+h#hPC
+JyDxD=1zD
+JyDxD=1zD
+JyDxD=1zD
+JyDxDR1zD
+JyDxD_1zD
+JyDxDv1zD
+JyDxD
+JyDxD
+1zD
+GbhS
+Kbh{D
+JyDxD 1zD
+JyDxD 1zD
+Kbh{D
+IH
+JyDxD91zD
+JyDxD91zD
+`h"h
+JyDxDW1zD
+JyDxDW1zD
+IHJyDxDW1zD
+JyDxDp1zD
+JyDxD
+1zD
+JyDxD
+1zD
+ch"h
+JyDxD01zD
+JyDxD@1zD
+JyDxDQ1zD
+JyDxDl1zD
+##`c`
+JxDyDzD
+!IB 
+JyDxD
+JyDxD
+1zD
+JyDxD#1zD
+JyDxD#1zD
+IHJyDxD#1zD
+/`3h
+XK{D
+/`3h
+'+`3h
+'+`3h
+XK{D
+G3h-h
+G/`3h
+XK{D
+G3h-h
+G/`3h
+bKbLcI{D
+XHxD
+JHxD
+FHxD
+2iFRX
+CNCL
+~D6h|D
+3h$h
+;J<I
+yDzD
+9JT0zD
+5O6I6K
+DT0yD{D
+DJDO
+:K h
+6K{D
+Gf`+N
+~D0k
+0cch
+3c`+h
+"K%J
+~D0k
++h0c
+G !
+C}D8
+#i@i
+K `e`{D
+IB0
+>sB^A
+ >_.
+~DyD
+ ?_/
+ ??x<B
+JyDxDp1zD
+xBxA
+%x%-#
+IzD{D
+xDyD
+[Z3B
+ @BpG
+ @BpG
+ @BpG
+JyDxD
+JyDxD/1zD
+JyDxD/1zD
+IHJyDxD/1zD
+_H`I{D
+xDyD93^J
+IHxD
+h*x0
+JyDxD91zD
+JyDxD91zD
+JyDxD91zD
+h`4HxD
+"1OyD
+CBCA+`
+#+`xD
+`AI0
+zDIB
+"{D8
+"{D8
+IyD#x/+
+JyDxDQ1zD
+#x#+-
+&K{D
+!zD 
+JyDxDc1zD
+L|D`h
+%L|D%
+L|D%
+{DXh
+fL|D%
+_HxD
+VL|D%
+OHxD
+4L|D%
+.HxD
+X^h!K
+%L|D%
+C `a`
+2K{D
+c,L2
+|D#k
+&L|Dak
+c L|D
+IxDyD
+K{D\k
+xDyD{D
+L|Deh
+%```
+JyDxD1zD
+,L|D%
+%HxD
+G$K{D[h
+L|D%
+JyDxD
+)L|D%
+"HxD
+G!K{D[h
+L|D%
+JyDxD/1zD
+7I7H8JyDxDA1zD`
+1L|D%
++HxD
+G)K{D[h
+L|D%
+JyDxDA1zD
+JyDxDA1zD
+X^h1K
+/L|D%
+)HxD
+&K{D^h
+L|D%
+JyDxD]1zD
+X_h.K
+,L|D%
+&HxD
+#K{D_h
+L|D%
+JyDxD{1zD
+@L|D%
+:HxD
+7K{D[h
+)L|D%
+#HxD
+L|D%
+JyDxD
+X_h.K
+,L|D%
+&HxD
+L|D%
+JyDxD01zD
+=L|D%
+7HxD
+G5L|Dch
+JyDxDG1zD
+JyDxDG1zD
+JyDxDY1zD
+JyDxDY1zD
+JyDxDl1zD
+@I@HAJyDxD|1zDr
+:L|D%
+4HxD
+G2K{D[h
+*K!h"
+{DXh
+L|D%
+JyDxD|1zD
+JyDxD|1zD
+JyDxD
+JyDxD
+JyDxD,1zD
+JyDxD,1zD
+JyDxDC1zD
+X_h%K
+$L|D%
+HxDH0
+L|D%
+HxDH0
+ L|D%
+HxDH0
+L|D%
+HxDH0
+ L|D%
+HxDH0
+L|D%
+HxDH0
+)N)K
+$L|D%
+HxDH0
+{DZk
+L|D%
+HxDH0
+!L|D%
+HxDH0
+!L|D%
+HxDH0
+`F`8
+JxDyDzD
+JxDyDzD
+`G`(
+HJyDxD1zD
+JyDxD1zD
+JyDxD 1zD
+ahA`RhZ`
+JyDxD-1zD
+CBXA
+hxDzD
+JyDxD:1zD
+##@$
+6#x/+
+/##p
+4#x/+
+WKiD
+IzD{D
+xDyD(3
+fK{D
+[K{D
+JyDxD;1zD
+JyDxD;1zD
+@L|D!
+hL@4N
+`3K~DO6
+$!+p
+$!kp
+$!+q
+JyDxDt1zD
+cK{D=
+QK{D
+EK{D
+JyDxD
+JyDxD
+JyDxD
+JyDxD
+=L|D 
+IyD"
+JyDxD
+4H5I5J#
+yDzDxD
+J}D-
+K}D#
+##`c`
+haiCj
+!KCAi
+3ca#hZj
+JxDyDzD
+JxDyDzD
+JxDyDzD
+JxDyDzD
+%zDR
+hhX`KhS`
+h`a#a
+sCei
+(hih
+kCbi
+#]Cci]
+JyDxD
+JyDxD
+6#h`i
+"ZC
+!HCai
+3cb8
+JyDxD51zD
+M}D-h
+`KjCa
+JyDxDR1zD
+JyDxDR1zD
+&h`isj
+ XC0
+pi5
+JyDxDi1zD
+JyDxDi1zD
+JyDxDi1zD
+JxDyDzD
+JyDxD!1zD
+JyDxD!1zD
+!IB 0
+JyDxD21zD
+JyDxD21zD
+#XCci
+JyDxDE1zD
+#XCci
+[h3`p
+JyDxDY1zD
+3cb 
+JyDxDv1zD
+JyDxD
+JyDxD
+3cb 
+JyDxD#1zD
+HJyDxD:1zD
+JyDxD:1zD
+HJyDxDV1zD
+JyDxDV1zD
+kCbi
+JyDxDq1zD
+JyDxDq1zD
+sCli
+ hah
+JyDxD
+JyDxD
+JyDxD
+kCbi
+&#h
+JyDxD*1zD
+kCbi
+&#h
+JyDxD@1zD
+`"a"
+#,2ca
+a#bcb
+p24#x
+@%p8
+JxDyDzD
+JyDxD
+JyDxD#1zD
+ K+
+HJxDzD
+HJxDzD
+JyDxD71zD
+JyDxDU1zD
+JyDxDr1zD
+KBKA
+JyDxD
+JyDxD
+JyDxD*1zD
+HJyDxDE1zD
+JyDxDE1zD
+JyDxD\1zD
+JyDxDs1zD
+24 x@
+JyDxD
+JyDxD31zD
+JyDxD31zD
+IzD{D
+xDyD33
+,4#x
+!xDzD
+##p+j
+(b(j
+iFhq
++j[h
++j[h
+*jhjQhCh
+hIhgD
+MH+jxD
+?K2x{D
+0K1J1H2IzD{D
+xDyDF3/J
+/J0K0HzD0I
+0J{DxDyDF3
+.K.J/H/IzD{D
+xDyDF3-J
+-J-K.H.IzD{D
+"xDyDF3
+*K+J+H,IzD{D
+xDyDF3)J
+)K*J*H+IzD{D
+xDyDF3(J
+(K)J)H*IzD{D
+xDyDF3'J
+KJH
+IzD{D
+xDyDF3
+HIzD{D
+xDyDF3
+#j[h
+#j[h
+#j[h
+#j[h
+#j[h
+MJzD
+:SBZA
+,K*x{D
+#jZh
+IzD{D
+xDyD_3
+J{DxDyD_3
+x %=@
+]H^J
+!xDzD
+JHKJ
+!xDzD
+,4#x
+&H'J
+!xDzD
+"I#H#JyDxD~1zD
+ I H!JyDxD~1zD
+JyDxD~1zD
+IzD{D
+xDyD~3
+J{DxDyD~3
+!xDzD
+pch 
+G24"x
+IH
+JyDxD
+JyDxD
+hxDzD
+,4#x
+!xDzD
+JyDxD/1zD
+hxDzD
+24"x
+JyDxDB1zD
+!IB 
+JyDxDU1zD
+!xDzD
+JyDxDh1zD
+JyDxDh1zD
+JyDxDh1zD
+24 x
+JyDxD
+!}DzD(
+,5+x
+!xDzD
+#+p#
+%mB#
+h j
+*I+H+JyDxD
+(I)H)JyDxD
+'I(H(JyDxD
+%K%J&H&IzD{D
+xDyD
+$J$K%HzD%I
+%J{DxDyD
+"K#J#H$IzD{D
+xDyD
+JyDxD61zD
+JyDxDP1zD
+JyDxDP1zD
+JyDxDP1zD
+JyDxDP1zD
+IzD{D
+xDyDP3
+JyDxDg1zD
+JyDxDg1zD
+JyDxDg1zD
+JyDxDg1zD
+IzD{D
+xDyDg3
+"{D8
+"{D8
+ajHBAA
+YBYA
+)HxD
+cj[h
+JyDxD
+JyDxD
+JyDxD
+)jIh
+)jIh
+#3`S
+*jTh
+QKij{D
+6I6H7JyDxD
+3I4H4JyDxD
+1I1H2JyDxD
+.I/H/JyDxD
+,K,J-H-IzD{D
+xDyD
++J+K,HzD,I
+,J{DxDyD
+)K*J*H+IzD{D
+xDyD
+(K)J)H*IzD{D
+xDyD
+'K(J(H)IzD{D
+xDyD
+#j[h
+"{D(
+#[B3`
+0``j
+x K{D
+JyDxD61zD
+JyDxD61zD
+JyDxD61zD
+JyDxD61zD
+IzD{D
+xDyD63
+!xDzD
+eHfI{D
+xDyDP3dJ
+(iYh
+(4 q
+"H#J
+!xDzD
+:`,5
+$,p7
+UIUHVJyDxDP1zD
+RISHSJyDxDP1zD
+QIRHRJyDxDP1zD
+PIQHQJyDxDP1zD
+NIOHOJyDxDP1zD
+LJLKMHMIzD{D
+"xDyDP3
+IJJKJHzDJI
+JJ{DxDyDP3
+HKHJIHIIzD{D
+xDyDP3GJ
+GKGJHHHIzD{D
+xDyDP3FJ
+FKFJGHGIzD{D
+xDyDP3EJ
+EKEJFHFIzD{D
+xDyDP3DJ
+DKDJEHEIzD{D
+xDyDP3CJ
+CKCJDHDIzD{D
+xDyDP3BJ
+BKBJCHCIzD{D
+xDyDP3AJ
+AKAJBHBIzD{D
+xDyDP3@J
+,63x
+&H'J
+!xDzD
+#3p 
+JyDxDi1zD
+JyDxDi1zD
+JyDxDi1zD
+JyDxDi1zD
+IzD{D
+xDyDi3
+:QBJA
+"xDyD
+JyDxD
+24$x
+!xDzD
+IHJyDxD 1zD
+JyDxD 1zD
+JyDxD21zD
+JyDxD21zD
+JyDxDE1zD
+JyDxDE1zD
+JyDxDE1zD
+[hRh
+$]h9
+0h)h
+f`vh
+e`mhdh
+JxDyDzD
+pGpG
+`ch]`
+JyDxD
+JyDxD
+YhQ`Zh
+dh 
+JhZ`Kh
+JhZ`Kh
+`3hdh#`vh
+JyDxD/1zD
+ @BpG
+ @BpG
+X`D`
+`pGAh
+ pGs
+c%l(
+c%l(
+CC2h
+jcqh'
+2jc[
+c*L|Dch
+)HxD
+'HxD
+K{DX`
+f`.l
+{DXh
+*L|D 
+%HzD
+xDzD
+xDyD{D
+KBKA
+X_h_K
+#`c`
+OHPJ
+!xDzD
+bjZb
+##b 
+HJyDxD)1zD
+!xDzD
+!xDzD
+X_hGK
+Coh*h
++`k`
+X_h$K
+JyDxDA1zD
+JyDxDA1zD
+EL|D%
+>HxD
+G=M1
+}D(k
+;h(c
+|D`k
+`c0j
+JyDxDT1zD
+JyDxDT1zD
+K{D]k
+L|D`k
+X4ete3g
+0Kpc
+|D`k
+"L|D%
+}D(k
+'N'K~D
+#L|D%
+HxD@0
+L|D%
+HxD@0
+HxD\0
+HJyDxDi1zD
+JyDxDi1zD
+X_h:K
+Xiai
+\bbb
+,d'j
+:hai(
+JyDxDv1zD
+IH
+JyDxDv1zD
+JyDxD
+JyDxD
+IH
+JyDxD
+JyDxD'1zD
+G j9
+JyDxD<1zD
+JyDxD<1zD
+JyDxD<1zD
+G j9
+JyDxDN1zD
+JyDxDN1zD
+JyDxDN1zD
+X_h)K
+G+hoh
+JyDxDc1zD
+IH
+JyDxDc1zD
+`zD 
+JyDxD
+JyDxD
+JyDxD
+JyDxD
+JyDxD
+X]h<K
+bj!i
+bjZb!i
+]i`i
+\bbb
+JyDxD+1zD
+JyDxDA1zD
+X_h#K
+JyDxDW1zD
+JyDxDp1zD
+JyDxD
+JyDxD
+X_h K
+JyDxD-1zD
+JyDxD:1zD
+X]h$K
+JyDxDI1zD
+JyDxDj1zD
+X\h+K
+JyDxD
+X\h%K
+JyDxD01zD
+JyDxD@1zD
+JyDxDc1zD
+M}D`5(
+M}D`5(
+@CBXApG
+IzD{D
+xDyDv3
+N~D\60
+JyDxD
+X_h:K
+CBCA
+HxD\0
+JyDxD01zD
+JyDxD01zD
+CBCA
+X_h+h
+X_h+h
+IzD{D
+xDyDR3
+!xDzD
+!xDzD
+4hkCh
+/K}D
+X^h*K
+X]h|K
+sHtJ
+!xDzD
+3cd;h
+Gsk[h
+L|D`4 
+!h(i
+G;h
+3;`{h
+{`;h
+X\h[K
+"h(iii
+(K(J)H)IzD{D
+xDyDf3'J
+'I'H(JyDxDv1zD
+%J%K&HzD&I
+&J{DxDyDf3
+#I$J
+"I"H#JyDxD
+ K J!H!IzD{D
+xDyDf3
+ ecm
+JyDxD
+JyDxD)1zD
+JyDxD)1zD
+JyDxD91zD
+JyDxD91zD
+sHsJxDzD
+rK h
+XrKOh
+#c`'h;j
+<K h
+X_h;K
+G#h[l
+1H2JxDzD
+ch h
+JyDxDK1zD
+JyDxDK1zD
+IzD{D
+xDyDK3
+*K h
+X_h)K
+#c` h
+JyDxD[1zD
+IHJyDxD[1zD
+JyDxDl1zD
+JyDxDl1zD
+JyDxD
+JyDxD
+JyDxD
+IH
+JyDxD
+JyDxD31zD
+IH
+JyDxD31zD
+gco3`
+os`;h
+JyDxDN1zD
+!xDzD
+`pBpA
+X;h&g
+JyDxDh1zD
+G3h'o
+JyDxD
+JyDxD"1zD
+/O/K0N
+X\h&K
+L|D%
+cBcA
+HD!xD
+HD!xD
+JyDxD81zD
+JyDxDK1zD
+JyDxDf1zD
+D!xD
+K{D
+ {DiF
+JyDxD|1zD
+H4!xD
+JyDxD
+ANAK
+X=K{D
+G<L|Dch
+2K h
+{D[h
+{D[h
+xDzD
+##`e`
+ #`e`)
+3+`7
+L}D-h
+K{D[i
+"{DZa
+2C:C
+fCxD!
+{D[i
+KxDzD{D
+{D[i
+KxDzD{D
+{D[i
+{D[h
+KxDzD{D
+{D[i
+{D[i
+{D[i
+{D[i
+{D[i
+ @B!
+K{D[i
+KxDzD{D
+ @B!
+K{D[i
+KxDzD{D
+ @B!
+K{D[i
+KxDzD{D
+ @B!
+ @B!
+ @B!
+iCBXApG
+K{DZa
+JxDzD
+JxDzD
+;K;L<M{D[i}D
+X7K{D
+G5L|D
+hah'i
+-K h
+&K h
+G(H(LxD
+%H|DxD
+##`e`
+JxDyDzD
+JyDxD
+JyDxD$1zD
+JyDxD61zD
+JyDxDI1zD
+pGpGpGpGpG
+HxDpG
+5H5NxD
+ hBT"h
+{D\h
+px#Cp
+W1aU0
+MIyD
+LIyD
+JIyD
+IIyD
+IIyD
+HIyD
+0##qaq
+cB\A
+4M}D
+,IyD
+,IyD 
+IyD 
+K{D[h
+K{DY` h
+GK{D
+K `{DZh\`
+*h{D
+K*h{D
+XK{D
+K*h{D
+XK{D
+K*h{D
+L|D$h
+KjFiF{D
+ `#h
+L}D-h|D+h
+Gcj b
+#cbxD
+LjFiF|D#
+#[B#
+Zh2@
+uK{D
+tK{D
+|D+h
+gKpJ
+bKlJ
+C3B7
+OK]J
+YHxD
+PK{D
+OK{D
+;KLJ
+8K{D
+GDBDA
+#h/J
+(K{D
+'K{D
+'K'I(H{D
+'JyD
+zD{D
+JyD{D
+xDzD1
+)L|D
+X$K{D
+G"K2h{D
+HI
+JxDyDzD
+)L|D
+X$K{D
+G"K2h{D
+IH
+JyDxD
+.N~D
+*K+J
+`!K `{DZh\`
+JyDxD
+JyDxD
++N~D+K
+X*K{D
+xDzD{D
+JyDxD%1zD
+ x?+;
+$K{D
+` K{D
+h/x?/
+ xCBXA
+EBEA(
+JxDyDzD
+HI
+JxDyDzD
+JxDyDzD
+%mB2
+9a`+
+?#SU
+?!eF
+##`b`A
+%iF"ichi\
+##`jF#
+9a`BT 
+"`#h
+JyDxD
+JyDxD#1zD
+BhKh
+CBXA8
+HJyDxD71zD
+JyDxD71zD
+HJyDxDL1zD
+JyDxDL1zD
+JyDxDc1zD
+JyDxDc1zD
+JBJA
+dFaE
+?;hyh
+<`y`
+HIJxDyDzD
+IJxDyDzD
+JxDyDzD
+JxDyDzD
+JyDxD
+JyDxD
+hCBXA
+JyDxD(1zD
+JyDxD91zD
+ h``
+JyDxDL1zD
+JyDxD\1zD
+JyDxD\1zD
+JyDxDl1zD
+HJyDxDy1zD
+JyDxDy1zD
+JyDxD
+JyDxD
+ch `
+JyDxD
+JyDxD,1zD
+JyDxD,1zD
+JyDxD,1zD
+JyDxD,1zD
+``Ch
+JyDxDC1zD
+JyDxDU1zD
+JyDxDb1zD
+JyDxDb1zD
+JyDxDb1zD
+JyDxDb1zD
+JyDxDy1zD
+Ch#`
+JyDxD
+JyDxD 1zD
+JyDxD71zD
+JyDxDN1zD
+JyDxD_1zD
+JyDxDu1zD
+#`ch[h
+JyDxD
+JyDxD
+IzD{D
+"xDyD
+J{DxDyD
+JyDxD!1zD
+hc` h
+JyDxD41zD
+JyDxD41zD
+JyDxDC1zD
+JyDxDX1zD
+JyDxDX1zD
+JyDxDl1zD
+JyDxD|1zD
+JyDxD
+JyDxD 1zD
+JyDxD11zD
+JyDxD?1zD
+JyDxDN1zD
+JyDxDa1zD
+JyDxDa1zD
+JyDxDw1zD
+JyDxD
+JyDxD
+JyDxD
+L|D#h
+"{DZ`
+xDzD
+K{DXh8
+JxDyDzD
+JyDxD1zD
+!M%`
+2GC7QbQ
+"xDyD
+IH
+JyDxD
+~@&O
+OeF}C
+YgF}@
+JyDxD(1zD
+JyDxD(1zD
+X]nk
+(L(M|D}D
+cY@H
+?lz@
+0IbFyD
+`Fx@0`
+#cQbY
+HJyDxDH1zD
+.K,J
+%J&K
+"xDyDS3
+JyDxDS1zD
+JyDxDS1zD
+'N'K~D
+#L|D%
+*N*K
+$L|D%
+(N(K~D
+$L|D%
+,K~D
+'L|D%
+!HxD
+)N)K
+$L|D%
+L|D%
+`Rh\hZ`ChY
+`L`p
+.O.K
+X,K{D
+*K{D
+(L|Dch
+!K l
+#c`3h
+C`3h
+K{DZh
+H|D$hxD!
+0|D$h
+4L|D
+cb#i
+"{DZb
+IxDyD
+HIxDyD
+IxDyD
+$`@{D
+>+`bh%`
+AmB+@
+K{D[l
+K{D[l
+JzDRl
+AdB#@3`
+IxDyD
+XaK{D
+G_K{D\m
+kh*h
+JKLJ
+IKJI
+CKDI
+X=K{D
+G;K{D]m
++hjh
+j`#h
+ {D[j
+[iXBCA
+{D[l
+FKh@
+l`,`
+(N~D
+{D[l
+{D[l
+{DZl
+1Q`[l
+IxDyD
+`[K(`
+D5`&`
+XWK{D
+hL`\`b`"h
+hS`#h
+h]`JM}D
+c#hxD
+-hYhmh
+eFj`Q`
+"-hj`
+h-h-hj`
+hj`\`
+hihR
+X!K{D
+#ehc`
+XK{D
+.K.O/N{D
+AyDJa
+JxDyDzD
+IyDIi
+#`hF
+JyDxD
+M|D$hxD}D
+G#h(`
+G(e8
+K{DZk
+"Zc#h
+"Zc#h
+#+`3h
+nKqJ
+bh#h
+h[hK`Z`
+h[hS`"h
+hS`"h
+hS`"hS`
+XNK{D
+XHK{D
+DK{D
+G;L|Dcm
+4HxD
+|Demm
+(HxD
+.`j`
+K{DZk
+IxDyDy
+#3`s`;h
+h"`Zh
+2Z`9
+K{D
+#+`k`>K
+h2`Zh
+X0K{D
+G.L|D
+[hRh
+"]h9
+ h)h
+t`ch
+h`C`
+X`E`
+JxDyDzD
+pGpG
+`khC`h` 
+JyDxD
+YhQ`
+XhP`
+``+h
+ZhX`
+JyDxD11zD
+ @BpG
+ @BpG
+ZhB`X`(
+L|D 
+8CBXA8
+4!x)
++9KBKA
+#x0+
+rBrA
+BdA#
+JxDyDzD
+#sU4
+#cU 
+HJyDxD
+JyDxD
+JyDxD
+JyDxD*1zD
+x%+?
+g>rBVA
+JyDxD31zD
+JyDxD31zD
+JyDxD31zD
+JyDxD31zD
+IHJyDxDC1zD
+JyDxDC1zD
+JyDxDM1zD
+JyDxDM1zD
+JyDxDW1zD
+JyDxDa1zD
+JyDxDi1zD
+{Dv3
+JyDxDv1zD
+{Dv3
+JyDxD
+08{Dv3
+ @BpG
+HJyDxD
+JyDxD
+JyDxD'1zD
+JyDxD'1zD
+JyDxD;1zD
+JyDxD;1zD
+L|D5
+JyDxDH1zD
+JyDxDU1zD
+JyDxDU1zD
+!xDzD
+F0!IB
+DcD#p
+\!f'
+p_p
+ =^-
+02Zp"x
+JyDxD`1zD
+{Dv3I
+JyDxDl1zD
+{Dv3
+8!\I
+JyDxDv1zD
+JyDxD
+JyDxD
+IH
+JyDxD
+5iFjP
+JyDxD1zD
+IHJyDxD1zD
+#M}D4h
+JyDxD
+L|D 
+JyDxD&1zD
+JyDxD&1zD
+JyDxD31zD
+JyDxD31zD
+JyDxD=1zD
+JyDxD=1zD
+CBCA
+HJyDxDK1zD
+JyDxDK1zD
+CBXAp
+JyDxD\1zD
+JyDxD\1zD
+JyDxDm1zD
+|D$hx`
+1xa(
+`9izihF
+zinF
+h:a)
+xhiF
+9i|#xh
+i#h(
+}D-h
+#mF+U
+yhzi 
+CBXA
+JxDyDzD
++il`
+JyDxD
+&vBch0
+`ch*
+#sU0
+JyDxD)1zD
+JyDxDC1zD
+IxDyD
+ ` h1
+JyDxDY1zD
+% !
+JyDxDu1zD
+BhLh
+"a`ZT 
+JyDxD
+"e`ZU 
+JyDxD
+;xCU
+#hf`
+JyDxD'1zD
+IHJyDxD'1zD
+JyDxD'1zD
+JyDxD;1zD
+JyDxD;1zD
+JyDxDK1zD
+JyDxDK1zD
+JyDxD[1zD
+JyDxD[1zD
+JyDxDo1zD
+JyDxDo1zD
+JxDyDzD
+JxDyDzD
+JyDxD
+IHJyDxD
+JyDxD
+!^Uch"h
+JyDxD%1zD
+JyDxD%1zD
+JyDxD71zD
+JyDxDJ1zD
+ hBT"h
+JyDxD\1zD
+JyDxD\1zD
+C=pbh
+"hf`
+JyDxD
+IHJyDxD
+JyDxD 1zD
+JyDxD91zD
+Uf` 
+JyDxDQ1zD
+IHJyDxDQ1zD
+JyDxDQ1zD
+JyDxDh1zD
+#he`ZU 
+JyDxD{1zD
+JyDxD{1zD
+JyDxD{1zD
+JyDxD{1zD
+fh%h
+JyDxD
+fh%h
+JyDxD
+ah"h
+[x+B
+JyDxD01zD
+ah"h
+[x+B
+JyDxD>1zD
+ch hj
+JyDxDJ1zD
+JyDxDJ1zD
+|D$h#h
+D?h;h
+GK{DXh
+EKEL
+"{DZ`|D
+61x 
+{DX`;h
+!xDzD3
+HxD
+HxD
+K{DXh
+yDHh
+K{DXh
+yDHh
+iYipG
+ `gac`
+JxDyDzD
+JxDyDzD
+JxDyDzD
+JxDyDzD
+JyDxD
+JyDxD
+JyDxD
+JyDxD'1zD
+JyDxD'1zD
+JyDxD81zD
+JyDxD81zD
+x/+I
+#hZBSA
+#H#J
+!xDzD+
+JyDxDO1zD
+JyDxDO1zD
+JyDxDO1zD
+JyDxDa1zD
+IH
+JyDxDa1zD
+HJyDxDa1zD
+JyDxDv1zD
+IHJyDxDv1zD
+JyDxDv1zD
+JyDxD
+'}D-h
+H+h|DhD
+wHxD
+iHzD
+DKCJ
+""@a
+ @B)
+9hzh
+tKrJ
+{DZb
+|D h
+zDSb
+{DZb
+K{DXjCBXApG
+K{DXj@
+:`{`
+!xDzD
+IHJyDxD
+JyDxD
+JyDxD21zD
+JyDxDH1zD
+JyDxD\1zD
+DBDAdB
+HxD9
+|D#h
+YK{D[k
++h[h
+LHLM
+CHDN
+@IyD"i?H
+:HxD
+9HxD
+3K{D
+2HxD
+0HxD9
+.K.J/H/IzD{D
+xDyDs3
++K+J,H,IzD{D
+xDyDs3
++M}D+J
+ !zD3
+&L|D&IyD
+%IyD;x
+$K{D
+#K{D
+#K#H$J{DxD
+}DxD
+-h(h
+@DBDA
+-M}D
+,M}D,L|D"h
++H+J
+!xDzD
+%HxD
+!HxD!h
+CBCA
+H!h*
+CBCA
+H!h*
+iFA1
+ f)#
+HxD)
+*hyD;
+wHxD
+oidK{DXl
+&ii|D
+Gfb&`
+h3bch
+G !
+?K>J
+ aaa
+<L|D h
+!`:L|D
+2MPh
+|D h
+JyDxD
+{DZh
+1IyD
+63x/+
+M}D 
+JyDxD
+JyDxD
+JyDxD.1zD
+IHJyDxD.1zD
+K{DZh
+J|D%
+L5zD
+h{Ded
+"{DZc(`
+#{=+
+}K{D
+#|=+
+rK{D
+kK{D
+#+`|D
+KL|DKI 
+DK{D
+AK{D
+<H<J
+!xDzD#
+"{DZa
+"{DXa
+4{D\d
+zDQd
+NH9hxD
+-H.J
+!xDzD
+|D`l
+"I#H#JyDxD91zD
+!I"H"JyDxD91zD
+ I!H!JyDxD91zD
+I H JyDxD91zD
+Fe`L
+zDBP
+zDBP
+zDBP
+zDBP
+zDBP
+zDBP
+zDBP
+zDBP
+zDBP
+'_PxD
+!xDzD
++O+K
+X(K{D
+#Khh)h
+!M}D#h2h
+#3`#h
+G#hp`
+#3`#h
+K{DXh
+"M"K
+X K{D
+{DXh
+#L|D
+JxDyDzD
+JxDyDzD
+JxDyDzD
+JyDxD
+~D6h0h
+L|D$hch
+K{D
+G(hv
+IzD{D
+xDyD&3
+X2K{D
+0K{D
+*L|D%
+$HxD
+L|D%
+Gph3h
+IzD{D
+xDyDD3
+,L|D%
+&HxD
+"{D[k
+K{DYc
+L|D%
+JyDxDZ1zD
+JyDxDn1zD
+#N~D6h3h
+!MhF}D-h
+(1hF
+CBXA
+Kmh 
+JyDxD
+ ~D6h3h
+#MhF}D-h
+(1hF
+CBXA
+JyDxD
+;#b$
+JyDxD91zD
+D?h;h
+ MhF}D-h
+(1hF
+CBXA
+Kmh 
+JyDxDS1zD
+JyDxDp1zD
+JyDxD
+SL|D%
+LHxD
+GKK{D[k
+HK{D
+5L|D%
+/HxD
+%L|D%
+}D(l
+;h(d
+zh<K
+:L|D%
+4HxD
+*K{DZk^cra
+#L|D%
+JyDxD'1zD
+JyDxD'1zD
+MI 0yD81
+GDBDA
+;l 0
+>L|D%
+7HxD
+"{D[k
+1K{DYc
+(L|D%
+"HxD
+` K0
+JyDxD<1zD
+JyDxD<1zD
+JyDxD<1zD
+ N~D6h3m
+I 0yD81
+GCBCA
+JyDxDJ1zD
+JyDxDJ1zD
+JyDxDJ1zD
+>I>KyD
+X<K{D
+9K{D
+X+K1
+(K{D
+"L|D%
+M}Dkkncsa;h
+ a3h
+6L|D%
+/HxD
+,L|D!l
+3cd3`
+L|D%
+G1h{h
+2h;h
+M|D$h}D
+Gci(`
+G~Dh`
+#3`xD
+G3h(c
+JyDxD`1zD
+7N~D6h3h
+5M5O
+0}D-h
+D?hkh
+3#c 
+G b3h
+JyDxDv1zD
+%~D6h3h
+"K#O
+JyDxD
+"M}D-h+h
+ N O
+0~D6h
+D?hsh
+JyDxD31zD
+6N~D6h3h
+4M4O
+0}D-h
+D?hkh
+3cc 
+G`b3h
+JyDxDR1zD
+%~D6h3h
+!K"O
+JyDxDo1zD
+!M}D-h+h
+0~D6h
+D?hsh
+JyDxD
+##b`j
+#cb 
+JyDxD.1zD
+X_h\K
+[L|D%
+THxD
+{D\k
+GL|D%
+@HxD
+6L|D%
+G/K{D[k
+#L|D%
+JyDxDD1zD
+|D-Y
+<#YC
+ @B0
+G `a` 
+JyDxD01zD
+G `a`
+JyDxD@1zD
+JyDxDN1zD
+G `a`
+JyDxD[1zD
+ hah{D
+A `a`
+JyDxDi1zD
+JyDxDi1zD
+#K{D
+h"hch
+JyDxDz1zD
+YClF
+c`hF
+e` `
+JyDxD
+~D6h4h
+[x7h[
+0;CCjh
+(`2h?
++:QBJA-+
+<$gC
+<$DCd!8
+<#\C
+cB\A
+JyDxD
+IH
+JyDxD
+,hxD
+,hxD
+JyDxD11zD
+']\.
+hBhA
+JBJA
+JxDyDzD
+5@+C
+2e]@
+=+x3@
+#cU 
+DMDK
+X^h@K
+?L|D 
+9HxD
+G8L|D#j
+#3P"K
+L|D 
+|D$4 
+p`:HxD
+7IyDH
+X]h4K
+2L|D 
+-HxD
+#L|D 
+IyD(
+M}D0`(
+7@/C
+%?&mB
+|D$h
+iF#h
+|D$h
+iF#h
+JyDxD
+"{D0
+"{D0
+#`E
+"{D0
+JyDxD"1zD
+JyDxD21zD
+JyDxDB1zD
+&@>C
+'@>C
+'@>C
+'@7C
+&@>C
+!O>@
+CBXA
+^x2@
++xaF.
+! hIB
+JyDxDR1zD
+HIzD{D
+xDyDR3
+ @BpG
+d#YCQ
+HxDpG
+!xDzD
+;L<H<N|D$hxD~D!
+x- _/
+$~D+x
+JxDyDzD
+JyDxD
+ x/8DB`A
+JyDxD
+#x/+
+4#x/+
+JyDxD21zD
+#sU0
+JyDxDC1zD
+#`#h
+/#+p
+#kp(
+JyDxDV1zD
+VNVL
+~D6h|D3h
+RHxD
+MHxD
+KK{DX`JK{D[h
+GHxD
+EK{DX`EK{D[h
+BHxD
+{DX`
+#x/+
+##p:K{D[h
+7HxD
+6K{DX`
+1L|D
+ a,L
+|D#i
+)HxD
+ a&L|D
+%HxD
+`#L|D
+"HxD
+`hFd!
+K{DXa
+"N"K~D
+L|D%
+HxD 0
+L|D%
+HxD 0
+JzD
+zKzI
+"RByD
+ :QBQA
+sx/+(
+-HxD
++L|D(
+/#;p{
+JyDxD_1zD
+DB`Ap
+HJyDxDv1zD
+JyDxDv1zD
+JyDxD
+JyDxD
+%|D$h.
+K{DXh
+K{DXi
+"N"K~D
+L|D%
+HxDH0
+M}D+n
+$N$K
+L|D%
+HxDH0
+M}D(n
+;h(f
+'N'K~D
+X_h$K
+#L|D%
+HxDp0
+L|D%
+HxDp0
+-N-K
+(L|D%
+"HxDp0
+L|D%
+HxDp0
+!xDzD
+=O=K
+X^h:K
+8L|D%
+2HxD 0
+G1K{D
+/HxD
+'K{D
+%I&J
+#yDzD
+h"J#K
+zD{D 
+ K{D
+L|D%
+HxD 0
+&N&K~D
+"L|D%
+HxD 0
+L|D%
+HxD 0
+:O:K
+X^h7K
+6L|D%
+/HxD 0
+G.K{D
+-HxD
+$JzD
+L|D%
+HxD 0
+6N6K
+X_h3K
+1L|D%
++HxD 0
+G*L|D
+L|D%
+HxD 0
+X_h3K
+2L|D%
++HxD 0
+G*L|D
+#I i*
+L|D%
+HxD 0
+JyDxD
+1N1K~D
+X_h.K
+-L|D%
+&HxD 0
+G%K{D_i
+$HxD
+ HxD
+{DXa
+L|D%
+HxD 0
+1N1K~D
+X_h.K
+-L|D%
+&HxD 0
+G%K{D
+$HxD
+ HxD
+L|D%
+HxD 0
+JzD+
+JyDxD!1zD
+|D$h}D
+5#h(
+M}D4h
+yI0`
+"yD(
+rHsIxDyD
+pI(bpHyDxD
+|D j
+>H?J
+!xDzD
+{DZb
+(HxD
+CBXApG
+CBXApG
+h@hZ@KhC@
+CCBXApG
+h[hAh
+JyDxD<1zD
+JxDyDzD
+JyDxD
+JyDxD
+JyDxD
+JyDxD 1zD
+JyDxD 1zD
+##`
+JyDxD,1zD
+gJzD
+eHxD
+aL|D
+aL|D 
+x/>s
+/#KU
+3#` (
+#sU4
+M}D(
+@ #!
+!1C "
+0C 
+!1C ,
+2017-03-06 11:10:00 -0500
+24a0b084cdbb47baa11ad23b97d0b7968a1c5901
+1.4.10
+tv.alphonso.acr
+Rcvd filename: %s; dir: %s, Calling acr_init().
+Calling acr_destroy().
+ERROR from acr_lookup_octet(): %d.
+Error from acr_audio_fingerprint_octet(): %d.
+ERROR from acr_lookup_fingerprint(): %d.
+  frm: %d
+  samp: %d
+  bin: %d
+  found: %d
+  id: %d
+  pts: %d
+  avg: %.15f
+  sigma: %.15f
+  conf: %.15f
+  median: %.1f
+  merr: %.15f
+  cmp: %d
+  good: %d
+  horiz: %d
+  dup: %d
+  first: %d
+  loc: %.3f
+  ent: %d
+  grp: %d
+  len: %d
+References: %u  
+Ids: %u  
+Signatures: %u  
+Duplicates: %u  
+Sig Mem: %lu  
+Hash Tables: %u
+  Table %2u:  %7u
+bf_sig
+bf_hash
+h_hash
+# %7s  id: %u  %15s  Points: %u
+  Confidence: %.15f  Median: %.1f
+  Correlation: %.15f  y = %.15f + %.15f x
+# %7s
+# Reference: %s  %7s  %3u  %s
+%e %e
+%d, 
+%9.2e 
+Version: %s  
+Build: %d  
+Date: %s  
+Commit: %s  
+DB: %d  
+Algo: 0x%x  
+Shift: %u  
+fft: %u  
+Aud: %u  
+Barks: %u  
+BarkL: %.0f  
+BarkH: %.0f  
+Frame: %u  
+Multi: %u  
+Top: %u  
+Hash: %u  
+Seg: %u  
+Vote: %u  
+Avg: %.1e  
+Win: %d  
+Thr: %u  
+Crest: %.1e  
+Log dir: %s
+Active Tokens: 
+Frames: %u
+Fifo.head: %u
+Fifo.tail: %u
+JSON: %s
+%s/%s.audio.raw
+%s:%d  ID: %d Frame: %u Top coefficients found: %u/%u
+./src/algo.c
+Can't open %s for reading
+Read error, bad magic: "%s"
+Read error, ACR version, expected %s, got %s
+Read error, version, expected %u, got %zu
+Read error, config, expected 14, got %zu
+Read error, config checksum, expected %u, got %u
+Read error, permute header, expected 3, got %zu
+Read error, permute, expected %u, got %zu
+Read error, sig header, expected 6, got %zu
+Parameter mismatch  bits: %u/%u  size: %u/%u  seg: %u/%u
+Read error, fingerprint %u, expected %u, got %zu
+Read error, hash table size %u, expected 1, got %zu
+Read error, hash table entry %u ent: %u, expected 2, got %zu
+Read error, hash table value %u ent: %u, expected %u, got %zu
+Read error, JSON count %u, expected 1, got %zu
+Read error, JSON length %u %u, expected 3, got %zu
+Read error, JSON string %u %u, expected %u, got %zu
+Read error, marker string, expected %u, got %zu
+Real FFT optimization must be even.
+kiss fft usage error: improper alloc
+GLib
+array
+g_atomic_int_get (&rarray->ref_count) > 0
+index_ < array->len
+index_ + length <= array->len
+array != NULL
+unable to open pipe
+exec failed
+unable to fork
+backtrace
+p x = 0
+quit
+unable to fork gdb
+%s (pid:%u): %s%s%s: 
+[E]xit, [H]alt
+, show [S]tack trace
+ or [P]roceed
+(process:%u): %s%s: 
+mask == UNSAFE_ALL || mask == UNSAFE_ALLOW_PLUS || mask == UNSAFE_PATH || mask == UNSAFE_HOST || mask == UNSAFE_SLASHES
+glib/gconvert.c
+out - result <= len
+g_convert_error
+Invalid byte sequence in conversion input
+Conversion from character set '%s' to '%s' is not supported
+Could not open converter from '%s' to '%s'
+Error during conversion: %s
+Partial character sequence at end of input
+converter != (GIConv) -1
+str != NULL
+to_codeset != NULL
+from_codeset != NULL
+\u%04x
+\U%08x
+UTF-8
+Cannot convert fallback '%s' to codeset '%s'
+G_FILENAME_ENCODING
+@locale
+G_BROKEN_FILENAMES
+file:/
+The URI '%s' is not an absolute URI using the "file" scheme
+The local file URI '%s' may not include a '#'
+The URI '%s' is invalid
+The hostname of the URI '%s' is invalid
+The URI '%s' contains invalidly escaped characters
+The pathname '%s' is not an absolute path
+Invalid hostname
+file://
+filename != NULL
+glib/gdataset.c
+g_quark_seq_id == 0
+g_dataset_location_ht == NULL
+datalist != NULL
+dataset_location != NULL
+key_id > 0
+destroy_func == NULL
+func != NULL
+(flags & ~G_DATALIST_FLAGS_MASK) == 0
+format != NULL
+domain != 0
+message != NULL
+error != NULL
+GError set over the top of a previous GError or uninitialized memory.
+This indicates a bug in someone's code. You must ensure an error is NULL before it's set.
+The overwriting error message was: %s
+src != NULL
+g-file-error-quark
+Could not allocate %lu bytes to read file "%s"
+Error reading file '%s': %s
+File "%s" is too large
+glib/gfileutils.c
+f != NULL
+Failed to open file '%s': %s
+Failed to get attributes of file '%s': fstat() failed: %s
+Failed to read from file '%s': %s
+Failed to open file '%s': fdopen() failed: %s
+contents != NULL
+XXXXXX
+tmpl != NULL
+%s.XXXXXX
+Failed to create file '%s': %s
+Failed to open file '%s' for writing: fdopen() failed: %s
+Failed to write file '%s': fwrite() failed: %s
+Failed to write file '%s': fflush() failed: %s
+Failed to write file '%s': fsync() failed: %s
+Failed to close file '%s': fclose() failed: %s
+Failed to rename file '%s' to '%s': g_rename() failed: %s
+error == NULL || *error == NULL
+contents != NULL || length == 0
+length >= -1
+.XXXXXX
+Template '%s' invalid, should not contain a '%s'
+Template '%s' doesn't contain XXXXXX
+separator != NULL
+glib20
+%u byte
+%u bytes
+%.1f KB
+%.1f MB
+%.1f GB
+%.1f TB
+%.1f PB
+%.1f EB
+Failed to read the symbolic link '%s': %s
+ri != NULL
+ri->version == ri->hash_table->version
+ri->position >= 0
+ri->position < ri->hash_table->size
+hash_table != NULL
+hash_table->ref_count > 0
+iter != NULL
+predicate != NULL
+channel != NULL
+Invalid file descriptor.
+Buffer outside valid address space.
+en != EAGAIN
+line_term == NULL || length != 0
+(error == NULL) || (*error == NULL)
+glib/giochannel.c
+this_time > 0
+Partial character at end of write buffer not flushed.
+(status == G_IO_STATUS_NORMAL) || (read_size == 0)
+channel->read_buf->len > 0
+channel->encoded_read_buf
+inbuf + inbytes_left == channel->read_buf->str + channel->read_buf->len
+outbuf + outbytes_left == channel->encoded_read_buf->str + channel->encoded_read_buf->len
+inbuf != channel->read_buf->str
+errval != EBADF
+(status != G_IO_STATUS_NORMAL) || (channel->encoded_read_buf->len > 0)
+Can't do a raw read in g_io_channel_read_line_string
+Leftover unconverted data in read buffer
+Channel terminates in a partial character
+BUF_LEN (USE_BUF (channel)) != 0
+nextchar == lastchar
+Seek type G_SEEK_CUR not allowed for this channel's encoding.
+g_io_channel_seek_position: unknown seek type
+channel->is_seekable
+channel->encoded_read_buf->len == 0 || !channel->do_encode
+err == NULL || *err == NULL
+Error flushing string: %s
+Error closing channel: %s
+Need to have NULL encoding to set the buffering state of the channel.
+!channel->read_buf || channel->read_buf->len == 0
+!channel->write_buf || channel->write_buf->len == 0
+Need to set the channel buffered before setting the encoding.
+Assuming this is what you meant and acting accordingly.
+UTF8
+Could not open converter from '%s' to '%s': %s
+!channel->do_encode || !channel->encoded_read_buf || channel->encoded_read_buf->len == 0
+from_enc
+to_enc
+!did_encode
+str_return != NULL
+channel->is_readable
+USE_BUF (channel)
+buffer != NULL
+Can't do a raw read in g_io_channel_read_to_end
+buf != NULL
+status != G_IO_STATUS_NORMAL
+got_bytes > 0
+nextchar != prevchar
+got_bytes > 0 || count < 6
+channel->encoding != NULL
+Mixed reading and writing not allowed on encoded files
+Invalid UTF-8 passed to g_io_channel_write_chars().
+Illegal sequence due to partial character at the end of a previous write.
+channel->is_writeable
+count > 0
+channel->partial_write_buf[0] == '\0'
+space_in_buf >= MAX_CHAR_SIZE
+wrote_bytes == 0
+from_buf_old_len > 0
+incomplete_len < 6
+left_len < 6
+count == from_buf_len - from_buf_old_len
+from_buf_len - left_len >= from_buf_old_len
+Partial charater written before writing unichar.
+wrote_len == char_len || status != G_IO_STATUS_NORMAL
+g-io-channel-error-quark
+err != NULL
+g_io_channel_seek: unknown seek type
+bytes_written != NULL
+bytes_read != NULL
+sibling == NULL
+sibling == list
+DBUS_SESSION_BUS_ADDRESS
+HOSTNAME
+Cannot create wake up pipe: %s
+Cannot create a thread to monitor child exit status: %s
+glib/gmain.c
+g_thread_supported()
+glib/gmain.c:1515: ref_count == 0, but source is still attached to a context!
+source != NULL
+Idle source dispatched without callback
+You must call g_source_set_callback().
+Child watch source dispatched without callback
+You must call g_source_set_callback().
+Cannot create pipe main loop wake-up: %s
+context != NULL
+g_atomic_int_get (&context->ref_count) > 0
+source_funcs != NULL
+struct_size >= sizeof (GSource)
+source->context == NULL
+!SOURCE_DESTROYED (source)
+source->context != NULL
+fd != NULL
+callback_funcs != NULL || callback_data == NULL
+source->ref_count > 0
+funcs != NULL
+source_id > 0
+tag > 0
+result != NULL
+context->owner_count == 0
+acquired_context
+stack != NULL
+g_queue_peek_head (stack) == context
+g_main_context_prepare() called recursively from within a source's check() or prepare() member.
+g_main_context_prepare(): main loop already active in another thread
+g_main_context_check() called recursively from within a source's check() or prepare() member.
+source
+!SOURCE_BLOCKED (source)
+current->dispatching_sources == &current_source_link
+source->context == context
+poll(2) failed due to: %s.
+g_thread_supported ()
+loop != NULL
+g_atomic_int_get (&loop->ref_count) > 0
+g_main_loop_run() was called from second thread but g_thread_init() was never called.
+g_main_loop_run(): called recursively from within a source's check() or prepare() member, iteration not possible.
+got_ownership
+Timeout source dispatched without callback
+You must call g_source_set_callback().
+function != NULL
+realloc(%p, %u): memory has been freed %u times already
+free(%p): memory has been freed %u times already
+gc-friendly
+G_DEBUG
+ blocks of | allocated  | freed      | allocated  | freed      | n_bytes   
+  n_bytes  | n_times by | n_times by | n_times by | n_times by | remaining 
+           | malloc()   | free()     | realloc()  | realloc()  |           
+===========|============|============|============|============|===========
+%10u | %10ld | %10ld | %10ld | %10ld |%+11ld
+   >%6u | %10ld | %10ld | %10ld | %10ld |        ***
+ --- none ---
+%s: failed to allocate %u bytes
+glib/gmem.c:170
+glib/gmem.c:202
+glib/gmem.c:239
+%s: overflow allocating %u*%u bytes
+glib/gmem.c:378
+glib/gmem.c:405
+glib/gmem.c:434
+glib/gmem.c:569: memory allocation vtable lacks one of malloc(), realloc() or free()
+glib/gmem.c:572: memory allocation vtable can only be set once at startup
+GLib Memory statistics (successful operations):
+GLib Memory statistics (failing operations):
+Total bytes: allocated=%u, zero-initialized=%u (%.2f%%), freed=%u (%.2f%%), remaining=%u
+atom_size > 0
+mem_chunk != NULL
+GAllocator is deprecated
+[Invalid UTF-8] 
+\x%02x
+GLib: Cannot convert message: %s
+GLib-NULL
+(NULL) message
+ERROR
+CRITICAL
+WARNING
+Message
+INFO
+DEBUG
+LOG-
+ (recursed)
+(process:
+aborting...
+G_MESSAGES_PREFIXED
+file %s: line %d (%s): assertion failed: (%s)
+file %s: line %d (%s): should not be reached
+ runtime check failed: (
+code should not be reached
+%s: assertion `%s' failed
+(log_levels & G_LOG_LEVEL_MASK) != 0
+log_func != NULL
+%s: could not find handler with id `%d' for domain "%s"
+glib/gmessages.c:430
+handler_id > 0
+error
+critical
+warning
+message
+info
+debug
+fatal_warnings
+fatal_criticals
+pspec != NULL
+string != NULL
+pspec->match_type < G_MATCH_LAST
+pattern != NULL
+pspec1 != NULL
+pspec2 != NULL
+total_elems >= 0
+pbase != NULL || total_elems == 0
+compare_func != NULL
+queue != NULL
+link != NULL
+link->prev == NULL
+link->next == NULL
+link_ != NULL
+glib/gqueue.c
+queue->head
+queue->tail
+sibling != NULL
+G_RANDOM_VERSION
+Unknown G_RANDOM_VERSION "%s". Using version 2.2.
+rand != NULL
+glib/grand.c
+seed_length >= 1
+/dev/urandom
+end > begin
+***MEMORY-ERROR***: 
+%s[%ld]: GSlice: 
+G_SLICE
+assertion failed: %s
+sys_page_size == 0
+sys_page_size >= 2 * LARGEALIGNMENT
+(sys_page_size & (sys_page_size - 1)) == 0
+sinfo->n_allocated > 0
+GSlice: MemChecker: attempt to release non-allocated block: %p size=%u
+GSlice: MemChecker: attempt to release block with invalid size: %p size=%u invalid-size=%u
+failed to allocate %u bytes (alignment: %u): %s
+aligned_memory == (gpointer) addr
+n_values != NULL
+MemChecker: failure in debugging tree: %s
+index <= branch->n_entries
+always-malloc
+debug-blocks
+nptr != NULL
+dest != NULL
+format[0] == '%'
+strpbrk (format + 1, "'l%") == NULL
+format_char == 'e' || format_char == 'E' || format_char == 'f' || format_char == 'F' || format_char == 'g' || format_char == 'G'
+%.17g
+unknown error (%d)
+unknown signal (%d)
+s1 != NULL
+s2 != NULL
+_-|> <.
+valid_chars != NULL
+g_strcompress: trailing \
+delimiter != NULL
+delimiter[0] != '\0'
+delimiters != NULL
+str_array != NULL
+haystack != NULL
+needle != NULL
+suffix != NULL
+prefix != NULL
+chunk != NULL
+len == 0 || val != NULL
+pos <= string->len
+val != NULL
+rval != NULL
+unescaped != NULL
+pos >= 0
+pos + len <= string->len
+failed to read() from child process (%d): %s
+R02S
+Unknown or invalid random seed: %s
+none
+binary
+list
+skip
+start
+stop
+minperf
+maxperf
+test_name != NULL
+strchr (test_name, '/') == NULL
+test_name[0] != 0
+data_test != NULL
+suite_name != NULL
+strchr (suite_name, '/') == NULL
+suite_name[0] != 0
+root
+suite != NULL
+test_case != NULL
+nestedsuite != NULL
+invalid test case path: %s
+testpath != NULL
+testpath[0] == '/'
+fixture_test_func != NULL
+test_func != NULL
+destroy_func != NULL
+failed to create pipes to fork test program: %s
+failed to fork test program: %s
+/dev/null
+failed to dup2() in forked test program: %s
+Unexpected error in select() while reading from child process (%d): %s
+corrupt log stream from test program
+tbuffer != NULL
+bytes != NULL
+tmsg != NULL
+FAIL
+GTest: random seed: %s
+GTest: result: %s
+(MINPERF:%s)
+(MAXPERF:%s)
+(MSG: %s)
+{*LOG(%s)
+:{%s}
+%s%.16Lg
+:LOG*}
+GTest: run: %s
+%s: 
+glib/gtestutils.c
+msg != NULL
+lbuffer->data->len == 0
+ERROR:
+failed to match
+contains invalid match
+child process failed to exit after g_test_trap_fork() and before g_test_trap_assert*()
+child process (%d) of test trap failed unexpectedly
+child process (%d) did not fail as expected
+stdout of child process (%d) %s: %s
+stderr of child process (%d) %s: %s
+assertion failed 
+(%s == (%s, %d)): 
+(%s == NULL): 
+%s (%s, %d)
+%s is NULL
+NULL
+assertion failed (%s): (%s %s %s)
+assertion failed (%s): (%.0Lf %s %.0Lf)
+assertion failed (%s): (0x%08llx %s 0x%08llx)
+assertion failed (%s): (%.9Lg %s %.9Lg)
+assertion failed: (
+g_test_config_vars->test_initialized
+g_test_run_once == TRUE
+Bug Reference: %s
+Bug Reference: %s%s
+test_uri_base != NULL
+bug_uri_snippet != NULL
+R02S%08x%08x%08x%08x
+--g-fatal-warnings
+--keep-going
+--debug-log
+--GTestLogFD
+--GTestLogFD=
+--GTestSkipCount
+--GTestSkipCount=
+perf
+slow
+thorough
+quick
+unknown test mode: -m %s
+--quiet
+--verbose
+--seed
+--seed=
+--help
+Usage:
+  %s [OPTION...]
+Help Options:
+  -?, --help                     Show help options
+Test Options:
+  -l                             List test cases available in a test executable
+  -seed=RANDOMSEED               Provide a random seed to reproduce test
+                                 runs using random numbers
+  --verbose                      Run tests verbosely
+  -q, --quiet                    Run tests quietly
+  -p TESTPATH                    execute all tests matching TESTPATH
+  -m {perf|slow|thorough|quick}  Execute tests according modes
+  --debug-log                    debug test logging output
+  -k, --keep-going               gtester-specific argument
+  --GTestLogFD=N                 gtester-specific argument
+  --GTestSkipCount=N             gtester-specific argument
+random numbers are not GRand-2.2 compatible, seeds may be broken (check $G_RANDOM_VERSION)
+argc != NULL
+argv != NULL
+g_test_config_vars->test_initialized == FALSE
+vararg1 == NULL
+FATAL-
+RECURSIVE-
+MESSAGE
+The thread system is not yet initialized.
+g_thread_error
+g_atomic_pointer_get (value_location) == NULL
+initialization_value != 0
+g_once_init_list != NULL
+mutex
+glib/gthread.c
+g_once_mutex
+data
+func
+priority <= G_THREAD_PRIORITY_URGENT
+thread
+thread->joinable
+!g_system_thread_equal (real->system_thread, zero_thread)
+lock
+thread_func != NULL
+timer != NULL
+timer->active == FALSE
+time_->tv_usec >= 0 && time_->tv_usec < G_USEC_PER_SEC
+iso_date != NULL
+time_ != NULL
+%4d-%02d-%02dT%02d:%02d:%02d.%06ldZ
+%4d-%02d-%02dT%02d:%02d:%02dZ
+p != NULL || max == 0
+US-ASCII
+CHARSET
+Character out of range for UTF-8
+Invalid sequence in conversion input
+Character out of range for UTF-16
+name != NULL
+glib/gutf8.c
+g_utf8_validate (string->str, -1, NULL)
+GLib version too old (major mismatch)
+GLib version too new (major mismatch)
+GLib version too new (micro mismatch)
+GLib version too old (micro mismatch)
+Could not register atexit() function: %s
+help
+Supported debug values: 
+:;, 
+file_name != NULL
+variable != NULL
+localhost
+TMPDIR
+TEMP
+/tmp/
+/tmp
+HOME
+somebody
+Unknown
+XDG_CONFIG_HOME
+.config
+user-dirs.dirs
+XDG_DESKTOP_DIR
+XDG_DOCUMENTS_DIR
+XDG_DOWNLOAD_DIR
+XDG_MUSIC_DIR
+XDG_PICTURES_DIR
+XDG_PUBLICSHARE_DIR
+XDG_TEMPLATES_DIR
+XDG_VIDEOS_DIR
+$HOME
+/bin:/usr/bin:.
+PATH
+program != NULL
+strchr (variable, '=') == NULL
+g_set_application_name() called multiple times
+XDG_DATA_HOME
+.local
+share
+XDG_CACHE_HOME
+.cache
+Desktop
+directory >= G_USER_DIRECTORY_DESKTOP && directory < G_USER_N_DIRECTORIES
+/usr/local/share/:/usr/share/
+XDG_DATA_DIRS
+/etc/xdg
+XDG_CONFIG_DIRS
+locale != NULL
+LANGUAGE
+LC_ALL
+LC_MESSAGES
+LANG
+/usr/share/locale/locale.alias
+Too many alias levels for a locale, may indicate a loop
+nullify_location != NULL
+n == 0 || string != NULL
+CHARSETALIASDIR
+charset.alias
+%50s %50s
+LC_CTYPE
+ASCII
+g_array_ref
+g_array_get_element_size
+g_array_free
+g_array_unref
+g_array_append_vals
+g_array_prepend_vals
+g_array_insert_vals
+g_array_set_size
+g_array_remove_index
+g_array_remove_index_fast
+g_array_remove_range
+g_array_sort
+g_array_sort_with_data
+g_ptr_array_set_free_func
+g_ptr_array_ref
+g_ptr_array_remove_index
+g_ptr_array_remove_index_fast
+g_ptr_array_remove_range
+g_ptr_array_set_size
+g_ptr_array_remove
+g_ptr_array_remove_fast
+g_ptr_array_add
+g_ptr_array_sort
+g_ptr_array_sort_with_data
+g_ptr_array_foreach
+g_ptr_array_free
+g_ptr_array_unref
+g_byte_array_remove_range
+?  (
+,????*(??
+??????????8  ,  8??????????????????????????    ? ??????????????????????????   ? 0123456789ABCDEFg_escape_uri_string
+g_unescape_uri_string
+g_convert_with_iconv
+g_convert
+g_convert_with_fallback
+g_filename_to_uri
+g_filename_display_basename
+g_quark_new
+g_data_initialize
+g_datalist_clear
+g_dataset_destroy
+g_datalist_id_set_data_full
+g_dataset_id_remove_no_notify
+g_datalist_id_remove_no_notify
+g_dataset_id_get_data
+g_datalist_id_get_data
+g_dataset_foreach
+g_datalist_foreach
+g_datalist_init
+g_dataset_id_set_data_full
+g_datalist_set_flags
+g_datalist_unset_flags
+g_datalist_get_flags
+g_error_new
+g_error_new_literal
+g_error_free
+g_error_copy
+g_propagate_error
+get_contents_stdio
+g_file_get_contents
+ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+g_mkstemp_full
+g_file_set_contents
+g_build_path
+iter_remove_or_steal
+g_hash_table_insert_internal
+g_hash_table_remove_internal
+g_hash_table_iter_init
+g_hash_table_iter_next
+g_hash_table_iter_get_hash_table
+g_hash_table_ref
+g_hash_table_unref
+g_hash_table_lookup
+g_hash_table_lookup_extended
+g_hash_table_remove_all
+g_hash_table_destroy
+g_hash_table_steal_all
+g_hash_table_foreach_remove
+g_hash_table_foreach_steal
+g_hash_table_foreach
+g_hash_table_find
+g_hash_table_size
+g_hash_table_get_keys
+g_hash_table_get_values
+g_io_channel_ref
+g_io_create_watch
+g_io_add_watch_full
+g_io_channel_error_from_errno
+g_io_channel_set_buffer_size
+g_io_channel_get_buffer_size
+g_io_channel_set_line_term
+g_io_channel_get_line_term
+g_io_channel_set_flags
+g_io_channel_get_flags
+g_io_channel_set_close_on_unref
+g_io_channel_get_close_on_unref
+g_io_channel_flush
+g_io_channel_fill_buffer
+g_io_channel_read_line_backend
+g_io_channel_seek_position
+g_io_channel_shutdown
+g_io_channel_purge
+g_io_channel_close
+g_io_channel_unref
+g_io_channel_set_buffered
+g_io_channel_get_buffered
+g_io_channel_set_encoding
+g_io_channel_get_encoding
+g_io_channel_read_line
+g_io_channel_read_line_string
+g_io_channel_read_to_end
+g_io_channel_read_chars
+g_io_channel_read_unichar
+g_io_channel_write_chars
+g_io_channel_write_unichar
+g_io_error_get_from_g_error
+g_io_channel_seek
+g_io_channel_write
+g_io_channel_read
+g_list_insert_sorted_real
+g_list_insert_before
+g_list_find_custom
+g_child_watch_source_init_multi_threaded
+g_source_unref_internal
+g_main_context_ref
+g_main_context_unref
+g_source_new
+g_source_attach
+g_source_destroy
+g_source_get_id
+g_source_get_context
+g_source_add_poll
+g_source_remove_poll
+g_source_set_callback_indirect
+g_source_set_callback
+g_source_set_funcs
+g_source_set_priority
+g_source_get_priority
+g_source_set_can_recurse
+g_source_get_can_recurse
+g_source_set_name
+g_source_get_name
+g_source_ref
+g_source_unref
+g_main_context_find_source_by_id
+g_source_set_name_by_id
+g_main_context_find_source_by_funcs_user_data
+g_source_remove
+g_source_remove_by_funcs_user_data
+g_get_current_time
+g_main_context_acquire
+g_main_context_push_thread_default
+g_main_context_pop_thread_default
+g_main_context_wait
+g_main_dispatch
+block_source
+unblock_source
+g_main_context_iterate
+g_main_loop_ref
+g_main_loop_unref
+g_main_loop_run
+g_main_loop_quit
+g_main_loop_is_running
+g_main_loop_get_context
+g_main_context_add_poll
+g_main_context_remove_poll
+g_source_get_current_time
+g_main_context_set_poll_func
+g_main_context_get_poll_func
+g_main_context_wakeup
+g_timeout_add_full
+g_timeout_add_seconds_full
+g_timeout_add_seconds
+g_child_watch_add_full
+g_idle_add_full
+g_mem_chunk_new
+g_mem_chunk_destroy
+g_mem_chunk_alloc
+g_mem_chunk_alloc0
+g_mem_chunk_free
+g_printerr
+g_print
+g_log_set_handler
+g_log_remove_handler
+g_pattern_match
+g_pattern_spec_new
+g_pattern_spec_free
+g_pattern_spec_equal
+g_pattern_match_string
+g_pattern_match_simple
+g_qsort_with_data
+g_queue_free
+g_queue_init
+g_queue_clear
+g_queue_is_empty
+g_queue_get_length
+g_queue_reverse
+g_queue_foreach
+g_queue_find
+g_queue_find_custom
+g_queue_sort
+g_queue_push_head
+g_queue_push_head_link
+g_queue_push_tail
+g_queue_copy
+g_queue_push_tail_link
+g_queue_pop_head
+g_queue_pop_head_link
+g_queue_peek_head_link
+g_queue_peek_tail_link
+g_queue_pop_tail
+g_queue_pop_tail_link
+g_queue_peek_nth_link
+g_queue_push_nth_link
+g_queue_link_index
+g_queue_unlink
+g_queue_pop_nth_link
+g_queue_delete_link
+g_queue_pop_nth
+g_queue_peek_head
+g_queue_peek_tail
+g_queue_peek_nth
+g_queue_index
+g_queue_remove
+g_queue_remove_all
+g_queue_insert_before
+g_queue_push_nth
+g_queue_insert_after
+g_queue_insert_sorted
+g_rand_free
+g_rand_copy
+g_rand_set_seed
+g_rand_set_seed_array
+g_rand_int
+g_rand_int_range
+g_slice_set_config
+g_slice_get_config_state
+g_slist_insert_sorted_real
+g_slist_insert_before
+g_slist_find_custom
+g_parse_long_long
+g_stpcpy
+g_ascii_strtod
+g_strtod
+g_ascii_formatd
+g_strlcpy
+g_strlcat
+g_strdown
+g_strup
+g_strreverse
+g_ascii_strdown
+g_ascii_strup
+g_ascii_strcasecmp
+g_ascii_strncasecmp
+g_strcasecmp
+g_strdelimit
+g_strcanon
+g_strescape
+g_strchug
+g_strchomp
+g_strsplit
+g_strsplit_set
+g_strjoinv
+g_strstr_len
+g_strrstr
+g_strrstr_len
+g_str_has_suffix
+g_str_has_prefix
+g_strv_length
+g_string_chunk_free
+g_string_chunk_clear
+g_string_chunk_insert_len
+g_string_chunk_insert
+g_string_chunk_insert_const
+g_string_free
+g_string_truncate
+g_string_set_size
+g_string_insert_len
+g_string_append
+g_string_assign
+g_string_append_len
+g_string_prepend
+g_string_prepend_len
+g_string_insert
+g_string_insert_c
+g_string_prepend_c
+g_string_append_c
+g_string_append_uri_escaped
+0123456789ABCDEFg_string_insert_unichar
+g_string_prepend_unichar
+g_string_append_unichar
+g_string_overwrite_len
+g_string_overwrite
+g_string_erase
+g_string_ascii_down
+g_string_ascii_up
+g_string_down
+g_string_up
+g_string_append_vprintf
+g_test_create_case
+g_test_create_suite
+g_test_suite_add
+g_test_suite_add_suite
+g_test_add_vtable
+g_test_add_data_func
+g_test_add_func
+g_test_queue_destroy
+g_test_log_buffer_push
+g_test_log_buffer_pop
+g_test_log_msg_free
+g_test_log_buffer_free
+g_test_log_send
+g_test_run_suite_internal
+g_test_run_suite
+g_test_bug
+g_test_init
+g_once_init_leave
+g_static_mutex_init
+g_static_mutex_get_mutex_impl
+g_thread_create_proxy
+g_static_mutex_free
+g_static_rec_mutex_init
+g_static_rec_mutex_lock
+g_static_rec_mutex_trylock
+g_static_rec_mutex_unlock
+g_static_rec_mutex_lock_full
+g_static_rec_mutex_unlock_full
+g_static_rec_mutex_free
+g_thread_create_full
+g_thread_join
+g_thread_set_priority
+g_static_rw_lock_init
+g_static_rw_lock_reader_lock
+g_static_rw_lock_reader_trylock
+g_static_rw_lock_reader_unlock
+g_static_rw_lock_writer_lock
+g_static_rw_lock_writer_trylock
+g_static_rw_lock_writer_unlock
+g_static_rw_lock_free
+g_thread_foreach
+g_timer_destroy
+g_timer_start
+g_timer_stop
+g_timer_reset
+g_timer_continue
+g_timer_elapsed
+g_time_val_add
+g_time_val_from_iso8601
+g_time_val_to_iso8601
+g_utf8_strlen
+g_utf8_to_ucs4_fast
+g_utf16_to_utf8
+g_utf16_to_ucs4
+g_utf8_to_utf16
+_g_utf8_make_valid
+g_basename
+g_path_get_basename
+g_path_is_absolute
+g_path_skip_root
+g_path_get_dirname
+g_getenv
+g_find_program_in_path
+g_setenv
+g_unsetenv
+g_get_user_special_dir
+_g_compute_locale_variants
+g_nullify_pointer
+g_vprintf
+g_vfprintf
+g_vsprintf
+g_vsnprintf
+g_vasprintf
+MbP?
+AlphonsoACR     
+GCC: (GNU) 4.6 20120106 (prerelease)
+gold 1.10
+aeabi
+.shstrtab
+.dynsym
+.dynstr
+.hash
+.rel.dyn
+.rel.plt
+.text
+.ARM.extab
+.ARM.exidx
+.rodata
+.data.rel.ro.local
+.fini_array
+.init_array
+.dynamic
+.got
+.data
+.bss
+.comment
+.note.gnu.gold-version
+.ARM.attributes
