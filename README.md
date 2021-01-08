@@ -10,6 +10,6 @@
 
 
 ### Application examples
-- [Alphonso Automated Content Recognition](./Alphonso.md) (Content recognition on TV)
+- [Alphonso Automated Content Recognition](./alphonso.md) (Content recognition on TV)
 - SilverPush (UltraSound synchronisation between TV Ad and Phone)
 
