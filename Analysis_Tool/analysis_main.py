@@ -8,23 +8,37 @@ def main():
     global APK_name
     global apktool_dir
     while True:
-        print("\n\n==MAIN==")
+        print("============================================")
+        print("Analysis tool for Android Eavesdropping apps")
+        print("============================================")        
         if check_valid(APK_name):
             print("APK: "+APK_name)
         if check_valid(apktool_dir):
-            print("Apktool Dir: "+apktool_dir)
+            print("Apktool Dir: "+apktool_dir+"/")
+
         print("")
-        print("1. Import APK")
-        print("2. Apktool Disassembly")
-        print("3. Application Permissions")
-        print("4. Native libraries")
-        print("0. Quit")
+        print("[1] Import APK")
+        if check_valid(APK_name):
+            print("[2] Apktool Disassembly")
+        else:
+            print("[/] Apktool Disassembly")
+        if check_valid(apktool_dir):
+            print("[3] Package name")
+            print("[4] Application Permissions")
+            print("[5] Native libraries")
+        else:
+            print("[/] Package name")
+            print("[/] Application Permissions")
+            print("[/] Native libraries")
+        print("[0] Quit")
         print("")
         select = int(input("> "))
 
         ## IMPORT APK
         if (select==1):
-            APK_name = import_apk()
+            res = import_apk()
+            if res!='':             ## In case the user leaves the Import without selecting any
+                APK_name = res
 
         ## APKTOOL DISASSEMBLY
         if (select==2):                                
@@ -35,8 +49,16 @@ def main():
                 apktool_dir = apktool_disass()
                 print("DIR: ",apktool_dir)
         
-        ## APPLICATION PERMISSIONS
+        ## PACKAGE NAME
         if (select==3):
+            if not check_valid(apktool_dir):
+                print ("False")
+                os.system('clear')   
+            else:     
+                manifest_package()
+
+        ## APPLICATION PERMISSIONS
+        if (select==4):
             if not check_valid(apktool_dir):
                 print ("False")
                 os.system('clear')   
@@ -44,7 +66,7 @@ def main():
                 manifest_permissions()
             
         ## NATIVE LIBRARIES
-        if (select==4):
+        if (select==5):
             if not check_valid(apktool_dir):
                 print ("False")
                 os.system('clear')   
@@ -63,11 +85,13 @@ def main():
 
 
 def import_apk():
+    print("=== Import APK File ===")
     while True:
         apk_name = input('APK file: ')
         # String empty --> go to Main()
         if not apk_name:
-            print("\n")
+            os.system('clear')       
+            return ''
             break
             
         # File does not exist
@@ -97,7 +121,7 @@ def check_valid(name):
 
 
 
-## APKTOOL
+# APKTOOL DISASSEMBLY
 def apktool_disass():
     global APK_name
     try:
@@ -114,7 +138,7 @@ def apktool_disass():
 
 
 
-## PERMISSIONS CHECK IN MANIFEST
+# PERMISSIONS CHECK IN MANIFEST
 def manifest_permissions():
     global apktool_dir
     global output_file
@@ -137,9 +161,34 @@ def manifest_permissions():
     input()    
     os.system('clear')       
 
+#### Not in Use
+# PACKAGE CHECK IN MANIFEST
+def manifest_package():
+    global apktool_dir
+    global output_file
+    manifest=apktool_dir+"/AndroidManifest.xml"
+    if not os.path.isfile(manifest):
+        print("No manifest found")
+        return
+
+    print("\n===== Package name =====")
+    with open(manifest, 'r') as file:
+        outFile=open(output_file,'w')
+        outFile.write("\n=====PACKAGE=====\n")
+        first_line=file.readline()
+        first_line=first_line[first_line.find('package="'):]
+        first_line=first_line[first_line.find('"'):]
+        first_line=first_line[:first_line.find('" ')][1:]
+        print(first_line)
+        outFile.write(first_line)
+        outFile.write("\n")
+        outFile.close()
+    input()    
+    os.system('clear')       
+
 
     
-## NATIVE FILES IN MANIFEST
+# NATIVE FILES IN MANIFEST
 def native_lib():
 
     global apktool_dir
@@ -154,6 +203,7 @@ def native_lib():
     input()    
     os.system('clear')       
 
+
     
 
 
@@ -163,13 +213,12 @@ def native_lib():
 
 
 if __name__ == "__main__":
-    APK_name = "honey"      ############# NULLIFY TO RESET
-    apktool_dir  = "honey.out"  ############# NULLIFY TO RESET
+    APK_name=""
+    apktool_dir=""
+    #APK_name = "honey"      ############# NULLIFY TO RESET
+    #apktool_dir  = "honey.out"  ############# NULLIFY TO RESET
 
     output_file="output.txt"
     os.system('clear')       
-    print("============================================")
-    print("Analysis tool for Android Eavesdropping apps")
-    print("============================================")
     main()
 

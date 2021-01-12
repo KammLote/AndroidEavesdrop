@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:id="@id/alphonso_ad_banner" android:background="@android:color/black" android:layout_width="320.0dip" android:layout_height="50.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="?android:textAppearanceLarge" android:textStyle="bold" android:textColor="@android:color/white" android:gravity="center" android:id="@id/alphonso_ad_banner_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/alphonso_default_title" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
-    <ImageView android:id="@id/alphonso_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/poweredbylogo" android:layout_below="@id/alphonso_ad_banner_text" android:layout_centerHorizontal="true" android:contentDescription="@string/alphonso_logo" />
-</RelativeLayout>
