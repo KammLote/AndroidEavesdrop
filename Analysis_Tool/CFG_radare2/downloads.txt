@@ -1,0 +1,29 @@
+####################
+RADARE2 Installation
+####################
+
+	$ git clone https://github.com/radareorg/radare2
+	$ cd radare2 ; sys/install.sh
+
+
+In case of issues:
+	$ sudo make purge
+	$ rm -rf shlr/capstone
+	$ git clean -xdf
+	$ git reset --hard @~50
+	$ sys/install.sh
+
+
+
+#####################
+GRAPHVIZ Installation
+#####################
+
+	$ sudo apt install graphviz
+
+
+########################
+IMAGEMAGICK Installation
+########################
+
+	$ sudo apt-get install imagemagick

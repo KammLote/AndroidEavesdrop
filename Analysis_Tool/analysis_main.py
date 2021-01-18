@@ -32,7 +32,12 @@ def main():
             print("[/] Native libraries")
         print("[0] Quit")
         print("")
-        select = int(input("> "))
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
 
         ## IMPORT APK
         if (select==1):
@@ -71,16 +76,27 @@ def main():
                 print ("False")
                 os.system('clear')   
             else:     
-                native_lib()
-
-
+                list_native_lib()
+        
+# TO REMOOOOOOOVE
+        if (select==6): binary_disassembly_list("libmain.so")
 
         if (select==0):
             if check_valid(apktool_dir):
                 print("Removing Junk")
-                os.system("rm -r "+ apktool_dir) 
+                subprocess.run(["rm", "-r", apktool_dir]) 
             os.system('clear')       
             sys.exit(0)
+
+        os.system('clear')   
+
+
+
+def check_valid(name):
+    if not(name):
+        return False
+    else:
+        return True
 
 
 
@@ -111,27 +127,17 @@ def import_apk():
     return apk_name
 
 
-
-def check_valid(name):
-    if not(name):
-        return False
-    else:
-        return True
-
-
-
-
 # APKTOOL DISASSEMBLY
 def apktool_disass():
     global APK_name
     try:
-        os.system("apktool -f d "+ APK_name)
+        subprocess.run(['apktool', '-f', 'd', APK_name])
+        all_subdirs = [d for d in os.listdir('.') if os.path.isdir(d)]
+        latest_subdir = max(all_subdirs, key=os.path.getmtime)
+        print("\nAPKTOOL disassembled the APK in subdirectory: "+latest_subdir)
     except:
         print("ERROR running APKTOOL")
-    all_subdirs = [d for d in os.listdir('.') if os.path.isdir(d)]
-    latest_subdir = max(all_subdirs, key=os.path.getmtime)
-    print (latest_subdir)
-    print("\nAPKTOOL disassembled the APK in subdirectory: "+latest_subdir)
+   
     input()    
     os.system('clear')   
     return latest_subdir
@@ -149,7 +155,7 @@ def manifest_permissions():
 
     print("\n===== Permissions =====")
     with open(manifest, 'r') as file:
-        outFile=open(output_file,'w')
+        outFile=open(output_file,'a+')
         outFile.write("\n=====PERMISSIONS=====\n")
         for line in file:
             if "uses-permission" in line:
@@ -173,7 +179,7 @@ def manifest_package():
 
     print("\n===== Package name =====")
     with open(manifest, 'r') as file:
-        outFile=open(output_file,'w')
+        outFile=open(output_file,'a+')
         outFile.write("\n=====PACKAGE=====\n")
         first_line=file.readline()
         first_line=first_line[first_line.find('package="'):]
@@ -189,7 +195,7 @@ def manifest_package():
 
     
 # NATIVE FILES IN MANIFEST
-def native_lib():
+def list_native_lib():
 
     global apktool_dir
     global output_file
@@ -197,14 +203,67 @@ def native_lib():
     print("\n===== Native Libraries =====\n")
 
     files = subprocess.check_output('find '+ libraries_dir+ ' -type f', shell=True, universal_newlines=True).splitlines()
+    counter=0
+    library_list=[]
     for line in range (len(files)):
         file=files[line]
-        print("Name: "+file.replace(apktool_dir+'/',''), "\nSize: ", os.stat(file).st_size,'\n')
-    input()    
+        counter+=1
+        print("["+str(counter)+"]\nName: "+file.replace(apktool_dir+'/',''), "\nSize: ", os.stat(file).st_size,'\n')
+        library_list.append(file)
+    
+
+    try:
+        while True:
+            lib_num=int(input("\nInput name for Disassembly (Enter to exit): "))
+            if (1<=lib_num<=counter): binary_disassembly(library_list[lib_num-1]); break
+            
+    except:
+        print("Wrong format: return")
     os.system('clear')       
 
 
+
+
+
+
+# DISASSEMBLY OF BINARY FILES (native files disass)
+def binary_disassembly(file):
+    h,filename = os.path.split(file)
+    subprocess.run(['cp', file, filename])
+    while True:
+        os.system('clear')       
+        print("\n=== BINARY DISASSEMBLY ===\nBinary File: ",file,"\n")
+        print("[1] Functions list \n[2] Display Global Callgraph \n[3] Display function Callgraph \n[0] Exit\n")
+
+
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            subprocess.run(['rm', filename])
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            subprocess.run(['rm', filename])
+            break
+        if (select==1): 
+            binary_disassembly_list(filename)
+        if (select==2): 
+            binary_disassembly_cfg(filename)
+            
+    os.system('clear')     
+
+def binary_disassembly_list(filename):
+    subprocess.run(['./CFG_radare2/script.sh -n %s -l' % filename], shell=True)
+    input("Press a key to leave: ")
+
+def binary_disassembly_cfg(filename):
+    subprocess.run(['./CFG_radare2/script.sh -n %s -c' % filename], shell=True)
+    input("Press a key to leave: ")
     
+
 
 
 
@@ -215,10 +274,13 @@ def native_lib():
 if __name__ == "__main__":
     APK_name=""
     apktool_dir=""
-    #APK_name = "honey"      ############# NULLIFY TO RESET
-    #apktool_dir  = "honey.out"  ############# NULLIFY TO RESET
+    #APK_name = "honey.apk"      ######## NULLIFY TO RESET
+    #apktool_dir  = "honey"      ######## NULLIFY TO RESET
 
     output_file="output.txt"
+    outFile=open(output_file,'w+')
+    outFile.write("============================================\nAnalysis tool for Android Eavesdropping apps\n============================================\n")
+    outFile.close()
     os.system('clear')       
     main()
 
