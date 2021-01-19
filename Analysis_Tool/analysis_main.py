@@ -26,10 +26,14 @@ def main():
             print("[3] Package name")
             print("[4] Application Permissions")
             print("[5] Native libraries")
+            print("[6] APK Architecture")
+
         else:
             print("[/] Package name")
             print("[/] Application Permissions")
             print("[/] Native libraries")
+            print("[/] APK Architecture")
+
         print("[0] Quit")
         print("")
         try:
@@ -78,9 +82,21 @@ def main():
             else:     
                 list_native_lib()
         
-# TO REMOOOOOOOVE
-        if (select==6): binary_disassembly_list("libmain.so")
+        ## APK STRUCTURE
+        if (select==6): 
+            if not check_valid(apktool_dir):
+                print ("False")
+                os.system('clear')   
+            else:     
+                structure_tree()
 
+
+        ###### REMOVE   
+        if (select==7):
+            structure_tree__tree("honey/smali/tv", "honey\/smali\/")
+            input()
+
+        ## QUIT
         if (select==0):
             if check_valid(apktool_dir):
                 print("Removing Junk")
@@ -89,6 +105,10 @@ def main():
             sys.exit(0)
 
         os.system('clear')   
+
+
+
+
 
 
 
@@ -167,7 +187,8 @@ def manifest_permissions():
     input()    
     os.system('clear')       
 
-#### Not in Use
+
+
 # PACKAGE CHECK IN MANIFEST
 def manifest_package():
     global apktool_dir
@@ -191,6 +212,7 @@ def manifest_package():
         outFile.close()
     input()    
     os.system('clear')       
+
 
 
     
@@ -249,23 +271,93 @@ def binary_disassembly(file):
             subprocess.run(['rm', filename])
             break
         if (select==1): 
-            binary_disassembly_list(filename)
+            binary_disassembly__list(filename)
         if (select==2): 
-            binary_disassembly_cfg(filename)
+            binary_disassembly__cfg(filename)
             
     os.system('clear')     
 
-def binary_disassembly_list(filename):
+def binary_disassembly__list(filename):
     subprocess.run(['./CFG_radare2/script.sh -n %s -l' % filename], shell=True)
     input("Press a key to leave: ")
 
-def binary_disassembly_cfg(filename):
+def binary_disassembly__cfg(filename):
     subprocess.run(['./CFG_radare2/script.sh -n %s -c' % filename], shell=True)
     input("Press a key to leave: ")
     
 
 
 
+
+
+# APK TREE STRUCTURE
+def structure_tree():
+    global apktool_dir
+    smali_path= apktool_dir+"/smali"
+    while True:
+        os.system('clear')       
+        print("\n=== APK ARCHITECTURE ===\n")
+        print("[1] Main packages \n[2] Display Global Tree \n[3] Display specific Tree \n[0] Exit\n")
+
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            break
+        if (select==1): 
+            structure_tree__first_layer(smali_path)
+            input()
+        if (select==2): 
+            structure_tree__tree(smali_path, apktool_dir)
+            input()
+        if (select==3):
+            try:
+                specific_name=input("> Package Name: ")
+                d, package_path = structure_tree__min_depth(smali_path, specific_name)
+                if d>=0:
+                    print("\n"*30)
+                    os.system('clear')    
+                    print("\n=== APK ARCHITECTURE ===\n\n")
+                    structure_tree__tree(package_path, apktool_dir)
+                    print("\n\nPackage location: ", package_path.replace(smali_path,""),"\n") 
+                else:
+                    print("\n/!\ No package found.")
+                input()
+            except:
+                print("Wrong format: return")
+            
+    os.system('clear')    
+
+def structure_tree__first_layer(path):
+    print("\nMain packages:")
+    for item in os.listdir(path):
+        print(" -",item)
+
+def structure_tree__min_depth(path, toFind, depth=0):
+    global apktool_dir
+    smali_path= apktool_dir+"/smali"
+    founddepth0=-1
+    foundname0=""
+    for item in os.listdir(path):
+        fullpath = os.path.join(path, item)
+
+        if (item==toFind): 
+            return depth, fullpath
+
+        if  os.path.isdir(fullpath):
+            founddepth, foundname = structure_tree__min_depth(fullpath, toFind, depth+1)
+            if foundname and (founddepth0==-1 or founddepth<founddepth0):   
+                foundname0, founddepth0 = foundname, founddepth
+    return founddepth0, foundname0
+
+def structure_tree__tree(path, apktool_dir):
+    apktool_dir = (apktool_dir+"/smali/").replace("/","\/")
+    subprocess.run(['tree %s | sed "s/\.smali//" | grep -v "\\\\\\$" | sed "s/%s//"' % (path, apktool_dir)], shell=True)
 
 
 
@@ -283,4 +375,3 @@ if __name__ == "__main__":
     outFile.close()
     os.system('clear')       
     main()
-
