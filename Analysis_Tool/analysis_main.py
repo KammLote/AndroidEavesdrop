@@ -346,7 +346,7 @@ def structure_tree__min_depth(path, toFind, depth=0):
     for item in os.listdir(path):
         fullpath = os.path.join(path, item)
 
-        if (item==toFind): 
+        if (item in toFind) and (item == toFind.split("/")[-1]) : 
             return depth, fullpath
 
         if  os.path.isdir(fullpath):

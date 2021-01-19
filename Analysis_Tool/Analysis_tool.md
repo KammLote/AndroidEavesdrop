@@ -54,3 +54,6 @@ Get the Manifest
 
 Raise a **Warning message** each time a seemingly malicious info is found
 
+**Java Decompiler**
+
+**ADB** automatisation
