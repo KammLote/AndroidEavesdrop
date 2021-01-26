@@ -1,3 +1,5 @@
+HTTP
+
 .class public Ltv/alphonso/dbutil/database/DBAdapter;
 .super Ljava/lang/Object;
 .source "DBAdapter.java"

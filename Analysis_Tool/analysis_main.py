@@ -3,6 +3,7 @@ import filetype
 import sys
 import subprocess
 import datetime
+import re
 
 
 def main(): 
@@ -14,10 +15,10 @@ def main():
         print("Analysis tool for Android Eavesdropping apps")
         print("============================================")        
         if check_valid(APK_name):
-            print("APK: "+APK_name)
-            print("Output: "+APK_dir)
+            print("| APK: "+APK_name)
+            print("| Output: "+APK_dir)
         if check_valid(apktool_dir):
-            print("Apktool Dir: "+apktool_dir+"/")
+            print("| Apktool Dir: "+apktool_dir+"/")
 
         print("")
         print("[1] Import APK")
@@ -30,12 +31,15 @@ def main():
             print("[4] Application Permissions")
             print("[5] Native libraries")
             print("[6] APK Architecture")
+            print("[7] String Search")
 
         else:
             print("[/] Package name")
             print("[/] Application Permissions")
             print("[/] Native libraries")
             print("[/] APK Architecture")
+            print("[/] String Search")
+
 
         print("[0] Quit")
         print("")
@@ -96,9 +100,17 @@ def main():
             else:     
                 structure_tree()
 
+        ## STRING SEARCH
+        if (select==7):
+            if not check_valid(apktool_dir):
+                print ("False")
+                os.system('clear')   
+            else:     
+                string_search()
+
 
         ###### REMOVE   
-        if (select==7):
+        if (select==8):
             structure_tree__tree("honey/smali/tv", "honey\/smali\/")
             input()
 
@@ -131,8 +143,7 @@ def import_apk():
     while True:
         apk_name = input('APK file: ')
         # String empty --> go to Main()
-        if not apk_name:
-            os.system('clear')       
+        if not apk_name: 
             return '', '', ''
             break
             
@@ -172,8 +183,11 @@ def apktool_disass():
     try:
         apktool_dir = APK_dir+'/apktool'
         subprocess.run(['apktool', '-f', 'd', APK_name, '-o', apktool_dir])
-        #all_subdirs = [d for d in os.listdir('.') if os.path.isdir(d)]
-        #latest_subdir = max(all_subdirs, key=os.path.getmtime)
+        
+        if (os.path.isdir(apktool_dir+"/smali_classes2")):
+            print("Merging Smali code...")
+            try: subprocess.call(['cp','-r',apktool_dir+'/smali_classes2/', apktool_dir+'/smali/' ])
+            except: print("# ERROR WHEN MERGING THE TWO SMALI FILES")
         print("\nAPKTOOL disassembled the APK in subdirectory: "+apktool_dir)
     except:
         print("ERROR running APKTOOL")
@@ -240,6 +254,8 @@ def list_native_lib():
 
     global apktool_dir
     libraries_dir = apktool_dir+"/lib"
+    if not(os.path.isdir(libraries_dir)):
+        print("No Library has been found"); input(); return()
     print("\n===== Native Libraries =====\n")
 
     files = subprocess.check_output('find '+ libraries_dir+ ' -type f', shell=True, universal_newlines=True).splitlines()
@@ -275,7 +291,7 @@ def binary_disassembly(file):
     while True:
         os.system('clear')       
         print("\n=== BINARY DISASSEMBLY ===\nBinary File: ",file,"\n")
-        print("[1] Functions list \n[2] Display Global Callgraph \n[3] Display function Callgraph \n[0] Exit\n")
+        print("[1] Functions list \n[2] Display Global Callgraph \n[3] Display function Callgraph (WIP) \n[0] Exit\n")
 
 
         try:
@@ -314,6 +330,8 @@ def binary_disassembly__cfg(filename):
 def structure_tree():
     global apktool_dir
     smali_path= apktool_dir+"/smali"
+    if not(os.path.isdir(smali_path)):
+        print("No code has been found"); input(); return()
     while True:
         os.system('clear')       
         print("\n=== APK ARCHITECTURE ===\n")
@@ -382,6 +400,106 @@ def structure_tree__tree(path, apktool_dir):
 
 
 
+# STRING SEARCH
+def string_search():
+    global apktool_dir
+    searched_strings=[]
+
+    while True:
+        os.system('clear')
+        print("\n=== STRING SEARCH ===")
+        if searched_strings:print("| Strings = ",searched_strings) 
+        else: print("")
+        print("\n[1] Specify strings \n[2] Select Network Identifier strings \n[3] Clear Strings\n[/]\n[4] Launch String Search on [Resources] \n[5] Launch String Search on [Assets]\n[6] Launch String Search on [Smali Code]\n[/]\n[0] Exit\n")
+
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            break
+
+        if (select==1): 
+            print("\n Specify strings to search. Press Enter to stop." )
+            searched_strings = searched_strings + string_search__specify()
+        if (select==2): ###todo: TO COMPLETE WITH OTHER NETWORK IDENTIFIERS
+            searched_strings.append("http:")
+            searched_strings.append("www.")
+            searched_strings.append("<IP ADDRESS>")
+
+        if (select==3):
+            searched_strings=[]
+        
+        if (select==4 and searched_strings):
+            path=apktool_dir+"/res"
+            string_search__search(path, searched_strings, 1)
+            input()
+        if (select==5 and searched_strings):
+            path=apktool_dir+"/assets"
+            string_search__search(path, searched_strings, 2)
+            input()
+        if (select==6 and searched_strings):
+            path=apktool_dir+"/smali"
+            string_search__search(path, searched_strings, 3)
+            input()
+       
+    os.system('clear')    
+
+
+
+def string_search__specify():
+    specified_searched_strings=[]
+    while True:
+        try:
+            specified_string = input("> ")
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            specified_string="" ##Error handling
+
+        if specified_string=="":
+            break
+        else: 
+            specified_searched_strings.append(specified_string)
+    return specified_searched_strings
+
+def string_search__search(path, strings, code=0):
+    if not(os.path.isdir(path)):
+        if (code==1): print("No resource directory has been found")
+        if (code==2): print("No assets directory has been found")
+        if (code==3): print("No smali code directory has been found")
+        return()
+    print("\n"*30)
+    os.system('clear')    
+    if (code==1): print("\n===== Resources Search  =====")
+    if (code==2): print("\n===== Assets Search =====")
+    if (code==3): print("\n===== Code Search =====")
+    print("|| Strings: ", strings, "\n")
+    #strings=["http", "www."] ## TO REMOVE
+    #strings = ["[IP ADDRESS]"] ## TO REMOVE
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            fullFile = os.path.join(root,file)
+            found=[]
+            for string in strings:
+                if (string=="<IP ADDRESS>"):
+                    regex=".*([0-9]{1,3}(?:\.|\:)){3}[0-9]{1,3}.*"
+                else:
+                    regex=".*"+string+".*"
+                try:    
+                    found = found + ["["+string+"]  "+ line for line in open(fullFile)  if re.match(regex,line, re.IGNORECASE)]
+                except:
+                    None
+            if found: print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print(*found, sep='\n'); print("\n\n")
+    print("Press a key to leave")
+
+
+
+
 
 if __name__ == "__main__":
     APK_name=""
@@ -390,6 +508,7 @@ if __name__ == "__main__":
     #APK_name = "honey.apk"             ######## NULLIFY TO RESET
     #APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
     #apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
+    #cant_leave = True                  ######## NULLIFY TO RESET
 
     
     os.system('clear')       
