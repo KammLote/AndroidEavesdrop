@@ -2,17 +2,20 @@ import os
 import filetype
 import sys
 import subprocess
+import datetime
 
 
 def main(): 
     global APK_name
     global apktool_dir
+    global APK_dir
     while True:
         print("============================================")
         print("Analysis tool for Android Eavesdropping apps")
         print("============================================")        
         if check_valid(APK_name):
             print("APK: "+APK_name)
+            print("Output: "+APK_dir)
         if check_valid(apktool_dir):
             print("Apktool Dir: "+apktool_dir+"/")
 
@@ -45,9 +48,12 @@ def main():
 
         ## IMPORT APK
         if (select==1):
-            res = import_apk()
-            if res!='':             ## In case the user leaves the Import without selecting any
+            res, folder, file = import_apk()
+            if res!='' and folder!='' and file!='':      ## In case the user leaves the Import without selecting any
                 APK_name = res
+                APK_dir = folder
+                output_file = file
+
 
         ## APKTOOL DISASSEMBLY
         if (select==2):                                
@@ -127,7 +133,7 @@ def import_apk():
         # String empty --> go to Main()
         if not apk_name:
             os.system('clear')       
-            return ''
+            return '', '', ''
             break
             
         # File does not exist
@@ -141,33 +147,47 @@ def import_apk():
                 print('Wrong file type. Please try again.\n')
             else:
                 break
-    print("The APK "+apk_name+ " has been imported")          
-    input()    
-    os.system('clear')       
-    return apk_name
+    try:
+        output_dir = datetime.datetime.now().strftime("APK_OUTPUT_%d-%m-%y_%H:%M")
+        subprocess.run(["mkdir", output_dir])
+        print("The APK "+apk_name+ " has been imported")      
+        # CREATING OUTPUT FILE
+        output_file=output_dir+"/output.txt"
+        outFile=open(output_file,'w+')
+        outFile.write("============================================\nAnalysis tool for Android Eavesdropping apps\n============================================\n")
+        outFile.close()
+        input()    
+        os.system('clear')       
+        return apk_name, output_dir, output_file
+    except:
+        print("Issue when creating the Output directory: ")
+        input()
+        return '', '', ''
 
 
 # APKTOOL DISASSEMBLY
 def apktool_disass():
     global APK_name
+    global APK_dir
     try:
-        subprocess.run(['apktool', '-f', 'd', APK_name])
-        all_subdirs = [d for d in os.listdir('.') if os.path.isdir(d)]
-        latest_subdir = max(all_subdirs, key=os.path.getmtime)
-        print("\nAPKTOOL disassembled the APK in subdirectory: "+latest_subdir)
+        apktool_dir = APK_dir+'/apktool'
+        subprocess.run(['apktool', '-f', 'd', APK_name, '-o', apktool_dir])
+        #all_subdirs = [d for d in os.listdir('.') if os.path.isdir(d)]
+        #latest_subdir = max(all_subdirs, key=os.path.getmtime)
+        print("\nAPKTOOL disassembled the APK in subdirectory: "+apktool_dir)
     except:
         print("ERROR running APKTOOL")
    
     input()    
     os.system('clear')   
-    return latest_subdir
+    return apktool_dir
 
 
 
 # PERMISSIONS CHECK IN MANIFEST
 def manifest_permissions():
     global apktool_dir
-    global output_file
+    global APK_dir
     manifest=apktool_dir+"/AndroidManifest.xml"
     if not os.path.isfile(manifest):
         print("No manifest found")
@@ -175,7 +195,7 @@ def manifest_permissions():
 
     print("\n===== Permissions =====")
     with open(manifest, 'r') as file:
-        outFile=open(output_file,'a+')
+        outFile=open(APK_dir+"/output.txt",'a+')
         outFile.write("\n=====PERMISSIONS=====\n")
         for line in file:
             if "uses-permission" in line:
@@ -192,7 +212,7 @@ def manifest_permissions():
 # PACKAGE CHECK IN MANIFEST
 def manifest_package():
     global apktool_dir
-    global output_file
+    global APK_dir
     manifest=apktool_dir+"/AndroidManifest.xml"
     if not os.path.isfile(manifest):
         print("No manifest found")
@@ -200,7 +220,7 @@ def manifest_package():
 
     print("\n===== Package name =====")
     with open(manifest, 'r') as file:
-        outFile=open(output_file,'a+')
+        outFile=open(APK_dir+"/output.txt",'a+')
         outFile.write("\n=====PACKAGE=====\n")
         first_line=file.readline()
         first_line=first_line[first_line.find('package="'):]
@@ -214,13 +234,11 @@ def manifest_package():
     os.system('clear')       
 
 
-
     
 # NATIVE FILES IN MANIFEST
 def list_native_lib():
 
     global apktool_dir
-    global output_file
     libraries_dir = apktool_dir+"/lib"
     print("\n===== Native Libraries =====\n")
 
@@ -250,7 +268,9 @@ def list_native_lib():
 
 # DISASSEMBLY OF BINARY FILES (native files disass)
 def binary_disassembly(file):
+    global APK_dir
     h,filename = os.path.split(file)
+    filename = APK_dir+"/"+ filename
     subprocess.run(['cp', file, filename])
     while True:
         os.system('clear')       
@@ -278,12 +298,12 @@ def binary_disassembly(file):
     os.system('clear')     
 
 def binary_disassembly__list(filename):
-    subprocess.run(['./CFG_radare2/script.sh -n %s -l' % filename], shell=True)
-    input("Press a key to leave: ")
+    subprocess.run(['./radare2.sh -n %s -l' % filename], shell=True)
+    input("Press a key to leave ")
 
 def binary_disassembly__cfg(filename):
-    subprocess.run(['./CFG_radare2/script.sh -n %s -c' % filename], shell=True)
-    input("Press a key to leave: ")
+    subprocess.run(['./radare2.sh -n %s -c' % filename], shell=True)
+    input("Press a key to leave ")
     
 
 
@@ -365,13 +385,12 @@ def structure_tree__tree(path, apktool_dir):
 
 if __name__ == "__main__":
     APK_name=""
+    APK_dir=""
     apktool_dir=""
-    #APK_name = "honey.apk"      ######## NULLIFY TO RESET
-    #apktool_dir  = "honey"      ######## NULLIFY TO RESET
+    #APK_name = "honey.apk"             ######## NULLIFY TO RESET
+    #APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
+    #apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
 
-    output_file="output.txt"
-    outFile=open(output_file,'w+')
-    outFile.write("============================================\nAnalysis tool for Android Eavesdropping apps\n============================================\n")
-    outFile.close()
+    
     os.system('clear')       
     main()
