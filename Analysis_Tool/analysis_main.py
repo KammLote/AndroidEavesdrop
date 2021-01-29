@@ -32,6 +32,8 @@ def main():
             print("[5] Native libraries")
             print("[6] APK Architecture")
             print("[7] String Search")
+            print("[8] ADB Tool")
+
 
         else:
             print("[/] Package name")
@@ -39,6 +41,7 @@ def main():
             print("[/] Native libraries")
             print("[/] APK Architecture")
             print("[/] String Search")
+            print("[8] ADB Tool")
 
 
         print("[0] Quit")
@@ -108,8 +111,16 @@ def main():
             else:     
                 string_search()
 
+
+        if (select==8):                                
+            if not check_valid(APK_name):
+                print ("False")
+                os.system('clear')       
+            else:
+                adb_tool()
+        
         ###### REMOVE   
-        if (select==8):
+        if (select==9):
             structure_tree__tree("honey/smali/tv", "honey\/smali\/")
             input()
 
@@ -269,7 +280,7 @@ def list_native_lib():
 
     try:
         while True:
-            lib_num=int(input("\nInput name for Disassembly (Enter to exit): "))
+            lib_num=int(input("\nInput number for Disassembly (Enter to exit): "))
             if (1<=lib_num<=counter): binary_disassembly(library_list[lib_num-1]); break
             
     except:
@@ -501,6 +512,130 @@ def string_search__search(path, strings, code=0):
 
 
 # ADB TOOLS
+def adb_tool():
+    global APK_name
+    global APK_dir
+    adb_device=''
+    while True:
+        os.system('clear')
+        print("==========\n ADB Tool \n==========")
+        if adb_device: print("\nDevice = ", adb_device)
+        print("\n[1] Select Device")
+        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK\n[0] Exit\n")
+        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK\n[0] Exit\n")
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            break
+
+        if (select==1):             
+            adb_device=adb_tool__devices()
+        
+        if (select==2): 
+            if adb_device:
+                adb_tool__install(adb_device, APK_name)
+                input()
+        if (select==3): 
+            if adb_device:
+                adb_tool__listPackages(adb_device)
+                print("Press a key to exit:")
+                input()
+        if (select==4): 
+            if adb_device:
+                adb_tool__exportAPK(adb_device, APK_dir)
+                input()
+                
+
+
+
+    os.system('clear')    
+
+def adb_tool__devices():
+    os.system('clear')
+    print("\n=== ADB Devices ===\n")
+    try: devices = subprocess.check_output('adb devices -l' , shell=True, universal_newlines=True).splitlines()
+    except: print("issue when checking devices"); return ''
+    head=True; inc=1
+    devices_list=[]
+    for line in devices:
+        if head: 
+            print(line)
+            if line=="List of devices attached": head=False; print('')
+        else: 
+            if (line): 
+                print ("["+str(inc)+"]", line.split(' ',1)[0])
+                inc+=1
+                devices_list.append(line.split(' ',1)[0])
+            #print (line.split(' ',1)[0], line.split(' ',1)[1])
+    text="\nSelect device ('0' to exit): "
+    exit=0
+    while True:
+        try:
+            select = int(input(text))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        if (select==0): return ''
+        if (1<=select<inc): return devices_list[select-1]
+        else: 
+            exit+=1; 
+            if (exit>3): break
+            else: text="\nWrong value: "
+
+def adb_tool__install(device, apk): 
+    try: 
+        subprocess.run(['adb', '-s', device, 'install', apk])
+        #print("The APK has been installed on the device")
+    except: print("issue when installing apk")
+    ## Installation cannot work through ADB
+
+def adb_tool__listPackages(device):
+    try: output=subprocess.check_output(['adb', '-s', device, 'shell', 'cmd', 'package', 'list', 'packages'], universal_newlines=True)
+    except: print("issue when listing packages"); return ''
+    print(output)
+    return output
+
+def adb_tool__exportAPK(device, dir):
+    print("\n"*30)
+    os.system('clear') 
+    print("PACKAGES LIST:\n\n")
+    packages=adb_tool__listPackages(device)
+    if (packages==''): return 
+    found=False
+    while True:
+        try:
+            select = input('\nPackage name: ')
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select='' ##Error handling
+        if (select==''): break
+        if (select.startswith('package:')): select=select.replace('package:','')
+        for line in packages.splitlines():
+            if "package:"+select == line: found=True;  break
+        
+        if not(found): print("Package not found"); 
+        else: 
+            try: 
+                path= subprocess.check_output(['adb', '-s', device, 'shell', 'pm', 'path', select], universal_newlines=True).strip().replace('package:','')
+                name=path.rsplit('/', 1)[-1]
+                subprocess.run(['adb', '-s', device, 'pull', path, dir+'/exported_'+name])
+            except: print("issue when exporting APK"); return 
+            print("\nThe APK has been exported in "+dir)
+            break
+
+            
+
+        
+
+
 
 
 

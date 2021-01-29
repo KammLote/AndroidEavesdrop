@@ -71,3 +71,11 @@ Raise a **Warning message** each time a seemingly malicious info is found
    Maybe create a list of codes at the beginning. Each output will create a specific code (for instance during the APK architecture, to be able to print different architectures, try to create the **hash of the path** as the code)
 4. `String search`: Improve the list of Network identifier strings
 5. `String search`: Propose to find strings on subportions of the Resources/Assets/SmaliCode
+
+6. `adb tool` => `select devices`: Improve selection menu
+
+7. `String search`: do it with JAR code for better understanding
+
+
+
+8. `adb tools` : DATABASES
