@@ -108,7 +108,6 @@ def main():
             else:     
                 string_search()
 
-
         ###### REMOVE   
         if (select==8):
             structure_tree__tree("honey/smali/tv", "honey\/smali\/")
@@ -410,8 +409,9 @@ def string_search():
         print("\n=== STRING SEARCH ===")
         if searched_strings:print("| Strings = ",searched_strings) 
         else: print("")
-        print("\n[1] Specify strings \n[2] Select Network Identifier strings \n[3] Clear Strings\n[/]\n[4] Launch String Search on [Resources] \n[5] Launch String Search on [Assets]\n[6] Launch String Search on [Smali Code]\n[/]\n[0] Exit\n")
-
+        print("\n[1] Specify strings \n[2] Select Network Identifier strings \n[3] Clear Strings")
+        if searched_strings: print("[4] Launch String Search on [Resources] \n[5] Launch String Search on [Assets]\n[6] Launch String Search on [Smali Code]\n[0] Exit\n")
+        else: print("[/] Launch String Search on [Resources] \n[/] Launch String Search on [Assets]\n[/] Launch String Search on [Smali Code]\n[0] Exit\n")
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -496,6 +496,11 @@ def string_search__search(path, strings, code=0):
                     None
             if found: print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print(*found, sep='\n'); print("\n\n")
     print("Press a key to leave")
+
+
+
+
+# ADB TOOLS
 
 
 

@@ -6,10 +6,6 @@
 
 brew install tree
 
-
-
-66
-
 ### Imports
 
 import os
@@ -19,6 +15,8 @@ import [filetype](https://github.com/h2non/filetype.py)
 import sys
 
 import subprocess
+
+--> Create a file (`installs.txt`) and ask to launch the command `pip3 install installs.txt`
 
 
 
@@ -57,3 +55,19 @@ Raise a **Warning message** each time a seemingly malicious info is found
 **Java Decompiler**
 
 **ADB** automatisation
+
+
+
+
+
+## To Do v2
+
+1. Complete the `Package name` into `APK information` 
+   Get as much information as possible from the APK
+   Try to see what `aapt` originally gives
+2. `Native Libaries` : Add a description saying what tools you want to use for disassembling the Native files. 
+
+3. Add an output for everything that has been requested
+   Maybe create a list of codes at the beginning. Each output will create a specific code (for instance during the APK architecture, to be able to print different architectures, try to create the **hash of the path** as the code)
+4. `String search`: Improve the list of Network identifier strings
+5. `String search`: Propose to find strings on subportions of the Resources/Assets/SmaliCode
