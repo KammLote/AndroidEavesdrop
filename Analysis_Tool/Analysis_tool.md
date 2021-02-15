@@ -79,3 +79,10 @@ Raise a **Warning message** each time a seemingly malicious info is found
 
 
 8. `adb tools` : DATABASES
+
+
+
+9.  FIX NATIVE LIBRARIES
+10. Burp Dynamic analysis
+
+11. For dynamic analysis, you may want to map the domain names to your laptop IP address:  https://android.stackexchange.com/questions/78320/how-to-set-up-a-host-to-ip-mapping-on-unrooted-android

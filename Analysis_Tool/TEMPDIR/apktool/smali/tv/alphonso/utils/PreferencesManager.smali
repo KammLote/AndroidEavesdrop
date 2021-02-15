@@ -1,10 +1,3 @@
-1.1.1.1
-:2::
-123.1.41.5
-eeeWWW.!!
-
-
-
 .class public Ltv/alphonso/utils/PreferencesManager;
 .super Ljava/lang/Object;
 .source "PreferencesManager.java"

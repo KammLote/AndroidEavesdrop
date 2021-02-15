@@ -10,6 +10,7 @@ def main():
     global APK_name
     global apktool_dir
     global APK_dir
+    global erase_option
     while True:
         print("============================================")
         print("Analysis tool for Android Eavesdropping apps")
@@ -43,7 +44,8 @@ def main():
             print("[/] String Search")
             print("[8] ADB Tool")
 
-
+        print("")
+        print("[-1] Options")
         print("[0] Quit")
         print("")
         try:
@@ -51,7 +53,7 @@ def main():
         except KeyboardInterrupt:
             sys.exit(1) 
         except:
-            select=-1 ##Error handling
+            select=-10 ##Error handling
 
         ## IMPORT APK
         if (select==1):
@@ -119,23 +121,63 @@ def main():
             else:
                 adb_tool()
         
+
+        if (select==9):                                
+            if not check_valid(APK_name):
+                print ("False")
+                os.system('clear')       
+            else:
+                API_call()
+        
         ###### REMOVE   
-        if (select==9):
+        if (select==10):
             structure_tree__tree("honey/smali/tv", "honey\/smali\/")
             input()
 
         ## QUIT
         if (select==0):
-            if check_valid(apktool_dir):
+            if check_valid(apktool_dir) and erase_option:
                 print("Removing Junk")
                 subprocess.run(["rm", "-r", apktool_dir]) 
             os.system('clear')       
             sys.exit(0)
 
+        if (select==-1):
+            option_menu()
+
         os.system('clear')   
 
 
 
+
+
+def option_menu():
+    global erase_option
+    global write_option
+    while True:
+        os.system('clear')
+        print("\n=== OPTIONS ===")
+        if (erase_option): print("\n[1] File deletion |ON| ")
+        else: print("\n[1] File deletion |OFF|")
+        if(write_option): print("[2] Output Log |ON|")
+        else: print("[2] Output Log |OFF|")
+        print("[0] Exit\n")
+        
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            break
+
+        if (select==1): 
+            erase_option=not(erase_option)
+        if (select==2): 
+            write_option=not(write_option)
 
 
 
@@ -410,6 +452,7 @@ def structure_tree__tree(path, apktool_dir):
 
 
 
+
 # STRING SEARCH
 def string_search():
     global apktool_dir
@@ -460,8 +503,6 @@ def string_search():
        
     os.system('clear')    
 
-
-
 def string_search__specify():
     specified_searched_strings=[]
     while True:
@@ -511,6 +552,9 @@ def string_search__search(path, strings, code=0):
 
 
 
+
+
+
 # ADB TOOLS
 def adb_tool():
     global APK_name
@@ -521,8 +565,8 @@ def adb_tool():
         print("==========\n ADB Tool \n==========")
         if adb_device: print("\nDevice = ", adb_device)
         print("\n[1] Select Device")
-        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK\n[0] Exit\n")
-        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK\n[0] Exit\n")
+        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[0] Exit\n")
+        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases\n[0] Exit\n")
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -550,11 +594,12 @@ def adb_tool():
             if adb_device:
                 adb_tool__exportAPK(adb_device, APK_dir)
                 input()
+        if (select==5): 
+            if adb_device:
+                adb_tool__exportDatabase(adb_device, APK_dir)
+                input()
                 
 
-
-
-    os.system('clear')    
 
 def adb_tool__devices():
     os.system('clear')
@@ -631,11 +676,72 @@ def adb_tool__exportAPK(device, dir):
             print("\nThe APK has been exported in "+dir)
             break
 
-            
-
+def adb_tool__exportDatabase(device, dir):
+    print("\n"*30)
+    os.system('clear') 
+    print("PACKAGES LIST:\n\n")
+    packages=adb_tool__listPackages(device)
+    if (packages==''): return 
+    found=False
+    while True:
+        try:
+            select = input('\nPackage name: ')
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select='' ##Error handling
+        if (select==''): break
+        if (select.startswith('package:')): select=select.replace('package:','')
+        for line in packages.splitlines():
+            if "package:"+select == line: found=True;  break
         
+        if not(found): print("Package not found"); 
+        else: 
+            try: 
+                print(select)
+                print("\n###\n==> The phone needs to be uncloked.\n==> You will be prompted to choose a Backup Password, please leave the password blank.\n###")
+                subprocess.run(['adb -s '+ device +' backup -f '+ dir+'/backup.ab -noapk '+  select], shell=True,stdout=subprocess.DEVNULL)
+        
+            except: print("issue when exporting Backup"); return 
+            input("\nThe database has been exported in "+dir)
+            
+            try:
+                subprocess.run(['dd if='+dir+'/backup.ab bs=1 skip=24 > '+dir+'/compressed-data'], shell=True)#, stdout=subprocess.DEVNULL)
+            except: print("issue when decompressing Backup"); return 
+#     ; printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - '+dir+'/compressed-data | gunzip -c > '+dir+'/decompressed-data.tar  
+            break
 
 
+
+
+
+
+
+# API Calls
+def API_call():
+    global apktool_dir
+    path=apktool_dir+"/smali"
+    string="android/media/audiorecord"
+
+
+    strings=["android/media/audiorecord", "android/media/MediaRecorder"]
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            fullFile = os.path.join(root,file)
+            found=[]
+
+            for line in open(fullFile):
+                regex=".*?(invoke-).*?("+string+").*?"
+                try:
+                    if re.match(regex,line, re.IGNORECASE): 
+                        found = found + ["["+string+"]  "+ line] 
+                except:
+                    None
+
+            if found: print("\n\n|| CALLED IN FILE: ", fullFile,"\n\n"); print(*found, sep='\n'); print("\n\n")
+    
+    print("Press a key to leave")
+    input()    
 
 
 
@@ -645,10 +751,14 @@ if __name__ == "__main__":
     APK_name=""
     APK_dir=""
     apktool_dir=""
-    #APK_name = "honey.apk"             ######## NULLIFY TO RESET
-    #APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
-    #apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
-    #cant_leave = True                  ######## NULLIFY TO RESET
+    erase_option = True                  
+    write_option = True
+
+# DEBUG
+    APK_name = "honey.apk"             ######## NULLIFY TO RESET
+    APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
+    apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
+    if APK_dir=="TEMPDIR":     erase_option = False                  
 
     
     os.system('clear')       
