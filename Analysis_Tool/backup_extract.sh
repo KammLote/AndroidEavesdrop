@@ -1,3 +1,9 @@
+usage() { echo "Usage: $0  [-f] directory   [-d] device   [-p] package" 1>&2; 
+    
+            exit 1; }  
+
+
+
 while getopts f:d:p: flag
 do
     case "${flag}" in
@@ -9,7 +15,7 @@ done
 
 if [ -z "$dir" ] || [ -z "$device" ] || [ -z "$package" ]
 then
-    echo "FAIL"
+    usage
 else
     adb -s $device  backup -f $dir/backup.ab -noapk $package
 

@@ -1,3 +1,10 @@
+### DISCLAIMER ###
+# The tool reaches $r2 or $radare2
+# These are symbolic links to /Users/***/Documents/TOOLS/Radare2/radare2/binr/radare2/radare2 
+# Modify the SymLink of $r2 or $radare2 in case radare2 does not answer.
+
+
+
 usage() { echo "Usage: $0  [-l|--list] [-c|--callgraph] [-f|--function <function_name>	] [-h|--help]  -n|--name <file_name> " 1>&2; 
             echo "    -h | --help                          Display this help message."
             echo "    -n | --name <file_name>              Choose the file."
