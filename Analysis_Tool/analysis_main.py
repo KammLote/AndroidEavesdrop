@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+
+
 import os
 import filetype
 import sys
@@ -115,11 +119,7 @@ def main():
 
 
         if (select==8):                                
-            if not check_valid(APK_name):
-                print ("False")
-                os.system('clear')       
-            else:
-                adb_tool()
+            adb_tool()
         
 
         if (select==9):                                
@@ -183,7 +183,7 @@ def option_menu():
 
 
 def check_valid(name):
-    if not(name):
+    if not(name) or name==".":
         return False
     else:
         return True
@@ -213,6 +213,8 @@ def import_apk():
     try:
         output_dir = datetime.datetime.now().strftime("APK_OUTPUT_%d-%m-%y_%H:%M")
         subprocess.run(["mkdir", output_dir])
+        apktool_dir=''
+
         print("The APK "+apk_name+ " has been imported")      
         # CREATING OUTPUT FILE
         output_file=output_dir+"/output.txt"
@@ -366,11 +368,11 @@ def binary_disassembly(file):
     os.system('clear')     
 
 def binary_disassembly__list(filename):
-    subprocess.run(['./radare2.sh -n %s -l' % filename], shell=True)
+    subprocess.run(['bash radare2.sh -n %s -l' % filename], shell=True)
     input("Press a key to leave ")
 
 def binary_disassembly__cfg(filename):
-    subprocess.run(['./radare2.sh -n %s -c' % filename], shell=True)
+    subprocess.run(['bash radare2.sh -n %s -c' % filename], shell=True)
     input("Press a key to leave ")
     
 
@@ -582,7 +584,7 @@ def adb_tool():
             adb_device=adb_tool__devices()
         
         if (select==2): 
-            if adb_device:
+            if adb_device and check_valid(APK_name):
                 adb_tool__install(adb_device, APK_name)
                 input()
         if (select==3): 
@@ -599,7 +601,6 @@ def adb_tool():
                 adb_tool__exportDatabase(adb_device, APK_dir)
                 input()
                 
-
 
 def adb_tool__devices():
     os.system('clear')
@@ -700,16 +701,26 @@ def adb_tool__exportDatabase(device, dir):
             try: 
                 print(select)
                 print("\n###\n==> The phone needs to be uncloked.\n==> You will be prompted to choose a Backup Password, please leave the password blank.\n###")
-                subprocess.run(['adb -s '+ device +' backup -f '+ dir+'/backup.ab -noapk '+  select], shell=True,stdout=subprocess.DEVNULL)
-        
+                subprocess.run(['bash', 'backup_extract.sh', '-f', dir ,'-p', select , '-d', device ],stdout=subprocess.DEVNULL)
             except: print("issue when exporting Backup"); return 
-            input("\nThe database has been exported in "+dir)
             
-            try:
-                subprocess.run(['dd if='+dir+'/backup.ab bs=1 skip=24 > '+dir+'/compressed-data'], shell=True)#, stdout=subprocess.DEVNULL)
-            except: print("issue when decompressing Backup"); return 
-#     ; printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - '+dir+'/compressed-data | gunzip -c > '+dir+'/decompressed-data.tar  
+            
+            DBdir=dir+'/backup_'+select+'/db'
+            
+            if not os.path.isdir(DBdir): print("No database has been found"); break
+            else: 
+                DBFiles = [f for f in os.listdir(DBdir) if os.path.isfile(os.path.join(DBdir, f))]
+                if(DBFiles):
+                    print("\n\nFound Databases:") 
+                    for f in DBFiles: print("   "+f)
+                    subprocess.run(['mv', DBdir, dir+'/databases_'+select])
+
+           
+
+
             break
+
+
 
 
 
@@ -749,15 +760,15 @@ def API_call():
 
 if __name__ == "__main__":
     APK_name=""
-    APK_dir=""
+    APK_dir="."
     apktool_dir=""
     erase_option = True                  
     write_option = True
 
 # DEBUG
-    APK_name = "honey.apk"             ######## NULLIFY TO RESET
-    APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
-    apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
+    #PK_name = "honey.apk"             ######## NULLIFY TO RESET
+    #APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
+    #apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
     if APK_dir=="TEMPDIR":     erase_option = False                  
 
     

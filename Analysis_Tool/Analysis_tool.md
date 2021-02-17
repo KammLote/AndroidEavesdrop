@@ -65,11 +65,16 @@ Raise a **Warning message** each time a seemingly malicious info is found
 1. Complete the `Package name` into `APK information` 
    Get as much information as possible from the APK
    Try to see what `aapt` originally gives
+   
 2. `Native Libaries` : Add a description saying what tools you want to use for disassembling the Native files. 
+
+   **RADARE 2 DOES NOT WANT TO WORK ANYMORE !!!!**
 
 3. Add an output for everything that has been requested
    Maybe create a list of codes at the beginning. Each output will create a specific code (for instance during the APK architecture, to be able to print different architectures, try to create the **hash of the path** as the code)
+
 4. `String search`: Improve the list of Network identifier strings
+
 5. `String search`: Propose to find strings on subportions of the Resources/Assets/SmaliCode
 
 6. `adb tool` => `select devices`: Improve selection menu
@@ -78,11 +83,64 @@ Raise a **Warning message** each time a seemingly malicious info is found
 
 
 
-8. `adb tools` : DATABASES
-
 
 
 9.  FIX NATIVE LIBRARIES
-10. Burp Dynamic analysis
+    **RADARE 2 DOES NOT WANT TO WORK ANYMORE !!!!**
+10.  Burp Dynamic analysis
+     **IDEA**: Headless Burp + create proxy with ADB
+11.  For dynamic analysis, you may want to map the domain names to your laptop IP address:  https://android.stackexchange.com/questions/78320/how-to-set-up-a-host-to-ip-mapping-on-unrooted-android
 
-11. For dynamic analysis, you may want to map the domain names to your laptop IP address:  https://android.stackexchange.com/questions/78320/how-to-set-up-a-host-to-ip-mapping-on-unrooted-android
+
+
+
+
+
+
+
+
+## SOOT
+
+
+
+JRE location: `/Library/Internet Plug-Ins/JavaAppletPlugin.plugin`
+
+`jt.jar` file location: `Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/rt.jar`
+
+**NEW LOCATION:**`/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre/lib/rt.jar`
+
+
+
+```
+java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp .:/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/rt.jar -pp  Hello Hello2
+```
+
+
+
+```
+java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp .:/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre/lib/rt.jar Hello Hello2
+```
+
+
+
+**JAVA_HOME modified with:** 
+`export JAVA_HOME="$(/usr/libexec/java_home -v '1.8*')`  in the file  `~/.zshenv`
+`source ~/.zshenv`
+`echo $JAVA_HOME`
+
+
+
+
+
+### Launch Soot on a specific file
+
+```
+javac Hello.java  ##creates the .class file
+
+java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp . -pp Hello
+```
+
+
+
+
+
