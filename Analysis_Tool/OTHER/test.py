@@ -1,5 +1,6 @@
-string = "/test1/test2/test3"
-string="test4"
-print(string)
-string2=string.split("/")[-1]
-print(string2)
+
+int1 = 1
+
+print(int1)
+int2=int(not(int1))
+print(int2)

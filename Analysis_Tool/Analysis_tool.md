@@ -93,6 +93,10 @@ Raise a **Warning message** each time a seemingly malicious info is found
 
 
 
+
+
+
+
 ## SOOT
 
 
@@ -138,3 +142,17 @@ java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp . -pp Hello
 
 
 
+
+
+
+
+### NEW ADB TOOLS
+
+> https://engineering.nodesagency.com/categories/android/2019/04/29/automate-debugging-and-testing-workflows-using-adb
+
+- Logcat
+- reinitialize permissions for a specific application
+- screenshot recording
+- shared preferences
+- clear app data
+- BURP

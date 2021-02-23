@@ -24,34 +24,42 @@ def main():
             print("| Output: "+APK_dir)
         if check_valid(apktool_dir):
             print("| Apktool Dir: "+apktool_dir+"/")
-
         print("")
-        print("[1] Import APK")
-        if check_valid(APK_name):
-            print("[2] Apktool Disassembly")
-        else:
-            print("[/] Apktool Disassembly")
-        if check_valid(apktool_dir):
-            print("[3] Package name")
-            print("[4] Application Permissions")
-            print("[5] Native libraries")
-            print("[6] APK Architecture")
-            print("[7] String Search")
-            print("[8] ADB Tool")
 
 
-        else:
-            print("[/] Package name")
-            print("[/] Application Permissions")
-            print("[/] Native libraries")
-            print("[/] APK Architecture")
-            print("[/] String Search")
-            print("[8] ADB Tool")
+        options_list=[["1","Import APK"],
+        ["2","Apktool Disassembly"],
+        ["3","Package name"],
+        ["4","Application Permissions"],
+        ["5","Native libraries"],
+        ["6","APK Architecture"],
+        ["7","String Search"],
+        ["8","ADB Tool"],
+        ["9","API Call (WIP)"],
+        ["",""],
+        ["-1", "Options"],
+        ["0", "Quit"],
+        ["",""]]
 
-        print("")
-        print("[-1] Options")
-        print("[0] Quit")
-        print("")
+
+        if not check_valid(APK_name):
+            options_list[2-1][0]="/"
+            options_list[8-1][0]="/"
+        if not check_valid(apktool_dir):
+            options_list[3-1][0]="/"
+            options_list[4-1][0]="/"
+            options_list[5-1][0]="/"
+            options_list[6-1][0]="/"
+            options_list[7-1][0]="/"
+            options_list[9-1][0]="/"
+
+        for i in range(len(options_list)):
+            if options_list[i][0]:
+                print("["+options_list[i][0]+"] "+options_list[i][1])
+            else:
+                print("")
+
+    
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -123,7 +131,7 @@ def main():
         
 
         if (select==9):                                
-            if not check_valid(APK_name):
+            if not check_valid(apktool_dir):
                 print ("False")
                 os.system('clear')       
             else:
@@ -567,8 +575,8 @@ def adb_tool():
         print("==========\n ADB Tool \n==========")
         if adb_device: print("\nDevice = ", adb_device)
         print("\n[1] Select Device")
-        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[0] Exit\n")
-        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases\n[0] Exit\n")
+        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[6] Modify permissions \n[7] Clear app data \n[8] Take a screenshot \n\n[0] Exit\n")
+        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases \n[/] Modify permissions \n[/] Clear app data \n[/] Take a screenshot\n\n[0] Exit\n")
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -600,7 +608,16 @@ def adb_tool():
             if adb_device:
                 adb_tool__exportDatabase(adb_device, APK_dir)
                 input()
-                
+        if (select==6): 
+            if adb_device:
+                adb_tool__modifyPermissions(adb_device)
+        if (select==7): 
+            if adb_device:
+                adb_tool__clearData(adb_device)
+        if (select==8): 
+            if adb_device:
+                adb_tool__screenshot(adb_device, APK_dir)
+
 
 def adb_tool__devices():
     os.system('clear')
@@ -635,6 +652,7 @@ def adb_tool__devices():
             if (exit>3): break
             else: text="\nWrong value: "
 
+
 def adb_tool__install(device, apk): 
     try: 
         subprocess.run(['adb', '-s', device, 'install', apk])
@@ -642,11 +660,13 @@ def adb_tool__install(device, apk):
     except: print("issue when installing apk")
     ## Installation cannot work through ADB
 
+
 def adb_tool__listPackages(device):
     try: output=subprocess.check_output(['adb', '-s', device, 'shell', 'cmd', 'package', 'list', 'packages'], universal_newlines=True)
     except: print("issue when listing packages"); return ''
     print(output)
     return output
+
 
 def adb_tool__exportAPK(device, dir):
     print("\n"*30)
@@ -677,7 +697,9 @@ def adb_tool__exportAPK(device, dir):
             print("\nThe APK has been exported in "+dir)
             break
 
+
 def adb_tool__exportDatabase(device, dir):
+    ## This tool uses the ADB tool ABD_BACKUP
     print("\n"*30)
     os.system('clear') 
     print("PACKAGES LIST:\n\n")
@@ -701,7 +723,7 @@ def adb_tool__exportDatabase(device, dir):
             try: 
                 print(select)
                 print("\n###\n==> The phone needs to be uncloked.\n==> You will be prompted to choose a Backup Password, please leave the password blank.\n###")
-                subprocess.run(['bash', 'backup_extract.sh', '-f', dir ,'-p', select , '-d', device ],stdout=subprocess.DEVNULL)
+                subprocess.run(['bash', 'adb_backup.sh', '-f', dir ,'-p', select , '-d', device ],stdout=subprocess.DEVNULL)
             except: print("issue when exporting Backup"); return 
             
             
@@ -719,6 +741,184 @@ def adb_tool__exportDatabase(device, dir):
 
 
             break
+
+
+def adb_tool__modifyPermissions(device):
+    print("\n"*30)
+    os.system('clear') 
+    print("PACKAGES LIST:\n\n")
+    packages=adb_tool__listPackages(device)
+    print("[*] Reset all the permissions")
+    if (packages==''): return 
+    found=False
+    while True:
+        try:
+            select = input('\nPackage name: ')
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select='' ##Error handling
+        if (select==''): break
+
+        if (select=="*"):
+            adb_tool__modifyPermissions__all(device)
+            break 
+
+
+        if (select.startswith('package:')): select=select.replace('package:','')
+        package_name=select
+        for line in packages.splitlines():
+            if "package:"+select == line: found=True;  break
+        
+        if not(found): print("Package not found"); 
+        else: 
+            try: 
+                ## Getting the LIST of Permissions
+                dumpsys= subprocess.check_output('adb -s '+ device+' shell dumpsys package '+select, shell=True).decode('utf-8').strip('\n')
+
+                permstring= re.search('requested permissions:(.*)install permissions:', dumpsys, re.DOTALL)
+
+                if not permstring: print("No permissions found"); break
+                else: 
+                    # permLIST_all = list of all permissions
+                    # permLIST_granted = list of all granted permissions
+                    # permLIST = list of permissions + GRANT yes/no
+                    permLIST=[]
+                    permLIST_granted=[]
+
+                    permLIST_all=permstring.group(1).split('\n')[1:-1]
+                    for perm in permLIST_all: perm=perm.replace(' ','')
+                    
+                    permLIST_granted = [line.replace(' ','').replace(':granted=true','') for line in dumpsys.split('\n') if "granted=true" in line]
+
+                    for i in range(len(permLIST_all)):
+                        permLIST_all[i]=permLIST_all[i].replace(' ','')
+                        if permLIST_all[i] in permLIST_granted: 
+                            permLIST.append([permLIST_all[i],1])
+                        else: 
+                            permLIST.append([permLIST_all[i],0])
+            except: print("issue when finding/merging permissions: ",sys.exc_info()[0]); break 
+
+
+            # Menu to select the permissions to toggle
+            while True:
+                try:
+                    print("\n"*30); os.system('clear') 
+                    print("Permissions for the package: "+package_name+"\n")
+                    for i in range(len(permLIST)):
+                        if permLIST[i][1]: print("|ON     ["+str(i+1)+"] " + permLIST[i][0])
+                        else: print("|OFF    ["+str(i+1)+"] " +permLIST[i][0])
+                except: print("issue when printing permissions: ",sys.exc_info()[0]); break 
+
+                try:
+                    select = input('\n\nToggle Permission (Enter to leave): ')
+                except KeyboardInterrupt:
+                    sys.exit(1) 
+                except:
+                    select='' ##Error handling
+                if (select==''): break
+
+                else: 
+                    try: 
+                        select=int(select)-1
+                        if (0<= int(select) < len(permLIST)): 
+                            chosen_permission=permLIST[select][0]
+                            if permLIST[select][1]: 
+                                ret = adb_tool__modifyPermissions__revoke(device, package_name, chosen_permission)
+                            else: 
+                                ret = adb_tool__modifyPermissions__grant(device, package_name, chosen_permission)
+                            if ret: permLIST[select][1]=int(not(permLIST[select][1]))
+                    except:
+                        print ("issue on value type / on modifying permissions")
+            
+            break
+
+def adb_tool__modifyPermissions__all(device):
+    try: 
+        subprocess.run('adb -s '+ device+' shell pm reset-permissions' , shell=True)
+        input("\n=> All the permissions have been reset ")
+    except: input("Issue when reseting permissions ");  
+
+def adb_tool__modifyPermissions__revoke(device, package, permission):
+    #print("\nRevocking:")
+    #print("device",device)
+    #print("package",package)
+    #print("permission", permission)
+    try:
+        process = subprocess.Popen(["adb -s "+device+" shell pm revoke "+package+" "+ permission],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        if err:
+            input("\nERROR: This permission cannot be revocked " )
+            return 0
+        else:  return 1
+    except: print("issue revocking"); return 0
+
+def adb_tool__modifyPermissions__grant(device, package, permission):
+    #print("\nGranting:")
+    #print("device",device)
+    #print("package",package)
+    #print("permission", permission)
+    try:
+        process = subprocess.Popen(["adb -s "+device+" shell pm grant "+package+" "+ permission],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        if err:
+            input("\nERROR: This permission cannot be granted ")
+            return 0
+        else:  return 1
+    except: print("issue granting"); return 0
+
+
+def adb_tool__clearData(device):
+    print("\n"*30)
+    os.system('clear') 
+    print("PACKAGES LIST:\n\n")
+    packages=adb_tool__listPackages(device)
+    print("[*] Reset all the permissions")
+    if (packages==''): return 
+    found=False
+    while True:
+        try:
+            select = input('\nPackage name: ')
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select='' ##Error handling
+        if (select==''): break
+
+
+
+        if (select.startswith('package:')): select=select.replace('package:','')
+        package_name=select
+        for line in packages.splitlines():
+            if "package:"+package_name == line: found=True;  break
+        
+        if not(found): print("Package not found"); 
+        else: 
+            try: 
+                process = subprocess.Popen(["adb -s "+device+" shell pm clear "+package_name],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                out, err = process.communicate()
+                if err:
+                    input("\n\nERROR: Cannot clear the data " )
+                else:
+                    input("\n\n=> "+package_name+ " data has been cleared ")
+            except: print("Issue when clearing data")
+            break
+
+def adb_tool__screenshot(device, dir):
+    try:
+        if not(os.path.exists(dir+"/screenshots")):
+            os.mkdir(dir+"/screenshots")
+        print(dir)
+        
+        name = datetime.datetime.now().strftime("%d-%m-%y_%H:%M:%S.png")
+        process = subprocess.Popen(["adb -s "+device+" shell screencap /sdcard/"+name+"; adb -s "+device+ " pull /sdcard/"+name+" "+dir+"/screenshots/"+name+"; adb -s "+device+" shell rm -f /sdcard/"+name],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        if err:
+            input("\n\nERROR: Cannot take screenshot " )
+            print(err)
+        else:
+            input("\n=> Screenshot ["+name+"] saved in "+APK_dir+'/screenshots/')
+    except: print("Issue when taking screenshot")
 
 
 
@@ -766,10 +966,10 @@ if __name__ == "__main__":
     write_option = True
 
 # DEBUG
-    #PK_name = "honey.apk"             ######## NULLIFY TO RESET
-    #APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
-    #apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
-    if APK_dir=="TEMPDIR":     erase_option = False                  
+    APK_name = "honey.apk"             ######## NULLIFY TO RESET
+    APK_dir = "/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR"                ######## NULLIFY TO RESET
+    apktool_dir = "/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR/apktool"    ######## NULLIFY TO RESET
+    if APK_dir=="/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR":     erase_option = False                  
 
     
     os.system('clear')       
