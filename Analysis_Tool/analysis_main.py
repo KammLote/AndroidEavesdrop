@@ -8,6 +8,8 @@ import sys
 import subprocess
 import datetime
 import re
+import signal
+import time
 
 
 def main(): 
@@ -144,9 +146,8 @@ def main():
 
         ## QUIT
         if (select==0):
-            if check_valid(apktool_dir) and erase_option:
-                print("Removing Junk")
-                subprocess.run(["rm", "-r", apktool_dir]) 
+            if erase_option:
+                junk_deletion(apktool_dir, APK_dir)
             os.system('clear')       
             sys.exit(0)
 
@@ -158,6 +159,23 @@ def main():
 
 
 
+def junk_deletion(apktool_dir, APK_dir):
+    print("Removing Junk")
+    if check_valid(apktool_dir):
+        subprocess.run(["rm", "-r", apktool_dir]) 
+    
+    for name in os.listdir(APK_dir):
+         # folder deletion
+        if (os.path.isdir(os.path.join(APK_dir, name)) and re.findall("backup_",name)):
+            subprocess.run(["rm","-r", os.path.join(APK_dir, name)])
+         
+        # file deletion
+        if (os.path.isfile(os.path.join(APK_dir, name)) and re.findall(".so$",name)):
+            subprocess.run(["rm", os.path.join(APK_dir, name)])
+
+
+
+
 
 def option_menu():
     global erase_option
@@ -165,10 +183,14 @@ def option_menu():
     while True:
         os.system('clear')
         print("\n=== OPTIONS ===")
+        # Erase when quitting the app
         if (erase_option): print("\n[1] File deletion |ON| ")
         else: print("\n[1] File deletion |OFF|")
+        # Write everything in a report
         if(write_option): print("[2] Output Log |ON|")
         else: print("[2] Output Log |OFF|")
+        # Clean the repository from APK_OUTPUT folders
+        print("[3] Clean directory + Quit")
         print("[0] Exit\n")
         
         try:
@@ -177,15 +199,21 @@ def option_menu():
             sys.exit(1) 
         except:
             select=-1 ##Error handling
-        
+
         ## Function list
         if (select==0):
             break
-
         if (select==1): 
             erase_option=not(erase_option)
         if (select==2): 
             write_option=not(write_option)
+        if (select==3):
+            for name in os.listdir("."):
+                if (os.path.isdir(name) and re.findall("^APK_OUTPUT_[0-9]{2}-[0-9]{2}-[0-9]{2}_[0-9]{2}:[0-9]{2}$",name)):
+                    subprocess.run(["rm","-r", name])
+            os.system('clear')       
+            sys.exit(0) 
+
 
 
 
@@ -366,7 +394,7 @@ def binary_disassembly(file):
         
         ## Function list
         if (select==0):
-            subprocess.run(['rm', filename])
+            #subprocess.run(['rm', filename])
             break
         if (select==1): 
             binary_disassembly__list(filename)
@@ -376,11 +404,13 @@ def binary_disassembly(file):
     os.system('clear')     
 
 def binary_disassembly__list(filename):
-    subprocess.run(['bash radare2.sh -n %s -l' % filename], shell=True)
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    subprocess.run(['bash '+dir_path+'/radare2.sh -n %s -l' % filename], shell=True)
     input("Press a key to leave ")
 
 def binary_disassembly__cfg(filename):
-    subprocess.run(['bash radare2.sh -n %s -c' % filename], shell=True)
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    subprocess.run(['bash '+dir_path+'/radare2.sh -n %s -c' % filename], shell=True)
     input("Press a key to leave ")
     
 
@@ -556,7 +586,7 @@ def string_search__search(path, strings, code=0):
                     found = found + ["["+string+"]  "+ line for line in open(fullFile)  if re.match(regex,line, re.IGNORECASE)]
                 except:
                     None
-            if found: print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print(*found, sep='\n'); print("\n\n")
+            if found: print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print(found, sep='\n'); print("\n\n")
     print("Press a key to leave")
 
 
@@ -575,8 +605,8 @@ def adb_tool():
         print("==========\n ADB Tool \n==========")
         if adb_device: print("\nDevice = ", adb_device)
         print("\n[1] Select Device")
-        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[6] Modify permissions \n[7] Clear app data \n[8] Take a screenshot \n\n[0] Exit\n")
-        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases \n[/] Modify permissions \n[/] Clear app data \n[/] Take a screenshot\n\n[0] Exit\n")
+        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[6] Modify permissions \n[7] Clear app data \n[8] Take a screenshot \n[9] Logcat\n\n[0] Exit\n")
+        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases \n[/] Modify permissions \n[/] Clear app data \n[/] Take a screenshot \n[/] Logcat \n\n[0] Exit\n")
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -617,6 +647,9 @@ def adb_tool():
         if (select==8): 
             if adb_device:
                 adb_tool__screenshot(adb_device, APK_dir)
+        if (select==9):
+            if adb_device:
+                adb_tool__logcat(adb_device)
 
 
 def adb_tool__devices():
@@ -723,7 +756,9 @@ def adb_tool__exportDatabase(device, dir):
             try: 
                 print(select)
                 print("\n###\n==> The phone needs to be uncloked.\n==> You will be prompted to choose a Backup Password, please leave the password blank.\n###")
-                subprocess.run(['bash', 'adb_backup.sh', '-f', dir ,'-p', select , '-d', device ],stdout=subprocess.DEVNULL)
+                dir_path = os.path.dirname(os.path.realpath(__file__))
+                 
+                subprocess.run(['bash', dir_path+'/adb_backup.sh', '-f', dir ,'-p', select , '-d', device ],stdout=subprocess.DEVNULL)
             except: print("issue when exporting Backup"); return 
             
             
@@ -904,6 +939,7 @@ def adb_tool__clearData(device):
             except: print("Issue when clearing data")
             break
 
+
 def adb_tool__screenshot(device, dir):
     try:
         if not(os.path.exists(dir+"/screenshots")):
@@ -921,6 +957,44 @@ def adb_tool__screenshot(device, dir):
     except: print("Issue when taking screenshot")
 
 
+def adb_tool__logcat(device):
+    logcat_strings=[]
+    while True:
+        os.system('clear')
+        print("== Logcat ==")
+        if logcat_strings: print("Logcat search: ",logcat_strings)
+        print("\n[1] Logcat values\n[2] Clear values \n[3] Launch \n[0] Exit\n")
+        
+        try:
+            select = int(input("> "))
+        except KeyboardInterrupt:
+            sys.exit(1) 
+        except:
+            select=-1 ##Error handling
+        
+        ## Function list
+        if (select==0):
+            break
+        if (select==1):
+            print("\nValues to search:")
+            logcat_strings = logcat_strings + string_search__specify()
+        if (select==2):
+            logcat_strings = []
+        if (select==3):
+            if logcat_strings:
+                grep = '\|'.join(logcat_strings)
+            else:
+                grep='.'
+            print("\nCtrl+C to terminate")
+            time.sleep(2)
+            logcat_process = subprocess.Popen(['adb -s '+device+' logcat | grep "'+ grep+'"'], shell=True, stdin=subprocess.PIPE)
+            try:
+                out = logcat_process.communicate()
+            except KeyboardInterrupt:
+                logcat_process.terminate()
+
+
+            
 
 
 
@@ -965,12 +1039,17 @@ if __name__ == "__main__":
     erase_option = True                  
     write_option = True
 
-# DEBUG
-    APK_name = "honey.apk"             ######## NULLIFY TO RESET
-    APK_dir = "/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR"                ######## NULLIFY TO RESET
-    apktool_dir = "/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR/apktool"    ######## NULLIFY TO RESET
-    if APK_dir=="/Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/TEMPDIR":     erase_option = False                  
+    DEBUG=False
+    if DEBUG: # DEBUG
+        APK_name = "honey.apk"             ######## NULLIFY TO RESET
+        APK_dir = "TEMPDIR"                ######## NULLIFY TO RESET
+        apktool_dir = "TEMPDIR/apktool"    ######## NULLIFY TO RESET
+        if APK_dir=="TEMPDIR":     erase_option = False                  
+    
+
+    
 
     
     os.system('clear')       
     main()
+

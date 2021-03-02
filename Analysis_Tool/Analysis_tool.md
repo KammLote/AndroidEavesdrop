@@ -79,10 +79,9 @@ Raise a **Warning message** each time a seemingly malicious info is found
 
 6. `String search`: do it with JAR code for better understanding
 
-7. FIX NATIVE LIBRARIES
-   Burp Dynamic analysis
+7. Burp Dynamic analysis
    **IDEA**: Headless Burp + create proxy with ADB
-
+   
 8. For dynamic analysis, you may want to map the domain names to your laptop IP address:  https://android.stackexchange.com/questions/78320/how-to-set-up-a-host-to-ip-mapping-on-unrooted-android
 
 9. Check if the other tools exist
@@ -150,9 +149,9 @@ java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp . -pp Hello
 
 > https://engineering.nodesagency.com/categories/android/2019/04/29/automate-debugging-and-testing-workflows-using-adb
 
-- Logcat
-- reinitialize permissions for a specific application
-- screenshot recording
+- Logcat: Done
+- reinitialize permissions for a specific application: DONE
+- screenshot recording: DONE
 - shared preferences
-- clear app data
+- clear app data: DONE
 - BURP

@@ -2,6 +2,16 @@
 
 
 
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 
 
 
@@ -9,6 +19,8 @@
 ## Introduction 
 
 15%
+
+##### Is Facebook listening at you ?
 
 ##### Is it a coincidence ?
 
@@ -22,41 +34,92 @@ Give other examples of Adwares... how they work in a general basis.
 
 ##### Are they legal ?
 
-Why it is "somewhat" legal? How they warn users ? How they have been caught ? 
+Why it is "somewhat" legal? How they warn users ? How have they been caught ? What are the laws against these kinds of applications.
+
+
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 ## Litterature review + Introduction of techniques
 
 20%
 
-##### Applications caught for doing such things 
+<br/>
 
-Alphonso - Silverpush
+#### Famous applications doing such Eavesdropping
 
-Found on the internet / using Virus Total and checking other similar signatures.
+##### 1. How to find these applications
 
-> https://www.nytimes.com/2017/12/28/business/media/alphonso-app-tracking.html
+Press articles (eg. https://www.nytimes.com/2017/12/28/business/media/alphonso-app-tracking.html)
 
-Github lists:
+Virus Total: same signatures, same detections, same advertisers, permissions ... 
+
+Forums
+
+Github repositories
 
 > https://github.com/MAVProxyUser/SilverPushUnmasked
 > https://reports.exodus-privacy.eu.org/fr/trackers/80/
 > https://public.addonsdetector.com/silverpush-android-apps/
 
-##### How to find the applications on virustotal
+<br/>
 
-Name/URL/libraries triggering it (Android Privacy Risk Alphonso (PUA), inMobi), advertisers (ads.flurry, sponsorpay, supersonicads, jirbo, mopub)
+##### 2. Alphonso
 
-##### Taxonomy of applications spying on users
+Name/URL/libraries triggering it (Android Privacy Risk Alphonso (PUA), inMobi), advertisers (ads.flurry, sponsorpay, supersonicads, jirbo, mopub).,
 
-India, same developpers, dates of parution/modification.
+Taxonimy of Alphonso Software: India, same developpers, dates of parution/modification.
 
+<br/>
 
+##### 3. Silverpush
 
-##### Other apps to look at:
+<br/>
+
+##### 4. Other apps
 
 Chatrious, Apex chat (callerspy malware), Soraka (adware), Mandrake (abfix, coincast, snaptune)
 
+<br/>
 
+<br/>
+
+#### What to look at in order to distinguish an eavesdropping app and a genuine app 
+
+Permission used
+
+How are the permissions requested
+
+Is the application contacting a server ? What is passed to the server.
+
+What is done with the audio ?
+
+Is the audio stored in a database ?
+
+Is the audio recording triggered by user interaction ?
+
+<br/>
+
+- **Static Analysis:** Reverse enginner the application (tedious task, depends on the obfuscation of the application, depends on the size of the code, the libraries used ...)
+- **Dynamic Analysis:** launch the application and observe what happens - logs, internet traffic, saved data ... (depends on whether the application can still be run, if the reached servers are still up ... these questions are not necessarily important in the case an application has not been detected as malicious).
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 
 
@@ -64,20 +127,45 @@ Chatrious, Apex chat (callerspy malware), Soraka (adware), Mandrake (abfix, coin
 
 30%
 
+#### Utility of the tool
 
+Automate a part of the task (to answer the previously asked questions)
 
-#### Benchmark of the tool ?
+Assistant to the reverse engineering task + to the dynamic analysis
 
-Evaluate the performance of the tool: Benchmark of the tool, Accuracy perf, Include benine and Malicious applications Recall all of the benine and malicious components of the applications —> give a maliciousness score
-Say how many lines of code are computed
-Give a lot of statistic about the tool
+Easy to use
+
+<br/>
+
+#### Tool capabilities
+
+<br/>
+
+#### Tool usage
+
+<br/>
+
+#### Benchmark of the tool 
+
+Evaluate the performance of the tool: Benchmark of the tool, Accuracy performance - including benine and Malicious applications 
+
+Recall all of the benine and malicious components of the applications —> give a maliciousness score
+
 Use it on many different applications: false positive and negative
 
 
 
 
 
+<br/>
 
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 ## Case study
 
@@ -168,4 +256,12 @@ Surveillance against HongKong protests:
 
 Study on alphonso ACR: https://kaputnikgo.github.io/acr.html
 
-ADB basis: https://engineering.nodesagency.com/categories/android/2019/04/29/automate-debugging-and-testing-workflows-using-adb
+ADB basis:
+
+>  https://engineering.nodesagency.com/categories/android/2019/04/29/automate-debugging-and-testing-workflows-using-adb
+> https://www.automatetheplanet.com/adb-cheat-sheet/
+
+
+
+
+
