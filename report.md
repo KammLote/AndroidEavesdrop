@@ -22,21 +22,23 @@
 
 ##### Is Facebook listening at you ?
 
+How is it possible that I receive an ad on my phone, after I talked about something or saw something ? Are the GAFA behind this situation ? 
+
 ##### Is it a coincidence ?
 
 > Mathematics professor David Hand from Imperial College London wrote a book called The Improbability Principle, in which he argued that apparently extraordinary events happen all the time.
+
+##### Adware/Eavesdropping application that have been disclosed publicaly
+
+##### Are Eavesdropping app legal ?
+
+Why it is "somewhat" legal? How they warn users ? How have they been caught ? What are the laws against these kinds of applications.
 
 ##### Other kinds of malwares
 
 These are from the family of **adwares**, but employ a very interesting technique to target the user better and find more valuable/useful ads.
 
 Give other examples of Adwares... how they work in a general basis.
-
-##### Are they legal ?
-
-Why it is "somewhat" legal? How they warn users ? How have they been caught ? What are the laws against these kinds of applications.
-
-
 
 <br/>
 
@@ -94,22 +96,44 @@ Chatrious, Apex chat (callerspy malware), Soraka (adware), Mandrake (abfix, coin
 
 #### What to look at in order to distinguish an eavesdropping app and a genuine app 
 
-Permission used
+1. **Permissions**: check if permissions require audio, even for an app that shouldn't use the microphone.
+   Later, check how are these permissions requested: 
+   -- do they need user input?
+   -- do they trick the user into accepting these permissions (click jacking for instance
+   -- do they come from a pack of permissions (older versions of Android where requesting for all the permissions at the time in order for the application to run)
+   -- is the application running without audio permissions
 
-How are the permissions requested
-
-Is the application contacting a server ? What is passed to the server.
-
-What is done with the audio ?
-
-Is the audio stored in a database ?
-
-Is the audio recording triggered by user interaction ?
+2. **How the audio is recorded**: 
+   -- libraries used by the application 
+   -- User input triggered for recording audio ? Or is it done in the background ?
+   -- For how long is the audio recording ? When is it recording ?
+3. **What the audio is done with**:
+   -- Is it stored somewhere ? Is it sent somewhere ?
+   -- Is it translated to speech ? Is it fingerprinted ?
+4. **Which servers the application contact**:
+   -- Is there the Internet permissions ?
+   -- What hosts is the app contacting ?
+   -- What is the app sending ? genuine data, audio files, audio fingerprint ?
+   -- What is the app receiving ? Data about the audio, Advertisers data...
 
 <br/>
 
-- **Static Analysis:** Reverse enginner the application (tedious task, depends on the obfuscation of the application, depends on the size of the code, the libraries used ...)
-- **Dynamic Analysis:** launch the application and observe what happens - logs, internet traffic, saved data ... (depends on whether the application can still be run, if the reached servers are still up ... these questions are not necessarily important in the case an application has not been detected as malicious).
+#### How to obtain these information
+
+- **Static Analysis:** Reverse enginner the application 
+  Most complete way of understanding how the application work. 
+  Yet it is a tedious task (depends on the obfuscation of the application, depends on the size of the code, the libraries used ...). Harder to automated using a tool, but it can make the reverse engineering much easier.
+- **Dynamic Analysis:** launch the application and observe what happens
+  -- first hands-on on the app
+  -- logs, internet traffic, saved data  ...
+  Also possible to automate.
+  Depends on whether the application can still be run, if the reached servers are still up ... (these questions are not necessarily important in the case a malware has not been disclosed yet).
+
+<br/>
+
+#### How to create a "eavesdropping adware score"
+
+What information to aggregate in order to judge at the end if an app could be an eavesdropping adware or not ? 
 
 <br/>
 
@@ -139,21 +163,54 @@ Easy to use
 
 #### Tool capabilities
 
+###### STATIC ANALYSIS
+
+**Disassembly of the APK** (`apktool`)
+
+**Basic description of the APK** (using AndroidManifest):
+Give a first undertanding of the APK: package name, versions...
+Show the global framework of the app: activities, services
+Show permissions requested by the app (and their severity)
+
+**Architecture of the APK**:
+Get a deeper vision of the App framework: main packages, global and specific class trees.
+CFG of the entire App/Packages if I manage to make it work.
+
+**Native files**: 
+Show the native libraries present in the application. 
+Give a first understamding of these libraries with the radare2 tool (Native functions and Control Flow Graph).
+Launcher for a disassembler.
+
+**String Search:** network identifiers, possibility to look for any string in Resources/Assets/Code
+
+###### DYNAMIC ANALYSIS
+
+**ADB Tool:**
+Intuitive tool to interact with the running application, using Android Debug Bridge.
+-- install the Application on the device / export an APK of the device (for instance with Dynamic Code Loading malware)
+-- show packages installed on the device (in order to extend the search through the different APKs of the device)
+-- Obtain the databases used by the app (if storing audio content for instance)
+-- Interact with the application data during run-time (clear app data, modify permissions on the go)
+-- Observe the log traffic on the phone, or for a specific app/string
+
 <br/>
 
 #### Tool usage
+
+Explain how to launch and use the tool. On which environment it works, with which kinds of APKs...
+
+Explanation of a short demo on an APK for instance.
 
 <br/>
 
 #### Benchmark of the tool 
 
-Evaluate the performance of the tool: Benchmark of the tool, Accuracy performance - including benine and Malicious applications 
+Evaluate the performance of the tool
+Benchmark of the tool, Accuracy performance - including benine and Malicious applications 
 
 Recall all of the benine and malicious components of the applications —> give a maliciousness score
 
 Use it on many different applications: false positive and negative
-
-
 
 
 
@@ -171,7 +228,7 @@ Use it on many different applications: false positive and negative
 
 30%
 
-
+Work on Alphonso Software mainly. Anwser the following questions:
 
 #### What are the little particlarities of these app
 
@@ -211,15 +268,11 @@ URLs found (*/user/audio_clip_data, /user/location, /audio/fingerprint*), Alphon
 
 Commercial or LiveTV ? Name episode ... give the charts
 
-###### Native code
-
-Make the speech to fingerprint
+###### Native libraries
 
 ###### Default values of the recording: Prime time ...
 
 ###### Databases
-
-
 
 ###### BURP suite
 
@@ -228,7 +281,15 @@ Make the speech to fingerprint
 
 ###### Logcat with adb
 
+<br/>
 
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
 
 ## Conclusion - Future Work 
 
@@ -244,7 +305,7 @@ Make the speech to fingerprint
 
 ## Appendixes
 
-Silverpush (Eurecom): 
+Silverpush (Eurecom)
 
 Ultrasound linking: https://www.cityfreqs.com.au/pilfer.php
 
