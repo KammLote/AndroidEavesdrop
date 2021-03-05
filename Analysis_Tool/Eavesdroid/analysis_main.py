@@ -908,7 +908,6 @@ def adb_tool__clearData(device):
     os.system('clear') 
     print("PACKAGES LIST:\n\n")
     packages=adb_tool__listPackages(device)
-    print("[*] Reset all the permissions")
     if (packages==''): return 
     found=False
     while True:
@@ -944,7 +943,7 @@ def adb_tool__screenshot(device, dir):
     try:
         if not(os.path.exists(dir+"/screenshots")):
             os.mkdir(dir+"/screenshots")
-        print(dir)
+        #print(dir)
         
         name = datetime.datetime.now().strftime("%d-%m-%y_%H:%M:%S.png")
         process = subprocess.Popen(["adb -s "+device+" shell screencap /sdcard/"+name+"; adb -s "+device+ " pull /sdcard/"+name+" "+dir+"/screenshots/"+name+"; adb -s "+device+" shell rm -f /sdcard/"+name],shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
