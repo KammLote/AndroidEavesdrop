@@ -71,11 +71,12 @@ def main():
 
         ## IMPORT APK
         if (select==1):
-            res, folder, file = import_apk()
-            if res!='' and folder!='' and file!='':      ## In case the user leaves the Import without selecting any
+            res, folder = import_apk()
+            if res!='' and folder!='':      ## In case the user leaves the Import without selecting any
                 APK_name = res
                 APK_dir = folder
-                output_file = file
+                outputfile("\nImported APK: "+APK_name+"\n\n", False)
+
 
 
         ## APKTOOL DISASSEMBLY
@@ -217,6 +218,32 @@ def option_menu():
 
 
 
+def outputfile(string,keep=True):
+    global write_option
+    global APK_dir
+    global outputlist
+
+
+    if not(keep) and write_option:
+        # CREATING OUTPUT FILE
+        outputlist=[]
+        output_file=APK_dir+"/output.txt"
+        outFile=open(output_file,'w')
+        outFile.write("============================================\nAnalysis tool for Android Eavesdropping apps\n============================================\n"+string)
+        outFile.close()
+        return
+
+    list_ID=hash(string)
+    if write_option and not(list_ID in outputlist):
+        if (list_ID and list_ID!=True):
+            outputlist.append(list_ID)    
+        outFile=open(APK_dir+"/output.txt",'a+')
+        outFile.write(string)
+        outFile.close()
+    
+
+
+
 
 def check_valid(name):
     if not(name) or name==".":
@@ -232,7 +259,7 @@ def import_apk():
         apk_name = input('APK file: ')
         # String empty --> go to Main()
         if not apk_name: 
-            return '', '', ''
+            return '', ''
             break
             
         # File does not exist
@@ -252,18 +279,14 @@ def import_apk():
         apktool_dir=''
 
         print("The APK "+apk_name+ " has been imported")      
-        # CREATING OUTPUT FILE
-        output_file=output_dir+"/output.txt"
-        outFile=open(output_file,'w+')
-        outFile.write("============================================\nAnalysis tool for Android Eavesdropping apps\n============================================\n")
-        outFile.close()
+        
         input()    
         os.system('clear')       
-        return apk_name, output_dir, output_file
+        return apk_name, output_dir
     except:
         print("Issue when creating the Output directory: ")
         input()
-        return '', '', ''
+        return '', ''
 
 
 # APKTOOL DISASSEMBLY
@@ -299,15 +322,13 @@ def manifest_permissions():
 
     print("\n===== Permissions =====")
     with open(manifest, 'r') as file:
-        outFile=open(APK_dir+"/output.txt",'a+')
-        outFile.write("\n=====PERMISSIONS=====\n")
+        outputfile_Line="\n\n=====PERMISSIONS=====\n"
         for line in file:
             if "uses-permission" in line:
                 myLine= line.replace('    <uses-permission android:name="', '').replace('"/>\n', '')
                 print(myLine)
-                outFile.write(myLine)
-                outFile.write("\n")
-        outFile.close()
+                outputfile_Line+=myLine+"\n"
+    outputfile(outputfile_Line)
     input()    
     os.system('clear')       
 
@@ -324,16 +345,14 @@ def manifest_package():
 
     print("\n===== Package name =====")
     with open(manifest, 'r') as file:
-        outFile=open(APK_dir+"/output.txt",'a+')
-        outFile.write("\n=====PACKAGE=====\n")
         first_line=file.readline()
         first_line=first_line[first_line.find('package="'):]
         first_line=first_line[first_line.find('"'):]
         first_line=first_line[:first_line.find('" ')][1:]
         print(first_line)
-        outFile.write(first_line)
-        outFile.write("\n")
-        outFile.close()
+    
+    outputfile_Line="\n\n=====PACKAGE=====\n"+first_line+"\n"
+    outputfile(outputfile_Line)
     input()    
     os.system('clear')       
 
@@ -347,6 +366,7 @@ def list_native_lib():
     if not(os.path.isdir(libraries_dir)):
         print("No Library has been found"); input(); return()
     print("\n===== Native Libraries =====\n")
+    outputfile_Line="\n\n===== Native Libraries =====\n"
 
     files = subprocess.check_output('find '+ libraries_dir+ ' -type f', shell=True, universal_newlines=True).splitlines()
     counter=0
@@ -355,9 +375,10 @@ def list_native_lib():
         file=files[line]
         counter+=1
         print("["+str(counter)+"]\nName: "+file.replace(apktool_dir+'/',''), "\nSize: ", os.stat(file).st_size,'\n')
+        outputfile_Line+="\nName: "+file.replace(apktool_dir+'/','') + "\nSize: " + str(os.stat(file).st_size) +'\n'
         library_list.append(file)
     
-
+    outputfile(outputfile_Line)
     try:
         while True:
             lib_num=int(input("\nInput number for Disassembly (Enter to exit): "))
@@ -405,12 +426,17 @@ def binary_disassembly(file):
 
 def binary_disassembly__list(filename):
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    subprocess.run(['bash '+dir_path+'/radare2.sh -n %s -l' % filename], shell=True)
+    output = subprocess.check_output(['bash '+dir_path+'/radare2.sh -n %s -l' % filename], shell=True,  universal_newlines=True)
+    print(output)
+    outputfile_Line="\n\nNative Library: "+filename[filename.find("/"):]+output
+    outputfile(outputfile_Line)
     input("Press a key to leave ")
 
 def binary_disassembly__cfg(filename):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     subprocess.run(['bash '+dir_path+'/radare2.sh -n %s -c' % filename], shell=True)
+    outputfile_Line="\n\nNative Library: "+filename[filename.find("/"):]+"\n=== Global Callgraph ===\nSaved in: "+filename+"_CFG/callgraph.png\n"
+    outputfile(outputfile_Line)
     input("Press a key to leave ")
     
 
@@ -465,8 +491,11 @@ def structure_tree():
 
 def structure_tree__first_layer(path):
     print("\nMain packages:")
+    outputfile_Line="\n\n==== APK MAIN PACKAGES ====\n\n"
     for item in os.listdir(path):
         print(" -",item)
+        outputfile_Line+=" - "+item+"\n"
+    outputfile(outputfile_Line)
 
 def structure_tree__min_depth(path, toFind, depth=0):
     global apktool_dir
@@ -487,9 +516,22 @@ def structure_tree__min_depth(path, toFind, depth=0):
 
 def structure_tree__tree(path, apktool_dir):
     apktool_dir = (apktool_dir+"/smali/").replace("/","\/")
-    subprocess.run(['tree %s | sed "s/\.smali//" | grep -v "\\\\\\$" | sed "s/%s//"' % (path, apktool_dir)], shell=True)
+    output = subprocess.check_output(['tree %s | sed "s/\.smali//" | grep -v "\\\\\\$" | sed "s/%s//"' % (path, apktool_dir)], shell=True,  universal_newlines=True)
+    print(output)
+    outputfile_Line="\n\n==== APK TREE ====\n"+output
+    outputfile(outputfile_Line)
 
 
+
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
+##################### STOPPED OUTPUT HERE #####################
 
 
 
@@ -1035,19 +1077,21 @@ if __name__ == "__main__":
     APK_name=""
     APK_dir="."
     apktool_dir=""
+    outputlist=[]
     erase_option = True                  
     write_option = True
+    # New output file
 
     DEBUG=False
-    #DEBUG=False            ######## NULLIFY TO RESET
-    if DEBUG: # DEBUG
+    #DEBUG=True            ######## NULLIFY TO RESET
+    if DEBUG: 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         APK_name = dir_path+"/honey.apk"             
         APK_dir = dir_path+"/TEMPDIR"                
         apktool_dir = dir_path+"/TEMPDIR/apktool"    
-        erase_option = False                  
+        erase_option = False  
+        outputfile("",False)                
     
-
     
 
     
