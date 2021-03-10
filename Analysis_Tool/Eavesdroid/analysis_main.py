@@ -322,7 +322,7 @@ def manifest_permissions():
 
     print("\n===== Permissions =====")
     with open(manifest, 'r') as file:
-        outputfile_Line="\n\n=====PERMISSIONS=====\n"
+        outputfile_Line="\n\n\n=====PERMISSIONS=====\n"
         for line in file:
             if "uses-permission" in line:
                 myLine= line.replace('    <uses-permission android:name="', '').replace('"/>\n', '')
@@ -351,7 +351,7 @@ def manifest_package():
         first_line=first_line[:first_line.find('" ')][1:]
         print(first_line)
     
-    outputfile_Line="\n\n=====PACKAGE=====\n"+first_line+"\n"
+    outputfile_Line="\n\n\n=====PACKAGE=====\n"+first_line+"\n"
     outputfile(outputfile_Line)
     input()    
     os.system('clear')       
@@ -366,7 +366,7 @@ def list_native_lib():
     if not(os.path.isdir(libraries_dir)):
         print("No Library has been found"); input(); return()
     print("\n===== Native Libraries =====\n")
-    outputfile_Line="\n\n===== Native Libraries =====\n"
+    outputfile_Line="\n\n\n===== Native Libraries =====\n"
 
     files = subprocess.check_output('find '+ libraries_dir+ ' -type f', shell=True, universal_newlines=True).splitlines()
     counter=0
@@ -491,7 +491,7 @@ def structure_tree():
 
 def structure_tree__first_layer(path):
     print("\nMain packages:")
-    outputfile_Line="\n\n==== APK MAIN PACKAGES ====\n\n"
+    outputfile_Line="\n\n\n==== APK MAIN PACKAGES ====\n\n"
     for item in os.listdir(path):
         print(" -",item)
         outputfile_Line+=" - "+item+"\n"
@@ -518,7 +518,7 @@ def structure_tree__tree(path, apktool_dir):
     apktool_dir = (apktool_dir+"/smali/").replace("/","\/")
     output = subprocess.check_output(['tree %s | sed "s/\.smali//" | grep -v "\\\\\\$" | sed "s/%s//"' % (path, apktool_dir)], shell=True,  universal_newlines=True)
     print(output)
-    outputfile_Line="\n\n==== APK TREE ====\n"+output
+    outputfile_Line="\n\n\n==== APK TREE ====\n"+output
     outputfile(outputfile_Line)
 
 
@@ -609,12 +609,11 @@ def string_search__search(path, strings, code=0):
         return()
     print("\n"*30)
     os.system('clear')    
-    if (code==1): print("\n===== Resources Search  =====")
-    if (code==2): print("\n===== Assets Search =====")
-    if (code==3): print("\n===== Code Search =====")
+    if (code==1): print("\n===== Resources Search  ====="); outputfile_line="\n\n\n==== Resources STRING SEARCH ==== \n\n"
+    if (code==2): print("\n===== Assets Search ====="); outputfile_line="\n\n\n==== Assets STRING SEARCH ==== \n\n"
+    if (code==3): print("\n===== Code Search ====="); outputfile_line="\n\n\n==== Code STRING SEARCH ==== \n\n"
     print("|| Strings: ", strings, "\n")
-    #strings=["http", "www."] ## TO REMOVE
-    #strings = ["[IP ADDRESS]"] ## TO REMOVE
+    
     for root, dirs, files in os.walk(path):
         for file in files:
             fullFile = os.path.join(root,file)
@@ -628,7 +627,10 @@ def string_search__search(path, strings, code=0):
                     found = found + ["["+string+"]  "+ line for line in open(fullFile)  if re.match(regex,line, re.IGNORECASE)]
                 except:
                     None
-            if found: print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print(found, sep='\n'); print("\n\n")
+            if found: 
+                print("\n\n|| FOUND IN FILE: ", fullFile,"\n\n"); print('\n'.join([i for i in found[0:]])); print("\n\n")
+                outputfile_line+="FOUND IN FILE: "+fullFile+"\n"+'\n'.join([i for i in found[0:]])+"\n\n"
+    outputfile(outputfile_line)
     print("Press a key to leave")
 
 
@@ -739,6 +741,8 @@ def adb_tool__install(device, apk):
 def adb_tool__listPackages(device):
     try: output=subprocess.check_output(['adb', '-s', device, 'shell', 'cmd', 'package', 'list', 'packages'], universal_newlines=True)
     except: print("issue when listing packages"); return ''
+    outputfile_Line="\n\n\n=== ADB Tool - Packages ===\n\n"+output
+    outputfile(outputfile_Line)
     print(output)
     return output
 
@@ -766,10 +770,12 @@ def adb_tool__exportAPK(device, dir):
         else: 
             try: 
                 path= subprocess.check_output(['adb', '-s', device, 'shell', 'pm', 'path', select], universal_newlines=True).strip().replace('package:','')
-                name=path.rsplit('/', 1)[-1]
+                name=select.rsplit('.', 1)[-1]+".apk"
                 subprocess.run(['adb', '-s', device, 'pull', path, dir+'/exported_'+name])
             except: print("issue when exporting APK"); return 
             print("\nThe APK has been exported in "+dir)
+            outputfile_Line="\n\n\n=== ADB Tool - Export APK ===\n"+"The \""+select+"\" APK has been exported in "+dir
+            outputfile(outputfile_Line)
             break
 
 
@@ -811,7 +817,12 @@ def adb_tool__exportDatabase(device, dir):
                 DBFiles = [f for f in os.listdir(DBdir) if os.path.isfile(os.path.join(DBdir, f))]
                 if(DBFiles):
                     print("\n\nFound Databases:") 
-                    for f in DBFiles: print("   "+f)
+                    outputfile_Line="\n\n\n=== ADB Tool - Databases ===\n"+"Package: "+select+" \n"
+            
+                    for f in DBFiles: 
+                        print("   "+f)
+                        outputfile_Line+="\n-  "+f
+                    outputfile(outputfile_Line)
                     subprocess.run(['mv', DBdir, dir+'/databases_'+select])
 
            
@@ -1028,11 +1039,14 @@ def adb_tool__logcat(device):
                 grep='.'
             print("\nCtrl+C to terminate")
             time.sleep(2)
+            outputfile_Line="\n\n\n=== ADB Tool - Logcat ===\nStrings: "+' - '.join([i for i in logcat_strings[0:]])+ "\n"
             logcat_process = subprocess.Popen(['adb -s '+device+' logcat | grep "'+ grep+'"'], shell=True, stdin=subprocess.PIPE)
             try:
                 out = logcat_process.communicate()
             except KeyboardInterrupt:
                 logcat_process.terminate()
+                ## OUTPUTFILE LOGCAT OUTPUT MISSING
+                outputfile(outputfile_Line)
 
 
             
