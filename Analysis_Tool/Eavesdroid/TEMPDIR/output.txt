@@ -1,3 +1,62 @@
 ============================================
 Analysis tool for Android Eavesdropping apps
 ============================================
+
+
+
+==== Code STRING SEARCH ==== 
+
+FOUND IN FILE: /Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/Eavesdroid/TEMPDIR/apktool/smali/org/fmod/a.smali
+[<AUDIO RECORD>]      invoke-static {p2, p3, v0}, Landroid/media/AudioRecord;->getMinBufferSize(III)I
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->getState()I
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->stop()V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->release()V
+
+[<AUDIO RECORD>]      invoke-direct/range {v0 .. v5}, Landroid/media/AudioRecord;-><init>(IIIII)V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->getState()I
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
+
+[<AUDIO RECORD>]      invoke-virtual {v2}, Landroid/media/AudioRecord;->getRecordingState()I
+
+[<AUDIO RECORD>]      invoke-virtual {v2, v3, v4}, Landroid/media/AudioRecord;->read(Ljava/nio/ByteBuffer;I)I
+
+[<AUDIO RECORD>]      invoke-virtual {v3}, Landroid/media/AudioRecord;->getState()I
+
+
+FOUND IN FILE: /Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/Eavesdroid/TEMPDIR/apktool/smali/tv/alphonso/audiorecorderservice/AudioRecorder.smali
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->stop()V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->release()V
+
+[<AUDIO RECORD>]      invoke-virtual {v5, v2, v6, v3}, Landroid/media/AudioRecord;->read([BII)I
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
+
+[<AUDIO RECORD>]      invoke-direct/range {v0 .. v5}, Landroid/media/AudioRecord;-><init>(IIIII)V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->getState()I
+
+[<AUDIO RECORD>]      invoke-static {v0, v1, v2}, Landroid/media/AudioRecord;->getMinBufferSize(III)I
+
+
+FOUND IN FILE: /Users/louisgalland/Documents/NUS_local/AndroidEavesdrop/Analysis_Tool/Eavesdroid/TEMPDIR/apktool/smali/tv/alphonso/audiocaptureservice/RecorderThread.smali
+[<AUDIO RECORD>]      invoke-virtual {v1}, Landroid/media/AudioRecord;->release()V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
+
+[<AUDIO RECORD>]      invoke-virtual {v10, v7, v11, v8}, Landroid/media/AudioRecord;->read([BII)I
+
+[<AUDIO RECORD>]      invoke-direct/range {v0 .. v5}, Landroid/media/AudioRecord;-><init>(IIIII)V
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->getState()I
+
+[<AUDIO RECORD>]      invoke-static {v0, v1, v2}, Landroid/media/AudioRecord;->getMinBufferSize(III)I
+
+[<AUDIO RECORD>]      invoke-virtual {v0}, Landroid/media/AudioRecord;->stop()V
+
+

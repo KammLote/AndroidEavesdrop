@@ -545,8 +545,8 @@ def string_search():
         print("\n=== STRING SEARCH ===")
         if searched_strings:print("| Strings = ",searched_strings) 
         else: print("")
-        print("\n[1] Specify strings \n[2] Select Network Identifier strings \n[3] Clear Strings")
-        if searched_strings: print("[4] Launch String Search on [Resources] \n[5] Launch String Search on [Assets]\n[6] Launch String Search on [Smali Code]\n[0] Exit\n")
+        print("\n[1] Specify strings \n[2] Select Network Identifier strings \n[3] Select Audio Recording strings \n[4] Clear Strings")
+        if searched_strings: print("[5] Launch String Search on [Resources] \n[6] Launch String Search on [Assets]\n[7] Launch String Search on [Smali Code]\n[0] Exit\n")
         else: print("[/] Launch String Search on [Resources] \n[/] Launch String Search on [Assets]\n[/] Launch String Search on [Smali Code]\n[0] Exit\n")
         try:
             select = int(input("> "))
@@ -566,19 +566,21 @@ def string_search():
             searched_strings.append("http:")
             searched_strings.append("www.")
             searched_strings.append("<IP ADDRESS>")
-
         if (select==3):
+            searched_strings.append("<AUDIO RECORD>")
+
+        if (select==4):
             searched_strings=[]
         
-        if (select==4 and searched_strings):
+        if (select==5 and searched_strings):
             path=apktool_dir+"/res"
             string_search__search(path, searched_strings, 1)
             input()
-        if (select==5 and searched_strings):
+        if (select==6 and searched_strings):
             path=apktool_dir+"/assets"
             string_search__search(path, searched_strings, 2)
             input()
-        if (select==6 and searched_strings):
+        if (select==7 and searched_strings):
             path=apktool_dir+"/smali"
             string_search__search(path, searched_strings, 3)
             input()
@@ -621,8 +623,12 @@ def string_search__search(path, strings, code=0):
             for string in strings:
                 if (string=="<IP ADDRESS>"):
                     regex=".*([0-9]{1,3}(?:\.|\:)){3}[0-9]{1,3}.*"
+                elif (string=="<AUDIO RECORD>"):
+                    audio_libs=["android/media/MediaRecorder","android/media/audiorecord"]
+                    regex=".*?(invoke-).*?((?:"+"|".join(audio_libs)+")).*?"
                 else:
                     regex=".*"+string+".*"
+                
                 try:    
                     found = found + ["["+string+"]  "+ line for line in open(fullFile)  if re.match(regex,line, re.IGNORECASE)]
                 except:
@@ -1097,7 +1103,7 @@ if __name__ == "__main__":
     # New output file
 
     DEBUG=False
-    #DEBUG=True            ######## NULLIFY TO RESET
+    DEBUG=True            ######## NULLIFY TO RESET
     if DEBUG: 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         APK_name = dir_path+"/honey.apk"             
