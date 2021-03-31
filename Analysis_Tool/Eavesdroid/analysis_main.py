@@ -655,8 +655,9 @@ def adb_tool():
         print("==========\n ADB Tool \n==========")
         if adb_device: print("\nDevice = ", adb_device)
         print("\n[1] Select Device")
-        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[6] Modify permissions \n[7] Clear app data \n[8] Take a screenshot \n[9] Logcat\n\n[0] Exit\n")
-        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases \n[/] Modify permissions \n[/] Clear app data \n[/] Take a screenshot \n[/] Logcat \n\n[0] Exit\n")
+        if adb_device:print("[2] Install Application (WIP) \n[3] List packages \n[4] Export an APK \n[5] Export databases \n[6] Modify permissions \n[7] Clear app data \n[8] Take a screenshot \n[9] Logcat \n[10] Microphone\n\n[0] Exit\n")
+        else: print("[/] Install Application (WIP) \n[/] List packages \n[/] Export an APK \n[/] Export databases \n[/] Modify permissions \n[/] Clear app data \n[/] Take a screenshot \n[/] Logcat \n[/] Microphone \n\n[0] Exit\n")
+        print("[10] Make app debuggable and backupable \n[11] ADB shell")
         try:
             select = int(input("> "))
         except KeyboardInterrupt:
@@ -700,6 +701,9 @@ def adb_tool():
         if (select==9):
             if adb_device:
                 adb_tool__logcat(adb_device)
+        if (select==10):
+            if adb_device:
+                adb_tool__mic_usage(adb_device)
 
 
 def adb_tool__devices():
@@ -1054,6 +1058,27 @@ def adb_tool__logcat(device):
                 ## OUTPUTFILE LOGCAT OUTPUT MISSING
                 outputfile(outputfile_Line)
 
+
+def adb_tool__mic_usage(device):
+    try: 
+        dump_audio= subprocess.check_output(['adb', '-s', device, 'shell', 'dumpsys', 'audio'], universal_newlines=True).strip('\n')
+        
+        mic_used=re.search(r'AudioSystem.AudioRecordingCallback(.*?)\n\n',dump_audio, re.DOTALL)
+        if(mic_used):
+            os.system('clear') 
+            print("\n### Microphone usage")
+            print(mic_used.group(1))
+            last_line=mic_used.group(1).splitlines()[-1]
+            if("rec start" in last_line):
+                print("\n=> Microphone ("+re.search('src:(.*?) pack',last_line).group(1)+") is being used by the package: "+last_line.partition("pack:")[2])
+            else:
+                print("\n=> Microphone not being used")
+        else:
+            print("No microphone usage found")
+        input()    
+        
+    except Exception as e: print("issue when looking at Microphone status"); input();return 
+    
 
             
 

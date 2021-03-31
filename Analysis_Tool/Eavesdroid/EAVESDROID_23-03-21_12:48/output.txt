@@ -1,6 +1,0 @@
-============================================
-Analysis tool for Android Eavesdropping apps
-============================================
-
-Imported APK: honey.apk
-
