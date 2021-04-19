@@ -24,7 +24,7 @@ Alphonso is an Indian company aiming to enhance advertising on TV. They use a la
 
 <br/>
 
-These kinds of applications are yet considered as legal. Indeed the applications warm the user about the fact the TV content they watch is being recorded and that the advertising is taregeted. They also rely on the fact that it is possible to remove Audio Permissions in order to avoid being listened. 
+These kinds of applications are yet considered as legal. Indeed the applications warm the user about the fact the TV content they watch is being recorded and that the advertising is targeted. They also rely on the fact that it is possible to remove Audio Permissions in order to avoid being listened. 
 
 However, in 2017, while hundreds of video games were available on the Google PlayStore and the Apple AppStore, the deeds of the company got caught. Many of these third-party applications, using Alphonso ACR,  got removed from the applications stores or updated to a cleaner version. 
 

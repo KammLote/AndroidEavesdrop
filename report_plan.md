@@ -40,6 +40,49 @@ These are from the family of **adwares**, but employ a very interesting techniqu
 
 Give other examples of Adwares... how they work in a general basis.
 
+
+
+/!\ XDT != Eavesdropping
+
+
+
+
+
+
+
+INTRO
+
+Coincidence, Facebook listening to you ?
+
+Adware: unwanted software designed to throw advertisements up on your screen
+Spyware: 
+
+
+
+
+
+
+
+UTILITY OF ALPHONSO:
+
+- XDT
+- Audience Analytics
+- Synchronised Contents
+- Proximity Marketing
+- Device Pairing
+
+ISSUES:
+
+Low battery
+
+Opt-out conditions
+
+kids cannot understand
+
+
+
+LEGALITY
+
 <br/>
 
 <br/>
@@ -57,6 +100,10 @@ Give other examples of Adwares... how they work in a general basis.
 <br/>
 
 #### Famous applications doing such Eavesdropping
+
+/!\ XDT != Eavesdropping
+
+
 
 ##### 1. How to find these applications
 
@@ -107,8 +154,9 @@ Chatrious, Apex chat (callerspy malware), Soraka (adware), Mandrake (abfix, coin
    -- libraries used by the application 
    -- User input triggered for recording audio ? Or is it done in the background ?
    -- For how long is the audio recording ? When is it recording ?
+   -- ultrasounds ?
 3. **What the audio is done with**:
-   -- Is it stored somewhere ? Is it sent somewhere ?
+   -- Is it stored somewhere ? Is it sent somewhere ? Databases
    -- Is it translated to speech ? Is it fingerprinted ?
 4. **Which servers the application contact**:
    -- Is there the Internet permissions ?
@@ -124,7 +172,7 @@ Chatrious, Apex chat (callerspy malware), Soraka (adware), Mandrake (abfix, coin
   Most complete way of understanding how the application work. 
   Yet it is a tedious task (depends on the obfuscation of the application, depends on the size of the code, the libraries used ...). Harder to automated using a tool, but it can make the reverse engineering much easier.
 - **Dynamic Analysis:** launch the application and observe what happens
-  -- first hands-on on the app
+  -- first hands-on on the app2
   -- logs, internet traffic, saved data  ...
   Also possible to automate.
   Depends on whether the application can still be run, if the reached servers are still up ... (these questions are not necessarily important in the case a malware has not been disclosed yet).
@@ -163,6 +211,10 @@ Easy to use
 
 #### Tool capabilities
 
+What tools are embedded in the app ? ADB, apktool, radare2...
+
+
+
 ###### STATIC ANALYSIS
 
 **Disassembly of the APK** (`apktool`)
@@ -175,6 +227,9 @@ Show permissions requested by the app (and their severity)
 **Architecture of the APK**:
 Get a deeper vision of the App framework: main packages, global and specific class trees.
 CFG of the entire App/Packages if I manage to make it work.
+-> Binaries are not stripped, so it is easy
+
+
 
 **Native files**: 
 Show the native libraries present in the application. 
@@ -194,6 +249,8 @@ Intuitive tool to interact with the running application, using Android Debug Bri
 -- Observe the log traffic on the phone, or for a specific app/string
 
 <br/>
+
+###### MAKE APK DEBUGGABLE AND BACKUPABLE !
 
 #### Tool usage
 
@@ -291,9 +348,72 @@ Commercial or LiveTV ? Name episode ... give the charts
 
 <br/>
 
+## Limits
+
+Servers might not work
+
+Tools are missing (hooking API...) - not possible to do it dynamicaly but only staticaly (hard)
+
+Lot of basic analysis necessary
+
+
+
+[MODIFY SERVERS IP WITH ADSHELL OR BY REPACKING]
+
+Eavesdropping VS Cross-Device Tracking
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+
 ## Conclusion - Future Work 
 
 5%
+
+
+
+Low tranaparency: what are they really doing with our data
+
+
+
+Pther devices ? Smart TVs, applications, on PC ... 
+
+being a really famous way to track users, everybody does this.
+
+
+
+
+
+
+
+
+
+
+
+# THINGS TO ADD
+
+Explain how it is important to OPT-OUT
+
+
+
+Explanation of project:
+
+- in-depth technical analysis of the underlying technology
+-  exposing both implementation & design vulnerabilities, 
+-  critical security & privacy shortcomings that we discovered.
+
+
+
+Security concerns:
+
+- Information sent through HTTP (device ID, ...)
+  Possible to MITM
 
 
 
