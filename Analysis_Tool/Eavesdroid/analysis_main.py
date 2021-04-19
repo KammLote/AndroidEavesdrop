@@ -10,6 +10,7 @@ import datetime
 import re
 import signal
 import time
+import fileinput
 
 
 def main(): 
@@ -78,6 +79,8 @@ def main():
             options_list[7-1][0]="/"
             options_list[8-1][0]="/"
             options_list[9-1][0]="/"
+            options_list[24-1][0]="/"
+
         if not check_valid(adb_device):
             options_list[11-1][0]="/"
             options_list[12-1][0]="/"
@@ -202,6 +205,9 @@ def main():
         if (select==33):
             if adb_device:
                 adb_tool__mic_usage(adb_device)
+        if (select==43):
+            if adb_device and check_valid(apktool_dir):
+                adb_tool__debug_backup(adb_device, APK_dir, apktool_dir)
 
 
 
@@ -1064,6 +1070,79 @@ def adb_tool__mic_usage(device):
 
 
 
+def adb_tool__debug_backup(device, dir, apktooldir):
+    ## Copy and modify APK as debuggable
+    try:
+        DBdir=dir+"/debug_backup_APK"
+        subprocess.run(["cp", "-r", apktooldir, DBdir])
+        # Apktool copied in debug_backup_APK
+        file= open(DBdir+"/AndroidManifest.xml", 'r')
+        filedata = file.read()
+        file.close()
+
+        # Modify Debug and Backup attribube in file
+        app_tag=re.search('<application(.*?)>',filedata).group()
+        old_app_tag=app_tag
+        if (app_tag):
+            if re.search('android:allowBackup="false"',app_tag): 
+                app_tag=app_tag.replace('android:allowBackup="false"','android:allowBackup="true"')
+                print("Modified Backup attribute in Manifest File")
+            elif not re.search('android:allowBackup="true"',app_tag):
+                app_tag=app_tag.replace('>',' android:allowBackup="true">')
+                print("Added Backup attribute in Manifest File")
+
+            if re.search('android:debuggable="false"',app_tag): 
+                app_tag=app_tag.replace('android:debuggable="false"','android:debuggable="true"')
+                print("Modified Debug attribute in Manifest File")
+            elif not re.search('android:debuggable="true"',app_tag):
+                app_tag=app_tag.replace('>',' android:debuggable="true">')
+                print("Added Debug attribute in Manifest File")
+        
+        else: input("Manifest File corrupted"); return
+        # Issue with manifest
+
+        # In case of already backupable and debuggable, remove the dir + leave
+        if (app_tag==old_app_tag):
+            subprocess.run(["rm", "-r", DBdir])
+            input("The application can already be backed-up and debugged")
+            return
+
+        # modify new version
+        filedata=filedata.replace(old_app_tag,app_tag)
+        file = open(DBdir+"/AndroidManifest.xml", 'w')
+        file.write(filedata)
+        file.close()
+    
+    except Exception as e:
+        input("Couldn't modify the APK files"); return    
+
+
+
+    ## Remove old App 
+    try:
+        file= open(DBdir+"/AndroidManifest.xml", 'r')
+        filedata = file.read()
+        file.close()
+
+        manifest_field= re.search('<manifest (.*?)>',filedata).group()
+        package_name= re.search('package="(.*?)" ',manifest_field).group(1)
+        # Find package name
+
+    
+        if(subprocess.check_output('adb -s '+device+' shell pm list packages '+package_name, shell=True)):
+            # An app with the same name is already existing on the app
+            subprocess.run(['adb','-s',device,'uninstall', package_name])
+            print("\nRemoved the already installed Application")
+        input() ##remove
+    except Exception as e:
+        print(e);input("Couldn't remove the application"); return
+
+    
+    ## Repack app, sign and install
+
+
+
+
 
 
 
@@ -1109,7 +1188,7 @@ if __name__ == "__main__":
     # New output file
 
     DEBUG=False
-    #DEBUG=True            ######## NULLIFY TO RESET
+    DEBUG=True            ######## NULLIFY TO RESET
     if DEBUG: 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         APK_name = dir_path+"/honey.apk"             
