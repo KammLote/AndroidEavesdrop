@@ -3,3 +3,4 @@
 # Remove the disassembly files from the git
 disas/
 Soot/
+Analysis_Tool/Eavesdroid/TEMPDIR
