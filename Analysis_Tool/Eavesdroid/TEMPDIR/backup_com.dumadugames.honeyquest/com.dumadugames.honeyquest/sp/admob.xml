@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-    <int name="request_in_session_count" value="87" />
-    <boolean name="gad_idless" value="false" />
-    <long name="first_ad_req_time_ms" value="1617068314330" />
-    <long name="app_last_background_time_ms" value="1617068354725" />
-</map>

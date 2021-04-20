@@ -717,7 +717,7 @@ def adb_tool__devices():
     os.system('clear')
     print("\n=== ADB Devices ===\n")
     try: devices = subprocess.check_output('adb devices -l' , shell=True, universal_newlines=True).splitlines()
-    except: print("issue when checking devices"); return ''
+    except: input("issue when checking devices"); return ''
     head=True; inc=1
     devices_list=[]
     for line in devices:
@@ -856,6 +856,7 @@ def adb_tool__exportDatabase(device, dir):
                     outputfile_Line+="\n-  "+f
                 outputfile(outputfile_Line)
                 subprocess.run(['mv', DBdir, dir+'/databases_'+select])
+                subprocess.run(['rm','-r', dir+'/backup_'+select])
 
         
 

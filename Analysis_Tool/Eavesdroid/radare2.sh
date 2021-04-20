@@ -29,7 +29,7 @@ callgraph_func(){
     dir=${file}_CFG
 	dir_check $dir
     r2 -q -A -c 'agCd' ${file} 2>&-	> ${dir}/CG.dot
-    dot -Tpng ${dir}/CG.dot -o ${dir}/callgraph.png;  open ${dir}/callgraph.png; rm ${dir}/CG.dot # xdg-open ${dir}/callgraph.png ||
+    dot -Tpng ${dir}/CG.dot -o ${dir}/callgraph.png;  (xdg-open ${dir}/callgraph.png || open ${dir}/callgraph.png) 2>/dev/null ; rm ${dir}/CG.dot
 }
 
 function_func(){
