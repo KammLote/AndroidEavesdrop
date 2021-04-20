@@ -56,7 +56,7 @@ def main():
 
         ["",""], #15
         ["31","Export Databases"], #16
-        ["32","Inspect Storage [TO DO]"], #17
+        ["32","Inspect Storage"], #17
         ["33","Microphone Status"], #18
         ["34","Logcat"], #19
         ["35","PROXY [TODO]"], #20
@@ -73,10 +73,7 @@ def main():
 
 
         if not check_valid(APK_name):
-            options_list[4-1][0]="/"
-            options_list[11-1][0]="/"
-        if not check_valid(APK_dir):
-            options_list[14-1][0]="/"
+            options_list[4-1][0]="/"    
         if not check_valid(apktool_dir):
             options_list[5-1][0]="/"
             options_list[6-1][0]="/"
@@ -206,6 +203,9 @@ def main():
         if (select==36): 
             if adb_device:
                 adb_tool__screenshot(adb_device, APK_dir)
+        if (select==32):
+            if adb_device:
+                adb_tool__storage(adb_device)
         if (select==34):
             if adb_device:
                 adb_tool__logcat(adb_device)
@@ -1203,15 +1203,19 @@ def adb_tool__storage(device):
         select=adb_tool__selectPackage(device)
     
     if (select):
-        if (select=="*"):
-            adb_tool__modifyPermissions__all(device)
-             
-        else: 
+        try: 
+            os.system('clear')
+            dir_path = os.path.dirname(os.path.realpath(__file__))    
             package_name=select
-            try: 
-                print(1)
-            except Exception as e:
-                print(e); input("Error when looking at package data"); return
+            if (select=="*"):
+                print('Running commands as Shell:\n\'exit\'to leave\n')
+                subprocess.run(['bash',dir_path+'/shell.sh'])
+
+            else:
+                print('Running commands as '+package_name+':\n\'exit\'to leave\n')
+                subprocess.run(['bash',dir_path+'/shell.sh','-p',package_name])
+        except Exception as e:
+            print(e); input("Error when looking at package data"); return
 
 
 
