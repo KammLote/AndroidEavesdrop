@@ -49,20 +49,22 @@ def main():
         ["15","APK Architecture"], #8
         ["16","String Search"], #9
         ["",""], #10
-        ["21","Install target APK"], #11
-        ["22","Export an APK"], #12
-        ["23","Select target application"], #13
-        ["",""], #14
-        ["31","Export Databases"], #15
-        ["32","Inspect Storage [TO DO]"], #16
-        ["33","Microphone Status"], #17
-        ["34","Logcat"], #18
-        ["35","PROXY [TODO]"], #19
-        ["36","Screenshot"], #20
-        ["",""], #21
-        ["41","Modify Permissions"], #22
-        ["42","Clear app Data"], #23
-        ["43","DEBUG + BACKUP [TODO]"], #24
+        ["21","Select target package"], #11
+        ["22","Install target APK"], #12
+        ["23","Export an APK"], #13
+        ["24","Repack and Sign package"], #14
+
+        ["",""], #15
+        ["31","Export Databases"], #16
+        ["32","Inspect Storage [TO DO]"], #17
+        ["33","Microphone Status"], #18
+        ["34","Logcat"], #19
+        ["35","PROXY [TODO]"], #20
+        ["36","Screenshot"], #21
+        ["",""], #22
+        ["41","Modify Permissions"], #23
+        ["42","Clear app Data"], #24
+        ["43","Enable Debug/Backup"], #25
       
         ["",""],
         ["-1", "Options"],
@@ -73,27 +75,28 @@ def main():
         if not check_valid(APK_name):
             options_list[4-1][0]="/"
             options_list[11-1][0]="/"
+        if not check_valid(APK_dir):
+            options_list[14-1][0]="/"
         if not check_valid(apktool_dir):
             options_list[5-1][0]="/"
             options_list[6-1][0]="/"
             options_list[7-1][0]="/"
             options_list[8-1][0]="/"
             options_list[9-1][0]="/"
-            options_list[24-1][0]="/"
-
+            options_list[25-1][0]="/"
         if not check_valid(adb_device):
             options_list[11-1][0]="/"
             options_list[12-1][0]="/"
             options_list[13-1][0]="/"
-            options_list[15-1][0]="/"
             options_list[16-1][0]="/"
             options_list[17-1][0]="/"
             options_list[18-1][0]="/"
             options_list[19-1][0]="/"
             options_list[20-1][0]="/"
-            options_list[22-1][0]="/"
+            options_list[21-1][0]="/"
             options_list[23-1][0]="/"
             options_list[24-1][0]="/"
+            options_list[25-1][0]="/"
 
 
 
@@ -176,16 +179,20 @@ def main():
         if (select==2):             
             adb_device=adb_tool__devices()
         if (select==21): 
+            if adb_device:
+                adb_package=adb_tool__selectPackage(adb_device)
+        if (select==22): 
             if adb_device and check_valid(APK_name):
                 adb_tool__install(adb_device, APK_name)
                 input()
         if (select==23): 
             if adb_device:
-                adb_package=adb_tool__selectPackage(adb_device)
-        if (select==22): 
-            if adb_device:
                 adb_tool__exportAPK(adb_device, APK_dir)
                 input()
+        if (select==24): 
+            if check_valid(APK_dir):
+                repack_sign("","","")
+
         if (select==31): 
             if adb_device:
                 adb_tool__exportDatabase(adb_device, APK_dir)
@@ -207,7 +214,7 @@ def main():
                 adb_tool__mic_usage(adb_device)
         if (select==43):
             if adb_device and check_valid(apktool_dir):
-                adb_tool__debug_backup(adb_device, APK_dir, apktool_dir)
+                adb_tool__debug_backup(adb_device, APK_dir, APK_name)
 
 
 
@@ -1008,7 +1015,7 @@ def adb_tool__logcat(device):
         os.system('clear')
         print("== Logcat ==")
         if logcat_strings: print("Logcat search: ",logcat_strings)
-        print("\n[1] Logcat values\n[2] Clear values \n[3] Launch \n[0] Exit\n")
+        print("\n[1] Logcat values\n[2] Clear values \n[3] Launch Logcat\n[0] Exit\n")
         
         try:
             select = int(input("> "))
@@ -1070,11 +1077,18 @@ def adb_tool__mic_usage(device):
 
 
 
-def adb_tool__debug_backup(device, dir, apktooldir):
+def adb_tool__debug_backup(device, dir, APK_Name):
+    os.system('clear')
+    print("\n#######  Repacking the APK as Debuggable + Backupable  #######")
     ## Copy and modify APK as debuggable
     try:
         DBdir=dir+"/debug_backup_APK"
-        subprocess.run(["cp", "-r", apktooldir, DBdir])
+        
+        #subprocess.run(["cp", "-r", apktooldir, DBdir])
+        print("\n> Unpacking APK")
+        subprocess.run(['apktool','d', APK_name,'-o', DBdir])
+        
+        print("\n\n")
         # Apktool copied in debug_backup_APK
         file= open(DBdir+"/AndroidManifest.xml", 'r')
         filedata = file.read()
@@ -1086,17 +1100,17 @@ def adb_tool__debug_backup(device, dir, apktooldir):
         if (app_tag):
             if re.search('android:allowBackup="false"',app_tag): 
                 app_tag=app_tag.replace('android:allowBackup="false"','android:allowBackup="true"')
-                print("Modified Backup attribute in Manifest File")
+                print("> Modified BACKUP attribute in Manifest File")
             elif not re.search('android:allowBackup="true"',app_tag):
                 app_tag=app_tag.replace('>',' android:allowBackup="true">')
-                print("Added Backup attribute in Manifest File")
+                print("> Added BACKUP attribute in Manifest File")
 
             if re.search('android:debuggable="false"',app_tag): 
                 app_tag=app_tag.replace('android:debuggable="false"','android:debuggable="true"')
-                print("Modified Debug attribute in Manifest File")
+                print("> Modified DEBUG attribute in Manifest File")
             elif not re.search('android:debuggable="true"',app_tag):
                 app_tag=app_tag.replace('>',' android:debuggable="true">')
-                print("Added Debug attribute in Manifest File")
+                print("> Added DEBUG attribute in Manifest File")
         
         else: input("Manifest File corrupted"); return
         # Issue with manifest
@@ -1104,18 +1118,17 @@ def adb_tool__debug_backup(device, dir, apktooldir):
         # In case of already backupable and debuggable, remove the dir + leave
         if (app_tag==old_app_tag):
             subprocess.run(["rm", "-r", DBdir])
-            input("The application can already be backed-up and debugged")
+            input("> The application can already be backed-up and debugged ")
             return
 
-        # modify new version
+        ## Modify new version
         filedata=filedata.replace(old_app_tag,app_tag)
         file = open(DBdir+"/AndroidManifest.xml", 'w')
         file.write(filedata)
         file.close()
     
     except Exception as e:
-        input("Couldn't modify the APK files"); return    
-
+        input("Couldn't modify the APK files"); return   
 
 
     ## Remove old App 
@@ -1127,18 +1140,79 @@ def adb_tool__debug_backup(device, dir, apktooldir):
         manifest_field= re.search('<manifest (.*?)>',filedata).group()
         package_name= re.search('package="(.*?)" ',manifest_field).group(1)
         # Find package name
-
-    
         if(subprocess.check_output('adb -s '+device+' shell pm list packages '+package_name, shell=True)):
             # An app with the same name is already existing on the app
-            subprocess.run(['adb','-s',device,'uninstall', package_name])
-            print("\nRemoved the already installed Application")
-        input() ##remove
+            subprocess.run(['adb','-s',device,'uninstall', package_name],stdout=subprocess.DEVNULL)
+            print("\n\n> Removed the already installed Application")
     except Exception as e:
         print(e);input("Couldn't remove the application"); return
 
-    
     ## Repack app, sign and install
+    try:
+        print("\n> Repacking the application")
+        apkname=dir+"/debuggable.apk"
+        #repack_sign(DBdir,apkname,False)
+        repack_sign(DBdir,apkname,True)
+    except Exception as e:
+        print(e);input("Couldn't repack the application"); return
+
+    ## Install back
+    try:
+        print("\n\n> Installing the modified APK")
+        subprocess.run(['adb','-s',device,'install', apkname])
+    except Exception as e:
+        print(e);input("Couldn't install the application"); return
+
+    ## Remove files
+    subprocess.run(['rm','-r', DBdir])
+
+
+
+
+
+    
+
+def repack_sign(repackeddir, apkname, sign=True):
+    if (not repackeddir)or(not apkname): 
+        repackeddir=input("\nName of the Package: ")
+        apkname=input("Name of the APK: ")
+        signLetter=input("Sign the APK ? [Y/N]")
+        if (signLetter=="N"): sign=False
+        else: sign=True
+    
+    
+    
+    if not (os.path.isdir(repackeddir)): input('> Directory not existing'); return
+    try:
+        dir_path = os.path.dirname(os.path.realpath(__file__))    
+
+        if (sign):
+            subprocess.call(['bash', dir_path+'/repack-sign.sh', '-d', repackeddir ,'-a', apkname, '-s', 'true' ])
+        else:
+            subprocess.call(['bash', dir_path+'/repack-sign.sh', '-d', repackeddir ,'-a', apkname ])
+
+    except Exception as e:
+        print(e);input("Couldn't repack the application"); return
+
+
+
+def adb_tool__storage(device):
+    global adb_package
+    select=adb_package
+    if (not select):
+        select=adb_tool__selectPackage(device)
+    
+    if (select):
+        if (select=="*"):
+            adb_tool__modifyPermissions__all(device)
+             
+        else: 
+            package_name=select
+            try: 
+                print(1)
+            except Exception as e:
+                print(e); input("Error when looking at package data"); return
+
 
 
 
@@ -1188,7 +1262,7 @@ if __name__ == "__main__":
     # New output file
 
     DEBUG=False
-    DEBUG=True            ######## NULLIFY TO RESET
+    #DEBUG=True            ######## NULLIFY TO RESET
     if DEBUG: 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         APK_name = dir_path+"/honey.apk"             
