@@ -38,7 +38,7 @@ then
 			sudo apt-get -y install $i
 		fi
 	done
-fi
+
 
 # MACOS
 elif [ "$(uname)" == "Darwin" ]
