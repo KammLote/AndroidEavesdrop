@@ -18,7 +18,7 @@ brewModules=(
     imagemagick
     tree
     android-platform-tools
-    python2 # Only for Database, can be removed
+    #python@2 # Only for Database, can be removed
     python3
 )
 pythonModules=(
@@ -65,4 +65,14 @@ done
 
 
 
+echo " "
+echo " "
+echo Create \"eavesdroid\" shortcut ? [Y/N]
+read symlink
+echo " "
 
+if [[ "$symlink" == "Y" ]] #|| [ "$symlink" = "yes" ] || [ "$symlink" = "Yes" ]; 
+then
+    currdir=`pwd`
+    sudo ln -s ${currdir}/eavesdroid.py /usr/local/bin/eavesdroid
+fi
