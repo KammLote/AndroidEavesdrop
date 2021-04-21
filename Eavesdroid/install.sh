@@ -10,6 +10,7 @@ aptModules=(
     adb
     python2 # Only for Database, can be removed
     python3
+    python3-pip
 )
 brewModules=(
     apktool
@@ -20,6 +21,7 @@ brewModules=(
     android-platform-tools
     #python@2 # Only for Database, can be removed
     python3
+    pip3
 )
 pythonModules=(
     filetype     
@@ -74,5 +76,6 @@ echo " "
 if [[ "$symlink" == "Y" ]] #|| [ "$symlink" = "yes" ] || [ "$symlink" = "Yes" ]; 
 then
     currdir=`pwd`
+    sudo rm /usr/local/bin/eavesdroid 2>/dev/null
     sudo ln -s ${currdir}/eavesdroid.py /usr/local/bin/eavesdroid
 fi
